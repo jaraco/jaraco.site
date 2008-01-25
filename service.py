@@ -85,12 +85,12 @@ class TGWindowsService(win32serviceutil.ServiceFramework):
     prompt.
     """
     current_dir = os.path.split(__file__)[0]
-    default_project_name = os.path.split(current_dir)[1]
+    default_project_name = 'jaraco'
 
     # -- START USER EDIT SECTION
     # -- Users must edit this section before installing the service.
-    _svc_name_ = '%s' % default_project_name.capitalize()           # The name of the service.
-    _svc_display_name_ = '%s' % default_project_name.capitalize()   # The Service Manager display name.
+    _svc_name_ = 'tg-jaraco'                                    # The name of the service.
+    _svc_display_name_ = 'TurboGears - Jaraco'   # The Service Manager display name.
     code_dir = current_dir                                          # The base directory of the TG app code.        
     root_class = '%s.controllers.Root' % default_project_name       # The fully qualified Root class name.
     config_module = '%s.config' % default_project_name              # The name of the config module
