@@ -5,6 +5,9 @@
 
 <head py:match="item.tag=='{http://www.w3.org/1999/xhtml}head'" py:attrs="item.items()">
     <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+    <link rel="openid.server" href="http://www.livejournal.com/openid/server.bml" />
+    <link rel="openid.delegate" href="http://jaraco.livejournal.com/" />
+    <!--meta http-equiv="X-XRDS-Location" content="http://jaraco.livejournal.com/xrds" /-->
     <title py:replace="''">Your title goes here</title>
     <meta py:replace="item[:]" name="description" content="master template"/>
     <style type="text/css" media="screen">

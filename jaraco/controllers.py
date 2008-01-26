@@ -22,7 +22,7 @@ class Root(controllers.RootController):
     def index(self):
         import time
         # log.debug("Happy TurboGears Controller Responding For Duty")
-        flash("Your application is now running")
+        #flash("Your application is now running")
         return dict(now=time.ctime())
 
     @expose(template="jaraco.templates.login")

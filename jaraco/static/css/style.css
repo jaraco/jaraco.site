@@ -18,7 +18,7 @@ tr.even td {background-color:#fff;}
 #header {
   height: 80px;
   width: 777px;
-  background: blue URL('../images/header_inner.png') no-repeat;
+  background: blue URL('../images/header image.png') no-repeat;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
   margin: 0 auto 0 auto;
