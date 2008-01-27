@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="Software.xsl"?>
+<Software>
+   <Titles>
+      <Title ID="windows" vendor="Microsoft" href="http://www.microsoft.com/windows">Windows</Title>
+      <Title ID="windowsserver" vendor="Microsoft" href="http://www.microsoft.com/windowsserver">Windows Server</Title>
+      <Title ID="exchange" vendor="Microsoft" href="http://www.microsoft.com/exchange">Exchange</Title>
+      <Title ID="officeaccounting" vendor="Microsoft">Office Accounting</Title>
+      <Title ID="sbs" vendor="Microsoft">Small Business Server</Title>
+      <Title ID="isas" vendor="Microsoft">Internet Security &amp; Acceleration Server</Title>
+   </Titles>
+   <Keys>
+      <Key title="windows" version="Vista" variant="Business" upgrade="true">CF3YX-PFH4X-DQ94G-9RMCD-67668</Key>
+      <Key title="officeaccounting" variant="Professional">J9VRV-YCWX6-2HKWM-YXB4Y-K88HJ</Key>
+      <Key title="sbs" version="2003 R2" variant="Premium Edition">PYJWP-WBBQC-FG2DB-DWGRD-3HGYJ</Key>
+      <Key title="isas" version="2006" variant="Standard Edition">F8YYM-FM4PW-7CGHC-PP9PR-Q3HMQ</Key>
+      <Key title="office" version="2007" variant="Enterprise">C4PVK-TT2V4-D8WWB-VQFWY-6KYKG</Key>
+      <Key title="windowsserver" version="2003 R2" variant="Standard x64 Edition">CQGQP-X6M7T-3VG3K-QQFP8-2V32B</Key>
+      <Key title="exchange" version="2007" version="Standard Edition">BWPMH-KWPB9-MBRF2-6HJ8G-JR328</Key>
+   </Keys>
+</Software>
