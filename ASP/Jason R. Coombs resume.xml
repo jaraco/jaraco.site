@@ -201,7 +201,7 @@
 	  Russian colleagues using XML and SQL Server</achievement>
     </achievements>
   </job>
-  <!--job>
+  <job>
     <jobtitle>Chief Technology Officer</jobtitle>
     <employer>IniCom Networks, Inc.</employer>
     <location><city>Socorro</city><state>New Mexico</state></location>
@@ -212,7 +212,7 @@
     <description>
       <para>Founding partner, responsible for technology direction, business management, and ethics; Designed and produced home networking brochure; Developed corporate web page with fast, client-side scripting</para>
     </description>
-  </job-->
+  </job>
   <!--job>
     <jobtitle>Instructor</jobtitle>
     <employer>Computer Science Department, NMIMT</employer>
