@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--<!DOCTYPE resume PUBLIC "-//Sean Kelly//DTD Resume 1.5.1//EN"
-  "resume-1.5.1/dtd/resume.dtd">-->
+<!DOCTYPE resume PUBLIC "-//Sean Kelly//DTD Resume 1.5.1//EN"
+  "resume-1.5.1/dtd/resume.dtd">
 <!-- $Id$ -->
 <resume xmlns="http://xmlresume.sourceforge.net/resume/0.0">
   <header>
@@ -17,7 +17,7 @@
     </address>
     <birth><date><dayOfMonth>7</dayOfMonth><month>May</month><year>1976</year></date></birth>
     <contact>
-      <phone>505.459.6655</phone>
+      <phone>202.683.7967</phone>
       <!--fax>866.533.9898</fax-->
       <email>jaraco@jaraco.com</email>
       <!--url>http://www.jaraco.com/</url-->
@@ -164,7 +164,7 @@
       <achievement>Restored working relationship between our center and
 	  corporate computing groups, developing secure yet highly effective
 	  solutions to difficult problems</achievement>
-      <achievement>Led development of a data transformation system for
+      <achievement>Led development of a data mining application for
 	  automating downloads for port security applications, dramatically
 	  accelerating analysis and team performance</achievement>
       <achievement>Prepared and presented "Digital Identification" at exclusive
@@ -330,10 +330,10 @@
   
   <lastModified>
 	<!-- $Date$ -->
-	<date><dayOfMonth>19</dayOfMonth><month>August</month><year>2007</year></date>
+	<date><dayOfMonth>04</dayOfMonth><month>February</month><year>2008</year></date>
   </lastModified>
   <copyright>
-    <year>2007</year>
+    <year>2008</year>
     <name>
       <firstname>Jason R.</firstname>
       <surname>Coombs</surname>
