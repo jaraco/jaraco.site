@@ -7,6 +7,7 @@
       <Title ID="vmware" vendor="VMWare">VMWare</Title>
       <Title ID="streamripper" vendor="Twins">Stream Ripper</Title>
       <Title ID="vs.net" vendor="Microsoft" version="7.0">Visual Studio .NET Enterprise</Title>
+      <Title ID="visual.studio" vendor="Microsoft">Visual Studio</Title>
       <Title ID="sourcesafe" vendor="Microsoft" version="6.0c">Visual SourceSafe</Title>
       <Title ID="windows2000" vendor="Microsoft" version="2000">Windows</Title>
       <Title ID="photoshop" vendor="Adobe" version="5.5">Photoshop</Title>
@@ -311,6 +312,12 @@ e9b66f7aa14d6645cf1edc5af9e6a85c
       <Key title="windows.server" version="2008" variant="Standard" subrelease="RC0" expires="2008-04">7TRG8-98JHG-939DV-GDD8H-MK3MD</Key>
       <Key title="dreamaquarium" version="1.x">WV762DT4ULACab7Pd89LRGZYFPZVeN</Key>
       <Key title="moneyplus" version="Deluxe" year="2008" license="1 User License" delivery="Electronic Download">DJ-2FQTM-AJXC7-7KQZV-FD8XW-JAREK</Key>
+      <Key title="office" version="2007" variant="Ultimate" source="Microsoft Ultimate Steal Promotion" registrant="jaraco@cs.nmt.edu">MDC87-V8RWW-TWQ6D-32VFJ-WM2VD</Key>
+      <Key title="office" version="2007" variant="Ultimate" source="Microsoft Ultimate Steal Promotion" registrant="lhickok1@jhu.edu">H3CG3-HP3JY-F37RC-C7FPY-BCK3M</Key>
+      <Key title="windows" version="Vista" variant="Ultimate" patch="SP1" source="WS2008 Launch">6DY39-2PKP7-XXF3X-GBW86-P8FXD</Key>
+      <Key title="windows.server" version="2008" variant="Enterprise" source="WS2008 Launch">P44B8-WT3D8-M9X34-TT3GJ-HMCH6</Key>
+      <Key title="windows.server" version="2008" variant="Enterprise" source="WS2008 Launch" type="virtual">9CPYP-7KCP7-Q4RB2-6R9Q3-2M8WD</Key>
+      <Key title="visual.studio" version="2008" variant="Standard" source="WS2008 Launch">JD6KT-8PP4K-JY36G-JWYFG-7VCMY</Key>
    </Keys>
 <OldSoftware>
    <Titles>
