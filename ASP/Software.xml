@@ -6,7 +6,6 @@
       <Title ID="dvddec" vendor="Ravisent" version="">DVD Decoder Pack</Title>
       <Title ID="vmware" vendor="VMWare">VMWare</Title>
       <Title ID="streamripper" vendor="Twins">Stream Ripper</Title>
-      <Title ID="vs.net" vendor="Microsoft" version="7.0">Visual Studio .NET Enterprise</Title>
       <Title ID="visual.studio" vendor="Microsoft">Visual Studio</Title>
       <Title ID="sourcesafe" vendor="Microsoft" version="6.0c">Visual SourceSafe</Title>
       <Title ID="windows2000" vendor="Microsoft" version="2000">Windows</Title>
@@ -96,7 +95,7 @@
       <Key title="vmware" version="4.0">68500-EAK87-UGN2H-4JPJN</Key>
       <Key title="vmware" version="5.0">CDHN4-346CB-5GHR4-6BR27-ETJ8A</Key>
       <Key title="streamripper" Name="Jason R Coombs" version="5083-2" orderId="1021500787-11394-004">gr9qXyqwthuyghqrfdwdgrfdhkuhuyhuyg42r4zqwt</Key>
-      <Key title="vs.net">D64GG-GXY6T-V6FTR-WCPBB-2YDYB</Key>
+      <Key title="visual.studio" version="7.0" version_name=".Net" variant="Enterprise">D64GG-GXY6T-V6FTR-WCPBB-2YDYB</Key>
       <Key title="sourcesafe">335-3353356</Key>
       <Key title="windows2000">V7CWR-J8K4R-BHJ9R-P8KVQ-K4CWB</Key>
       <Key title="windows2000">KH4PH-G4924-PV4TX-MR8VF-HFCM3</Key>
