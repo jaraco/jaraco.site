@@ -42,6 +42,9 @@
     </div>
 
     <div id="footer">
+		<div>
+			<embed src="http://embed.grandcentral.com/webcall/818976a1a97c603285951a258e850fbf" width="437" height="91" wmode="transparent"></embed>
+		</div>
         <img src="${tg.url('/static/images/under_the_hood_blue.png')}"
             alt="TurboGears under the hood" />
         <p>TurboGears is a open source front-to-back web development framework
