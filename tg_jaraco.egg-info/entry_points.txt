@@ -1,3 +1,0 @@
-[console_scripts]
-start-jaraco = jaraco.commands:start
-
