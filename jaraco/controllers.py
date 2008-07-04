@@ -55,3 +55,12 @@ class Root(controllers.RootController):
     def logout(self):
         identity.current.logout()
         raise redirect("/")
+
+	@expose(template="genshi:jaraco.templates.project")
+	def projects(self, name):
+		assert name in ('jaraco.nxt')
+		project = type('Project', (object,), dict())()
+		project.name = name
+		project.title = name
+		project.version = 1.0
+		return dict(project=project)

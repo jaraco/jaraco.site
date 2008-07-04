@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- $Id$ -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:py="http://genshi.edgewall.org/"
+	xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+
+<head>
+
+	<title py:content="project.title" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <div id="menu">
+      <p>Current version: <span py:content="project.version" /></p>
+            
+      <h2>Install</h2>
+      <p>Current version: <br /><tt>easy_install <span py:replace="project.name" /></tt></p>
+	</div>
+	
+	<h1 py:content="project.name"></h1>
+</body>
+</html>
