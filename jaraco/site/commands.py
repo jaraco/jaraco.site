@@ -9,8 +9,8 @@ from os.path import dirname, exists, join
 import pkg_resources
 pkg_resources.require("TurboGears")
 
-import turbogears
 import cherrypy
+import turbogears
 
 cherrypy.lowercase_api = True
 
@@ -20,7 +20,9 @@ class ConfigurationError(Exception):
 def start():
     """Start the CherryPy application server."""
 
-    setupdir = dirname(dirname(__file__))
+    web_dir = dirname(__file__)
+    jaraco_dir = dirname(web_dir)
+    setupdir = dirname(jaraco_dir)
     curdir = os.getcwd()
 
     # First look on the command line for a desired config file,
@@ -39,14 +41,14 @@ def start():
     else:
         try:
             configfile = pkg_resources.resource_filename(
-              pkg_resources.Requirement.parse("tg-jaraco"),
+              pkg_resources.Requirement.parse("jaraco.site"),
                 "config/default.cfg")
         except pkg_resources.DistributionNotFound:
             raise ConfigurationError("Could not find default configuration.")
 
     turbogears.update_config(configfile=configfile,
-        modulename="jaraco.config")
+        modulename="jaraco.site.config")
 
-    from jaraco.controllers import Root
+    from jaraco.site.controllers import Root
 
     turbogears.start_server(Root())

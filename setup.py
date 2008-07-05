@@ -4,18 +4,19 @@ from setuptools import setup, find_packages
 from turbogears.finddata import find_package_data
 
 import os
-execfile(os.path.join("jaraco", "release.py"))
+package_root = os.path.join('jaraco', 'site')
+execfile(os.path.join(package_root, "release.py"))
 
 packages=find_packages()
-package_data = find_package_data(where='jaraco',
-    package='jaraco')
+package_data = find_package_data(where=package_root,
+    package='jaraco.site')
 if os.path.isdir('locales'):
     packages.append('locales')
     package_data.update(find_package_data(where='locales',
         exclude=('*.po',), only_in_packages=False))
 
 setup(
-    name="tg-jaraco",
+    name="jaraco.site",
     version=version,
     # uncomment the following lines if you fill them out in release.py
     #description=description,
@@ -68,7 +69,7 @@ setup(
     test_suite='nose.collector',
     entry_points = {
         'console_scripts': [
-            'start-jaraco = jaraco.commands:start',
+            'start-jaraco = jaraco.site.commands:start',
         ],
     },
     # Uncomment next line and create a default.cfg file in your project dir

@@ -1,6 +1,6 @@
 #!C:\Program Files\Python\python.exe
 # -*- coding: utf-8 -*-
-"""Start script for the tg-jaraco TurboGears project.
+"""Start script for the jaraco.site TurboGears project.
 
 This script is only needed during development for running from the project
 directory. When the project is installed, easy_install will create a
@@ -8,7 +8,7 @@ proper start script.
 """
 
 import sys
-from jaraco.commands import start, ConfigurationError
+from jaraco.site.commands import start, ConfigurationError
 
 if __name__ == "__main__":
     try:
