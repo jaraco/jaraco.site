@@ -17,7 +17,7 @@ from cherrypy import request, response
 # log = logging.getLogger("jaraco.controllers")
 
 class Root(controllers.RootController):
-    @expose(template="jaraco.templates.welcome")
+    @expose(template="jaraco.site.templates.welcome")
     # @identity.require(identity.in_group("admin"))
     def index(self):
         import time
@@ -25,7 +25,7 @@ class Root(controllers.RootController):
         #flash("Your application is now running")
         return dict(now=time.ctime())
 
-    @expose(template="jaraco.templates.login")
+    @expose(template="jaraco.site.templates.login")
     def login(self, forward_url=None, previous_url=None, *args, **kw):
 
         if not identity.current.anonymous \
@@ -56,7 +56,7 @@ class Root(controllers.RootController):
         identity.current.logout()
         raise redirect("/")
 
-	@expose(template="genshi:jaraco.templates.project")
+	@expose(template="genshi:jaraco.site.templates.project")
 	def projects(self, name):
 		assert name in ('jaraco.nxt')
 		project = type('Project', (object,), dict())()
