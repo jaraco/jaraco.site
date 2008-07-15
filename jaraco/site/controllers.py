@@ -21,8 +21,6 @@ class Root(controllers.RootController):
     # @identity.require(identity.in_group("admin"))
     def index(self):
         import time
-        # log.debug("Happy TurboGears Controller Responding For Duty")
-        #flash("Your application is now running")
         return dict(now=time.ctime())
 
     @expose(template="jaraco.site.templates.login")
@@ -56,7 +54,7 @@ class Root(controllers.RootController):
         identity.current.logout()
         raise redirect("/")
 
-	@expose(template="genshi:jaraco.site.templates.project")
+	@expose(template="jaraco.site.templates.project")
 	def projects(self, name):
 		assert name in ('jaraco.nxt')
 		project = type('Project', (object,), dict())()

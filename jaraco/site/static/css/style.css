@@ -16,12 +16,19 @@ tr.odd td {background-color:#edf3fe;}
 tr.even td {background-color:#fff;}
 
 #header {
-  height: 80px;
-  width: 777px;
-  background: blue URL('../images/header image.png') no-repeat;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  margin: 0 auto 0 auto;
+	height: 80px;
+	width: 100%;
+	background: #00a;
+	margin: 0 auto 0 auto;
+	text-align: center;
+}
+
+#header p
+{
+	color: white;
+	margin: 0;
+	padding-top: 20px;
+	font-size: 20pt;
 }
 
 a.link, a, a.active {
@@ -33,7 +40,7 @@ a.link, a, a.active {
   color: black;
   font-size: 127%;
   background-color: white;
-  width: 757px;
+  width: 100%;
   margin: 0 auto 0 auto;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
@@ -59,45 +66,13 @@ a.link, a, a.active {
   padding-left: 0;
 }
 
-h1,h2,h3,h4,h5,h6,#getting_started_steps {
-  font-family: "Century Schoolbook L", Georgia, serif;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 150%;
-}
-
-#getting_started_steps a {
-  text-decoration: none;
-}
-
-#getting_started_steps a:hover {
-  text-decoration: underline;
-}
-
-#getting_started_steps li {
-  font-size: 80%;
-  margin-bottom: 0.5em;
-}
-
-#getting_started_steps h2 {
-  font-size: 120%;
-}
-
-#getting_started_steps p {
-  font: 100% "Lucida Grande", "Lucida Sans Unicode", geneva, verdana, sans-serif;
-}
-
 #footer {
-  border: 1px solid #aaa;
-  border-top: 0px none;
   color: #999;
   background-color: white;
   padding: 10px;
   font-size: 80%;
   text-align: center;
-  width: 757px;
+  width: 100%;
   margin: 0 auto 1em auto;
 }
 

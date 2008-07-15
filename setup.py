@@ -27,8 +27,9 @@ setup(
     #license=license,
 
     install_requires=[
-        "TurboGears >= 1.0.4.2",
-        "SQLAlchemy>=0.3.10",
+        "TurboGears >= 1.0.5",
+        "SQLAlchemy>=0.4.6",
+        "Genshi >= 0.4.4",
     ],
     zip_safe=False,
     packages=packages,
