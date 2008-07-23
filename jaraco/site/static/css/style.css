@@ -19,7 +19,6 @@ tr.even td {background-color:#fff;}
 	height: 80px;
 	width: 100%;
 	background: #00a;
-	margin: 0 auto 0 auto;
 	text-align: center;
 }
 
@@ -41,10 +40,8 @@ a.link, a, a.active {
   font-size: 127%;
   background-color: white;
   width: 100%;
-  margin: 0 auto 0 auto;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  padding: 10px;
+  padding: 1px 0;
+  margin: 0;
 }
 
 #sidebar {
@@ -69,11 +66,10 @@ a.link, a, a.active {
 #footer {
   color: #999;
   background-color: white;
-  padding: 10px;
   font-size: 80%;
   text-align: center;
   width: 100%;
-  margin: 0 auto 1em auto;
+  margin: 0 auto 0 auto;
 }
 
 .code {
@@ -106,4 +102,11 @@ span.code {
 .fielderror {
     color: red;
     font-weight: bold;
+}
+
+#menu {
+	float: right;
+	margin: 20px;
+	padding: 10px;
+	background-color: #ddd;
 }
