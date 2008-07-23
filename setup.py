@@ -70,7 +70,7 @@ setup(
     test_suite='nose.collector',
     entry_points = {
         'console_scripts': [
-            'start-jaraco = jaraco.site.commands:start',
+            'start-jaraco-site = jaraco.site.commands:start',
         ],
     },
     # Uncomment next line and create a default.cfg file in your project dir
