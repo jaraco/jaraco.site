@@ -8,6 +8,8 @@
 <head py:match="head" py:attrs="select('@*')">
 	<meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
 	<title py:replace="''">Your title goes here</title>
+    <link rel="openid.server" href="http://www.livejournal.com/openid/server.bml" />
+    <link rel="openid.delegate" href="http://jaraco.livejournal.com/" />
 	<link py:for="css in tg_css" py:replace="ET(css.display())" />
 	<link py:for="js in tg_js_head" py:replace="ET(js.display())" />
 	<meta py:replace="select('*')" />
