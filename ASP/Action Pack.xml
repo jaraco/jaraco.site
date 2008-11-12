@@ -6,16 +6,58 @@
       <Title ID="windowsserver" vendor="Microsoft" href="http://www.microsoft.com/windowsserver">Windows Server</Title>
       <Title ID="exchange" vendor="Microsoft" href="http://www.microsoft.com/exchange">Exchange</Title>
       <Title ID="officeaccounting" vendor="Microsoft">Office Accounting</Title>
+      <Title ID="officesmallbusinessaccounting" vendor="Microsoft">Office Small Business Accounting</Title>
       <Title ID="sbs" vendor="Microsoft">Small Business Server</Title>
       <Title ID="isas" vendor="Microsoft">Internet Security &amp; Acceleration Server</Title>
+      <Title ID="sqlserver" vendor="Microsoft">SQL Server</Title>
+      <Title ID="virtualserver" vendor="Microsoft">Virtual Server</Title>
+      <Title ID="onenote" vendor="Microsoft">OneNote</Title>
+      <Title ID="office" vendor="Microsoft">Office</Title>
+      <Title ID="project" vendor="Microsoft">Project</Title>
+      <Title ID="visio" vendor="Microsoft">Visio</Title>
+      <Title ID="sharepoint" vendor="Microsoft">Sharepoint</Title>
+      <Title ID="sharepointdesigner" vendor="Microsoft">Sharepoint Designer</Title>
+      <Title ID="expressionweb" vendor="Microsoft">Expression Web</Title>
+      <Title ID="outlook" vendor="Microsoft">Outlook</Title>
+      <Title ID="crm" vendor="Microsoft">CRM</Title>
    </Titles>
    <Keys>
       <Key title="windows" version="Vista" variant="Business" upgrade="true">CF3YX-PFH4X-DQ94G-9RMCD-67668</Key>
+      <Key title="windows" version="Vista" applies_to="Beta 2">BDFRR-YT8D8-CDTF8-QMBKX-WBKB6</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="SP2">PR4JH-8DJJJ-4GB78-GCJQC-VKD6M</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="SP2">VDCY3-J7WJ9-72C3T-FJFDJ-KC36J</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">VWRYG-3TP36-Q63VB-B2TJX-J4BGM</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">XCF8R-T2VTD-PDX7J-DTF78-FCC9B</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">W8GQM-HM3YG-GKM43-XK327-9RF2Y</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">QXTYQ-6FGF9-DM2Q7-M8QY6-7Y8PY</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">MG92D-FF6BH-W9RCF-XP6MD-JGGXB</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">XJ6KY-C9FRG-F2MBT-9YT9R-7XWPY</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">GRV79-VBX6Q-QVDFH-689TH-BGXKB</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">VPWCQ-6QPGF-BKMJW-9TK8G-HKBGM</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">GTWPP-YTY4W-9DWHY-XVCHF-Y6R2Y</Key>
+      <Key title="windows" version="XP" variant="Pro" subversion="x64 edition">DG9V7-D3GWB-W34CM-THK38-66XKB</Key>
       <Key title="officeaccounting" variant="Professional">J9VRV-YCWX6-2HKWM-YXB4Y-K88HJ</Key>
+      <Key title="officesmallbusinessaccounting">J3WK2-CFQK9-X8YHD-32CFK-PM998</Key>
       <Key title="sbs" version="2003 R2" variant="Premium Edition">PYJWP-WBBQC-FG2DB-DWGRD-3HGYJ</Key>
       <Key title="isas" version="2006" variant="Standard Edition">F8YYM-FM4PW-7CGHC-PP9PR-Q3HMQ</Key>
       <Key title="office" version="2007" variant="Enterprise">C4PVK-TT2V4-D8WWB-VQFWY-6KYKG</Key>
       <Key title="windowsserver" version="2003 R2" variant="Standard x64 Edition">CQGQP-X6M7T-3VG3K-QQFP8-2V32B</Key>
+      <Key title="windowsserver" version="2003 R2" variant="Standard">GJ24Y-2B6H3-7MKQD-VFH7D-HH8JM</Key>
+      <Key title="windowsserver" version="2003" variant="Standard">VBFYH-6M7MW-M97P2-QFCM6-HB7PB</Key>
+      <Key title="windowsserver" version="2008" beta="3">MJXC6-9V8W7-FW4VH-CP329-VBHC4</Key>
       <Key title="exchange" version="2007" version="Standard Edition">BWPMH-KWPB9-MBRF2-6HJ8G-JR328</Key>
+      <Key title="exchange" version="2003" version="Standard Edition">M4GCY-TPH42-B29C8-HK88X-4CGXJ</Key>
+      <Key title="sqlserver" version="2000" variant="Standard">QXQ2F-WHQTH-M9D9R-D72M2-XBK3T</Key>
+      <Key title="virtualserver" version="2005">TQ3GX-X9DJ9-78W7F-8CRCX-THCP6</Key>
+      <Key title="virtualserver" version="2005 R2">F94RD-K3MF9-8PRVB-M9QB3-67826</Key>
+      <Key title="onenote" version="2003">THFG2-XK2Y3-KRXMP-F8VMV-HX4PD</Key>
+      <Key title="office" version="2003" variant="Professional">XTD23-TFCYB-36PTR-VYQT9-8PJ8Q</Key>
+      <Key title="project" variant="Professional" version="2007">MKXGF-2WB82-RR32K-VWQGT-Q88TT</Key>
+      <Key title="visio" variant="Professional" version="2007">H82VX-CRD8P-Y8WBF-YR27G-9HBKG</Key>
+      <Key title="visio" variant="Professional" version="2003">H2Q6H-YTCWF-HM7CV-V3G4Y-VJGJQ</Key>
+      <Key title="sharepoint" variant="Server Enterprise" note="may be erroneous" version="2007">JFQH2-WMFYB-YQ4QW-R4YF6-KRTJY</Key>
+      <Key title="sharepoint" variant="Server Enterprise" version="2007">KFYHC-2KCCG-BV2BK-DM6DQ-8TVGM</Key>
+	  <Key title="outlook" version="2007" variant="with Business Contact Manager">JDXPX-9GYYM-QQKDK-YRM64-G8R6T</Key>
+	  <Key title="crm" version="3.0" variant="Small Business Edition">T2JGJ-W3WD2-BQGGK-QFR8T-8MWW3</Key>
    </Keys>
 </Software>
