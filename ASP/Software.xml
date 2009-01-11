@@ -83,6 +83,7 @@
       <Title ID="dreamaquarium" href="http://www.dreamaquarium">Dream Aquarium</Title>
       <Title ID="moneyplus" vendor="Microsoft">Money Plus</Title>
       <Title ID="sftpdrive" vendor="Magnetk" href="http://www.magnetk.com/">SFTP Drive</Title>
+      <Title ID="sqlserver" vendor="Microsoft">SQL Server</Title>
    </Titles>
    <Keys>
       <Key title="acrobat" version="5.0">KWW500R7115863-937</Key>
@@ -325,6 +326,7 @@ e9b66f7aa14d6645cf1edc5af9e6a85c
       <Key title="vmware-server" verion="2.0" os="Windows" installs="2">A8404-FAJA3-V6PFM-40725</Key>
       <Key title="vmware-server" verion="2.0" os="Linux">A8M8M-F818L-UD261-4HJ30</Key>
       <Key title="office" version="2007" variation="Professional" source="retail" retailer="Microcenter">VPCC4-783JQ-M2H4G-9K7R4-R4VDQ</Key>
+      <Key title="sqlserver" version="2008" variant="Standard">C2B4D-TKY4R-K6KK2-XB9M7-4DQW6</Key>
    </Keys>
 <OldSoftware>
    <Titles>
