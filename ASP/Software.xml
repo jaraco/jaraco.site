@@ -84,6 +84,7 @@
       <Title ID="moneyplus" vendor="Microsoft">Money Plus</Title>
       <Title ID="sftpdrive" vendor="Magnetk" href="http://www.magnetk.com/">SFTP Drive</Title>
       <Title ID="sqlserver" vendor="Microsoft">SQL Server</Title>
+      <Title ID="partitionmagic" vendor="Norton">Partition Magic</Title>
    </Titles>
    <Keys>
       <Key title="acrobat" version="5.0">KWW500R7115863-937</Key>
@@ -327,6 +328,7 @@ e9b66f7aa14d6645cf1edc5af9e6a85c
       <Key title="vmware-server" verion="2.0" os="Linux">A8M8M-F818L-UD261-4HJ30</Key>
       <Key title="office" version="2007" variation="Professional" source="retail" retailer="Microcenter">VPCC4-783JQ-M2H4G-9K7R4-R4VDQ</Key>
       <Key title="sqlserver" version="2008" variant="Standard">C2B4D-TKY4R-K6KK2-XB9M7-4DQW6</Key>
+      <Key title="partitionmagic" version="8.0.5" variant="Professional" downloadURL="https://fileshare.symantec.com" username="pmagic" password="pMAgIc8#">PM801EN1-226886</Key>
    </Keys>
 <OldSoftware>
    <Titles>
