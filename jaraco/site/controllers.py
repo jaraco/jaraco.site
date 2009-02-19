@@ -56,7 +56,7 @@ class Root(controllers.RootController):
 
 	@expose(template="jaraco.site.templates.project")
 	def projects(self, name):
-		assert name in ('jaraco.nxt', 'jaraco.windows', 'jaraco.util')
+		assert name in ('jaraco.nxt', 'jaraco.windows', 'jaraco.util'), "invalid project name %s" % name
 		project = type('Project', (object,), dict())()
 		project.name = name
 		project.title = name
