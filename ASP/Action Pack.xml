@@ -45,8 +45,8 @@
       <Key title="windowsserver" version="2003 R2" variant="Standard">GJ24Y-2B6H3-7MKQD-VFH7D-HH8JM</Key>
       <Key title="windowsserver" version="2003" variant="Standard">VBFYH-6M7MW-M97P2-QFCM6-HB7PB</Key>
       <Key title="windowsserver" version="2008" beta="3">MJXC6-9V8W7-FW4VH-CP329-VBHC4</Key>
-      <Key title="exchange" version="2007" version="Standard Edition">BWPMH-KWPB9-MBRF2-6HJ8G-JR328</Key>
-      <Key title="exchange" version="2003" version="Standard Edition">M4GCY-TPH42-B29C8-HK88X-4CGXJ</Key>
+      <Key title="exchange" version="2007" variant="Standard Edition">BWPMH-KWPB9-MBRF2-6HJ8G-JR328</Key>
+      <Key title="exchange" version="2003" variant="Standard Edition">M4GCY-TPH42-B29C8-HK88X-4CGXJ</Key>
       <Key title="sqlserver" version="2000" variant="Standard">QXQ2F-WHQTH-M9D9R-D72M2-XBK3T</Key>
       <Key title="virtualserver" version="2005">TQ3GX-X9DJ9-78W7F-8CRCX-THCP6</Key>
       <Key title="virtualserver" version="2005 R2">F94RD-K3MF9-8PRVB-M9QB3-67826</Key>
