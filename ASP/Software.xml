@@ -76,7 +76,7 @@
       <Title ID="CloneDVDmobile" vendor="SlySoft" href="http://www.slysoft.com/">Clone DVD Mobile</Title>
       <Title ID="CloneDVD" vendor="SlySoft" href="http://www.slysoft.com/">Clone DVD</Title>
       <Title ID="naturallyspeaking" vendor="Dragon Systems">Dragon Naturally Speaking</Title>
-      <Title ID="isapirewrite" vendor="Helicon Tech" href="http://www.helicontech.com/">ISAPI ReWrite</Title>
+      <Title ID="isapi-rewrite" vendor="Helicon Tech" href="http://www.helicontech.com/">ISAPI ReWrite</Title>
       <Title ID="vmware-server" vendor="VMWare" href="http://www.vmware.com/">Server</Title>
       <Title ID="groove" vendor="Microsoft">Groove</Title>
       <Title ID="nod32" vendor="ESet" href="http://www.eset.com">Nod 32</Title>
@@ -297,7 +297,7 @@ e9b66f7aa14d6645cf1edc5af9e6a85c
 ]]>
       </Key>
       <Key title="naturallyspeaking" variation="Preferred">NPFU 300 Z 068801</Key>
-      <Key title="isapirewrite" name="Jason R. Coombs">LFGDM-Z3FKJ-JJAHT-A27SH</Key>
+      <Key title="isapi-rewrite" name="Jason R. Coombs">LFGDM-Z3FKJ-JJAHT-A27SH</Key>
       <Key title="streamripper" version="2.0" name="Jason R. Coombs"><![CDATA[2F0716={14a46a@pl5qwt#=Bc&$qfg#=Bp|*pl5pl5vbnwer6a@]]></Key>
       <Key title="vmware-server" version="1.0">901Y5-YMPF1-1DPE7-4V3V1</Key>
       <Key title="nero" version="7.0" variant="Essentials" source="Dad's Sony DRX-S50U drive">4C87-2006-3015-E11K-055X-X6E0-0970-4026-2K9C-4678</Key>
@@ -329,7 +329,8 @@ e9b66f7aa14d6645cf1edc5af9e6a85c
       <Key title="office" version="2007" variation="Professional" source="retail" retailer="Microcenter">VPCC4-783JQ-M2H4G-9K7R4-R4VDQ</Key>
       <Key title="sqlserver" version="2008" variant="Standard">C2B4D-TKY4R-K6KK2-XB9M7-4DQW6</Key>
       <Key title="partitionmagic" version="8.0.5" variant="Professional" downloadURL="https://fileshare.symantec.com" username="pmagic" password="pMAgIc8#">PM801EN1-226886</Key>
-   </Keys>
+      <Key title="isapi-rewrite" version="3.0" name="Jason R. Coombs">2ZSSL-79H95-XKYS4-UGZHN</Key>
+</Keys>
 <OldSoftware>
    <Titles>
       <Title ID="photostyler" vendor="Aldus" version="2.0">PhotoStyler</Title>
