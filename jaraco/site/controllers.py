@@ -54,11 +54,15 @@ class Root(controllers.RootController):
 		identity.current.logout()
 		raise redirect("/")
 
-	@expose(template="jaraco.site.templates.project")
-	def projects(self, name):
-		assert name in ('jaraco.nxt', 'jaraco.windows', 'jaraco.util'), "invalid project name %s" % name
-		project = type('Project', (object,), dict())()
-		project.name = name
-		project.title = name
-		project.version = 1.0
-		return dict(project=project)
+	@expose(template="jaraco.site.templates.project_list")
+	def projects(self, name=None):
+		if name: redirect('http://pypi.python.org/pypi/'+name)
+		py_projects = urllib2.urlopen('https://svn.jaraco.com/jaraco/python')
+		from BeautifulSoup import BeautifulSoup
+		soup = BeautifulSoup(py_projects.read())
+		projects = []
+		for anchor in soup.find_all('a'):
+			href = anchor['href']
+			if 'jaraco' in href:
+				projects.append(href)
+		return dict(projects=projects)
