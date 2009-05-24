@@ -60,9 +60,9 @@ class Root(controllers.RootController):
 		if name: redirect('http://pypi.python.org/pypi/'+name)
 		py_projects = urllib2.urlopen('https://svn.jaraco.com/jaraco/python')
 		from BeautifulSoup import BeautifulSoup
-		soup = BeautifulSoup(py_projects.read())
+		soup = BeautifulSoup(py_projects)
 		projects = []
-		for anchor in soup.find_all('a'):
+		for anchor in soup.findAll('a'):
 			href = anchor['href']
 			if 'jaraco' in href:
 				projects.append(href)
