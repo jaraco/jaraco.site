@@ -56,6 +56,7 @@ class Root(controllers.RootController):
 
 	@expose(template="jaraco.site.templates.project_list")
 	def projects(self, name=None):
+		import urllib2
 		if name: redirect('http://pypi.python.org/pypi/'+name)
 		py_projects = urllib2.urlopen('https://svn.jaraco.com/jaraco/python')
 		from BeautifulSoup import BeautifulSoup
