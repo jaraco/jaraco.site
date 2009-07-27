@@ -9,11 +9,11 @@
       <surname>Coombs</surname>
     </name>
     <address>
-      <street>#41825</street>
-      <street2>PO Box 96503</street2>
+      <street>2301 Champlain St NW</street>
+      <street2>Apt 305</street2>
       <city>Washington</city>
       <state>DC</state>
-      <zip>20090-6503</zip>
+      <zip>20009-8703</zip>
     </address>
     <birth><date><dayOfMonth>7</dayOfMonth><month>May</month><year>1976</year></date></birth>
     <contact>
@@ -92,7 +92,7 @@
             distribution for arrival; analysis was performed on 10k simulation
             runs producing a narrow 95% confidence interval; stochastic model
             indicated discrepancy with existing analytic model of same
-			problem.</project>
+            problem.</project>
           <project>Leveraged high-FLOPS computing to sample parameters over a
             computationally-infeasible data set for a (non-linear, black-box)
             computational model of
@@ -111,38 +111,44 @@
   </academics>
   <history>
   <job>
-	<jobtitle>Deputy Technical Director</jobtitle>
-	<employer>Innovative Management Concepts</employer>
-	<location><city>Dulles</city><state>Virginia</state></location>
-	<period>
-		<from><date><month>Oct</month><year>2006</year></date></from>
-		<to><present/></to>
-	</period>
-	<achievements>
-	  <achievement>Led data integration efforts for FormworX product, including
-	  development of XSLT (XML Schema Language Transform)-based solution to
-	  provide a flexible, customer-driven data interface for FormworX (JSP,
-	  Struts, Hibernate)</achievement>
-	  <achievement>Introduced PKI (Public Key Infrastructure) to internal everyday
-	  operations, providing for auditable, secure e-mail and web transactions
-	  </achievement>
-	  <achievement>Developed methodology for seamless web-based single-sign-on
-	  between multiple disparate web platforms</achievement>
+    <jobtitle>Deputy Technical Director</jobtitle>
+    <employer>Innovative Management Concepts</employer>
+    <location><city>Dulles</city><state>Virginia</state></location>
+    <period>
+        <from><date><month>Oct</month><year>2006</year></date></from>
+        <to><present/></to>
+    </period>
+    <achievements>
+      <achievement>Managed successful project to provide run-time data
+      interoperability between University of Pennsylvania data models in Python
+      and multiple Marine intel data sources, including a SOAP service.
+      </achievement>
+      <achievement>Led data integration efforts for FormworX product, including
+      development of XSLT (XML Schema Language Transform)-based solution to
+      provide a flexible, flowable, customer-driven data output interface
+      for FormworX (J2EE, Struts, Hibernate)</achievement>
+      <achievement>Introduced PKI (Public Key Infrastructure) to internal everyday
+      operations, providing for auditable, secure e-mail and web transactions
+      </achievement>
+      <achievement>Developed methodology for seamless web-based single-sign-on
+      between multiple disparate web platforms</achievement>
+      <achievement>Implemented OpenID authentication for Active Directory users
+      </achievement>
       <achievement>Provided package to bridge data exports with customer's
-	  Control-M software and their client's SFTP server</achievement>
+      Control-M software and their client's SFTP server</achievement>
       <achievement>Extended XSLT product to produce reports in Microsoft Excel
-	  or PDF formats</achievement>
+      or PDF formats</achievement>
       <achievement>Ported existing Oracle-based product to PostgreSQL, including
-	  implementing object caching to fully liberate the product from
-	  database-specific dependencies</achievement>
+      implementing object caching to fully liberate the product from
+      database-specific dependencies</achievement>
       <achievement>Developed agile tools for managing database objects using a
-	  high-level language (Python) and object-relational mappers, allowing for
-	  database-independent record management and facilitating transitions to new
-	  schemata</achievement>
+      high-level language (Python) and object-relational mappers, allowing for
+      database-independent record management and facilitating transitions to new
+      schemata</achievement>
       <achievement>Ported FormworX product to Microsoft SQL Server</achievement>
       <achievement>Developed FormworX product to beta-test quality for
-	  commercial release</achievement>
-	</achievements>
+      commercial release</achievement>
+    </achievements>
   </job>
   <job>
     <jobtitle>Senior Software Engineer</jobtitle>
@@ -153,54 +159,59 @@
       <to><date><month>Oct</month><year>2006</year></date></to>
     </period>
     <achievements>
+      <achievement>Designed, developed, and implemented in C the secure
+      communication protocol for the second-generation low power wireless
+      material monitoring tag, including an HTTPS transport for administration
+      and client software access</achievement>
       <achievement>Received 2006 top 5% merit award for China safeguards
-	  engagement</achievement>
+      engagement</achievement>
       <achievement>Led design and migration of a monolithic legacy imaging
-	  system to an user-friendly, elegant, distributed, modular
-	  approach</achievement>
+      system to an user-friendly, elegant, distributed, modular
+      approach</achievement>
       <achievement>Received high acclaim for network security and cryptographic
-	  presentations at International Nonproliferation conferences with Russia,
-	  China, and South America</achievement>
+      presentations at International Nonproliferation conferences with Russia,
+      China, and South America</achievement>
       <achievement>Restored working relationship between our center and
-	  corporate computing groups, developing secure yet highly effective
-	  solutions to difficult problems</achievement>
+      corporate computing groups, developing secure yet highly effective
+      solutions to difficult problems</achievement>
       <achievement>Led development of a data mining application for
-	  automating downloads for port security applications, dramatically
-	  accelerating analysis and team performance</achievement>
+      automating downloads for port security applications, dramatically
+      accelerating analysis and team performance</achievement>
       <achievement>Prepared and presented "Digital Identification" at exclusive
-	  Next Generation of Nuclear Scientists workshop between U.S. &amp; Russian
-	  weapons laboratories</achievement>
+      Next Generation of Nuclear Scientists workshop between U.S. &amp; Russian
+      weapons laboratories</achievement>
       <achievement>Mastermind and primary developer of extensible HTTP/SSL
-	  interface in an ARM7 embedded device for our Secure Sensor
-	  Platform</achievement>
+      interface in an ARM7 embedded device for our Secure Sensor
+      Platform</achievement>
       <achievement>Successfully merged data collection and analysis efforts from
-	  five different nuclear and environmental monitoring projects, designed to
-	  mitigate international tensions due to environmental
-	  concerns</achievement>
+      five different nuclear and environmental monitoring projects, designed to
+      mitigate international tensions due to environmental
+      concerns</achievement>
       <achievement>Co-developed a "Customers and Capabilities" matrix, drawing
-	  data from disparate data sources to provide a simple but advanced
-	  perspective on organizational structure</achievement>
+      data from disparate data sources to provide a simple but advanced
+      perspective on organizational structure</achievement>
       <achievement>Provided instruction in and deployment of network security
-	  systems for International Safeguards partners</achievement>
+      systems for International Safeguards partners</achievement>
       <achievement>Promoted a more cooperative team attitude and improved
-	  relations with our internal customers</achievement>
+      relations with our internal customers</achievement>
       <achievement>Developed aptitude for international activities in
-	  high-technology engagements</achievement>
+      high-technology engagements</achievement>
       <achievement>Primary systems administrator for Windows-based servers and
-	  secondary administrator for Unix-based servers for all International
-	  Programs applications</achievement>
+      secondary administrator for Unix-based servers for all International
+      Programs applications</achievement>
       <achievement>Created secure network to transport unified authentication
-	  across WAN sites</achievement>
+      across WAN sites</achievement>
       <achievement>Created an XML/SQL-based data warehousing and distribution
-	  system for international peacekeeping efforts</achievement>
+      system for international peacekeeping efforts</achievement>
       <achievement>Invented an XML-based, declarative language (similar to XSL)
-	  for description of data-collection techniques</achievement>
+      for description of data-collection techniques</achievement>
       <achievement>Led team to construct an interactive 3-D model of a nuclear
-	  storage facility for simulation of operational activities</achievement>
+      storage facility for simulation of operational activities</achievement>
       <achievement>Introduced standard protocols for data exchange with our
-	  Russian colleagues using XML and SQL Server</achievement>
+      Russian colleagues using XML and SQL Server</achievement>
     </achievements>
   </job>
+  <!--
   <job>
     <jobtitle>Chief Technology Officer</jobtitle>
     <employer>IniCom Networks, Inc.</employer>
@@ -213,6 +224,7 @@
       <para>Founding partner, responsible for technology direction, business management, and ethics; Designed and produced home networking brochure; Developed corporate web page with fast, client-side scripting</para>
     </description>
   </job>
+  -->
   <!--job>
     <jobtitle>Instructor</jobtitle>
     <employer>Computer Science Department, NMIMT</employer>
@@ -268,7 +280,7 @@
         <skill>Python (extensive)</skill>
         <skill>XML (extensive, incl DOM, XML-Schema, XSL (-T and -FO), CSS, SOAP)</skill>
         <skill>Java, C++ (extensive)</skill>
-		<skill>Javascript, AJAX, OpenLaszlo</skill>
+        <skill>Javascript, AJAX, OpenLaszlo</skill>
         <skill>Transact-SQL</skill>
         <skill>Scheme and Lisp</skill>
     </skillset>
@@ -277,6 +289,7 @@
         <skill>Agile programming</skill>
         <skill>advanced web portal development</skill>
         <skill>semistructured &amp; relational data management</skill>
+        <skill>non-relational data management including object, xml, and document databases</skill>
         <skill>Windows development (services, user applications)</skill>
         <skill>Linux (kernel development)</skill>
         <skill>Active Directory programming</skill>
@@ -298,11 +311,18 @@
     <interest>
       <title>System Administration</title>
       <description>
-        <para>Administer personal Windows Domain with Exchange Server 2003,
+        <para>Administer personal Windows Domain with Exchange Server,
            multiple organizational units, and multiple application domains.
            Domain integrates with Linux-based wireless router, provides
            PPTP/IPSec VPN service, multiple web applications behind IIS
            and apache.</para>
+      </description>
+    </interest>
+    <interest>
+      <title>Open-Source Software Development</title>
+      <description>
+        <para>Wide variety of typically Python-based packages for database
+        management, video capture, and LEGO MindStorms interoperability.</para>
       </description>
     </interest>
     <interest>
@@ -329,11 +349,11 @@
   </clearances>
   
   <lastModified>
-	<!-- $Date$ -->
-	<date><dayOfMonth>04</dayOfMonth><month>February</month><year>2008</year></date>
+    <!-- $Date$ -->
+    <date><dayOfMonth>27</dayOfMonth><month>July</month><year>2009</year></date>
   </lastModified>
   <copyright>
-    <year>2008</year>
+    <year>2008-2009</year>
     <name>
       <firstname>Jason R.</firstname>
       <surname>Coombs</surname>
