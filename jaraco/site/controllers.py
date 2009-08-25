@@ -6,18 +6,6 @@ import os
 import logging
 log = logging.getLogger(__name__)
 
-"""
-[/static]
-static_filter.on = True
-static_filter.dir = "%(package_dir)s/static"
-static_filter.content_types = {'svg': 'image/svg+xml'}
-
-[/favicon.ico]
-static_filter.on = True
-static_filter.file = "%(package_dir)s/static/images/favicon.ico"
-"""
-
-
 loader = TemplateLoader(
 	os.path.join(os.path.dirname(__file__), 'templates'),
 	auto_reload=True
@@ -29,8 +17,7 @@ class Root(object):
 		tmpl = loader.load('welcome.html')
 		return tmpl.generate().render('html', doctype='html')
 
-	"""
-	@expose(template="jaraco.site.templates.project_list")
+	@cherrypy.expose
 	def projects(self, name=None):
 		import urllib2
 		if name: redirect('http://pypi.python.org/pypi/'+name)
@@ -42,5 +29,5 @@ class Root(object):
 			href = anchor['href']
 			if 'jaraco' in href:
 				projects.append(href)
-		return dict(projects=projects)
-	"""
+		tmpl = loader.load('project_list.html')
+		return tmpl.generate(projects=projects).render('html', doctype='html')
