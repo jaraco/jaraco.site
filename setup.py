@@ -13,6 +13,7 @@ setup(
 	license='python',
 
 	install_requires=[
+		"CherryPy >= 3.2",
 		"Genshi >= 0.5.0",
 	],
 	zip_safe=False,
