@@ -23,10 +23,10 @@ os.environ['PYTHON_EGG_CACHE'] = egg_cache
 os.chdir(appdir)
 
 import traceback
-import jaraco.site
 
 def setup_application():
 	print "starting cherrypy application server"
+	import jaraco.site
 	app = jaraco.site.init()
 	print "successfully set up the application"
 	return app
