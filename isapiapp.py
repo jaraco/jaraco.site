@@ -22,19 +22,12 @@ if not os.path.exists(egg_cache):
 os.environ['PYTHON_EGG_CACHE'] = egg_cache
 os.chdir(appdir)
 
-import cherrypy
 import traceback
-
-class Root(object):
-	@cherrypy.expose
-	def index(self):
-		return 'Hai Werld'
+import jaraco.site
 
 def setup_application():
 	print "starting cherrypy application server"
-	#app_root = os.path.dirname(__file__)
-	#sys.path.append(app_root)
-	app = cherrypy.tree.mount(Root(), '/')
+	app = jaraco.site.init()
 	print "successfully set up the application"
 	return app
 
