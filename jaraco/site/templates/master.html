@@ -8,21 +8,10 @@
 <head py:match="head" py:attrs="select('@*')">
 	<meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
 	<title py:replace="''">Your title goes here</title>
-    <link rel="openid.server" href="http://www.livejournal.com/openid/server.bml" />
-    <link rel="openid.delegate" href="http://jaraco.livejournal.com/" />
-	<link py:for="css in tg_css" py:replace="ET(css.display())" />
-	<link py:for="js in tg_js_head" py:replace="ET(js.display())" />
+	<link rel="openid.server" href="http://www.livejournal.com/openid/server.bml" />
+	<link rel="openid.delegate" href="http://jaraco.livejournal.com/" />
 	<meta py:replace="select('*')" />
-	<style type="text/css">
-		#pageLogin
-		{
-			font-size: 10px;
-			font-family: verdana;
-			text-align: right;
-		}
-	</style>
-	<link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css"
-		py:attrs="dict(href=tg.url('/static/css/style.css'))"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
 </head>
 
 <body py:match="body" py:attrs="select('@*')">
@@ -30,16 +19,11 @@
 		<p>jaraco.com</p>
 	</div>
 	<div id="main_content">
-		<div id="status_block" py:if="tg_flash" class="flash" py:content="tg_flash"></div>
-
-		<div py:for="js in tg_js_bodytop" py:replace="ET(js.display())" />
 		<div py:replace="select('*|text()')" />
-		<div py:for="js in tg_js_bodybottom" py:replace="ET(js.display())" />
-
 	</div>
-    <div id="footer">
-        <p>Copyright &#169; 2008 Jason R. Coombs</p>
-    </div>
+	<div id="footer">
+		<p>Copyright &#169; 2009 Jason R. Coombs</p>
+	</div>
 
 </body>
 
