@@ -5,6 +5,9 @@ import os
 from lxml import etree
 import urllib2
 from BeautifulSoup import BeautifulSoup
+import binascii
+import codecs
+from jaraco.util import PasswordGenerator
 
 import logging
 log = logging.getLogger(__name__)
@@ -51,3 +54,19 @@ class Root(object):
 		transform = etree.XSLT(etree.parse(open(transform_name)))
 		src = etree.parse(urllib2.urlopen(url))
 		return str(transform(src))
+
+	@cherrypy.expose
+	def password_gen(self, length=None):
+		password = None
+		class userstr(str): pass
+		if length:
+			newpass = PasswordGenerator.make_password(int(length), encoding=None)
+			password = userstr(binascii.b2a_hex(newpass))
+			password.alternatives = []
+			for encoding in ('base-64',):
+				encoded, newlen = codecs.getencoder(encoding)(password)
+				password.alternatives.append((encoded, encoding))
+		else:
+			length=8
+		tmpl = loader.load('password gen.html')
+		return tmpl.generate(password=password, length=length).render('html', doctype='html')
