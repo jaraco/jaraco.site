@@ -11,7 +11,6 @@ import os
 import isapi_wsgi
 import traceback
 import isapi
-import jaraco.site
 
 if hasattr(sys, "isapidllhandle"):
 	import win32traceutil
@@ -21,14 +20,17 @@ def setup_environment(entry_file):
 	Set up the ISAPI environment. <entry_file> should be the
 	script/dll that is the entry point for the application.
 	"""
+	global appdir
 	appdir = os.path.dirname(__file__)
 	egg_cache = os.path.join(appdir, 'egg-tmp')
 	if not os.path.exists(egg_cache):
 		os.makedirs(egg_cache)
 		# todo: make sure NETWORK_SERVICE has write permission
 	os.environ['PYTHON_EGG_CACHE'] = egg_cache
+	os.chdir(appdir)
 
 def setup_application():
+	import jaraco.site
 	print "starting cherrypy application server"
 	app = jaraco.site.init()
 	print "successfully set up the application"
@@ -39,6 +41,9 @@ def factory():
 	try:
 		return isapi_wsgi.ISAPISimpleHandler(setup_application())
 	except:
+		f = open(os.path.join(appdir, 'critical error.txt'), 'w')
+		traceback.print_exc(file=f)
+		f.close()
 		print "Traceback occurred starting up the application"
 		traceback.print_exc()
 
