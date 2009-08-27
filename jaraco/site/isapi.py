@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+from __future__ import absolute_import, print_function
 
 """
 Things to remember when deploying an isapi_wsgi app:
@@ -21,7 +21,7 @@ def setup_environment(entry_file):
 	script/dll that is the entry point for the application.
 	"""
 	global appdir
-	appdir = os.path.dirname(__file__)
+	appdir = os.path.dirname(entry_file)
 	egg_cache = os.path.join(appdir, 'egg-tmp')
 	if not os.path.exists(egg_cache):
 		os.makedirs(egg_cache)
@@ -31,9 +31,9 @@ def setup_environment(entry_file):
 
 def setup_application():
 	import jaraco.site
-	print "starting cherrypy application server"
+	print("starting cherrypy application server")
 	app = jaraco.site.init()
-	print "successfully set up the application"
+	print("successfully set up the application")
 	return app
 
 def factory():
@@ -44,7 +44,7 @@ def factory():
 		f = open(os.path.join(appdir, 'critical error.txt'), 'w')
 		traceback.print_exc(file=f)
 		f.close()
-		print "Traceback occurred starting up the application"
+		print("Traceback occurred starting up the application")
 		traceback.print_exc()
 
 def handle_command_line():
