@@ -38,9 +38,8 @@ def __ExtensionFactory__():
 		app = setup_application()
 		return isapi_wsgi.ISAPISimpleHandler(app)
 	except:
-		f = open(os.path.join(appdir, 'critical error.txt'), 'w')
-		traceback.print_exc(file=f)
-		f.close()
+		print "Traceback occurred starting up the application"
+		traceback.print_exc()
 
 def install_virtual_dir():
 	import isapi.install
