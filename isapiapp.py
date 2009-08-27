@@ -53,7 +53,7 @@ def install_virtual_dir():
 		isapi.install.ScriptMapParams(Extension="*", Flags=0)
 	]
 	vd = isapi.install.VirtualDirParameters(
-		Server="CherryPy Web Server",
+		Server="Primary Web Site",
 		Name="/",
 		Description = "CherryPy Application",
 		ScriptMaps = sm,
