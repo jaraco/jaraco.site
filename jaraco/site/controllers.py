@@ -55,6 +55,34 @@ class Root(object):
 		src = etree.parse(urllib2.urlopen(url))
 		return str(transform(src))
 
+class AcctMgmt(object):
+	@cherrypy.expose
+	def index(self):
+		tmpl = loader.load('Account Management.html')
+		return tmpl.generate().render('html', doctype='html')
+
+	@cherrypy.expose
+	def change_password(self, submit, username, old_password, new_password, new_password_confirm, system=None):
+		from jaraco.site.sysadmin import NTUser
+		try:
+			if not new_password:
+				raise ValueError, "Blank passwords not allowed"
+			if not new_password == new_password_confirm:
+				raise ValueError, "Passwords don't match"
+			nt = NTUser(username, system or '.')
+			nt.reset(old_password, new_password)
+		except ValueError, e:
+			response_messages = [
+				'Password change has failed.',
+				str(e),
+				]
+		else:
+			name = nt.user.FullName
+			response_messages = ['Password change for %(name)s was successful!' % vars()]
+		tmpl = loader.load('Change Password.html')
+		return tmpl.generate(response_messages=response_messages).render('html', doctype='html')
+
+
 	@cherrypy.expose
 	def password_gen(self, length=None):
 		password = None
@@ -70,3 +98,5 @@ class Root(object):
 			length=8
 		tmpl = loader.load('password gen.html')
 		return tmpl.generate(password=password, length=length).render('html', doctype='html')
+
+Root.acctmgmt = AcctMgmt()

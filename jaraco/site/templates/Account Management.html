@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- $Id: password gen.html 1183 2009-08-25 23:55:55Z jaraco $ -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:py="http://genshi.edgewall.org/"
+	xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+
+<head>
+<title>Username</title>
+</head>
+
+<body>
+
+<ul>
+<li><a href="password_gen">Password Generator</a></li>
+</ul>
+<form method="POST" action="change_password">
+	<table>
+		<tr>
+			<td>Username</td>
+			<td><input type="text" name="username" size="20" /></td>
+		</tr>
+		<tr>
+			<td>System (leave blank for local system)</td>
+			<td><input type="text" name="system" size="20" /></td>
+		</tr>
+		<tr>
+			<td>Old Password</td>
+			<td><input type="password" name="old_password" size="20" /></td>
+		</tr>
+		<tr>
+			<td>New Password</td>
+			<td><input type="password" name="new_password" size="20" /></td>
+		</tr>
+		<tr>
+			<td>Confirm New Password</td>
+			<td><input type="password" name="new_password_confirm" size="20" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Submit" name="submit" /></td>
+		</tr>
+	</table>
+</form>
+
+<div style="margin-top: 1in; background-color: white; padding: 1em;">
+<img src="https://cert.startcom.org/check.php" alt="StartCom Free SSL Certificate Project" title="StartCom Free SSL Certificate Project" /><br/>
+</div>
+
+</body>
+
+</html>
