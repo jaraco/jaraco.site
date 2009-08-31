@@ -13,6 +13,7 @@ class Charts(object):
 	@cherrypy.expose
 	@output('chart example', method='xhtml')
 	def plot(self):
+		cherrypy.response.headers['Content-Type'] = "text/xml"
 		g = Plot({
 			'min_x_value': 0,
 			'min_y_value': 0,
