@@ -11,9 +11,8 @@ from genshi import XML
 
 class Charts(object):
 	@cherrypy.expose
-	@output('chart example', method='xhtml')
+	@output('chart example', method='xhtml', content_type='text/xml')
 	def plot(self):
-		cherrypy.response.headers['Content-Type'] = "text/xml"
 		g = Plot({
 			'min_x_value': 0,
 			'min_y_value': 0,

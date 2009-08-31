@@ -29,7 +29,7 @@ loader = TemplateLoader(
 )
 
 # from the genshi tutorial
-def output(filename, method='html', encoding='utf-8', **options):
+def output(filename, method='html', encoding='utf-8', content_type='text/html', **options):
 	"""Decorator for exposed methods to specify what template they should use
 	for rendering, and which serialization method and options should be
 	applied.
@@ -37,6 +37,7 @@ def output(filename, method='html', encoding='utf-8', **options):
 	if not filename.endswith('html'): filename=filename+'.html'
 	def decorate(func):
 		def wrapper(*args, **kwargs):
+			cherrypy.response.headers['Content-Type'] = content_type
 			cherrypy.thread_data.template = loader.load(filename)
 			opt = options.copy()
 			if method == 'html':
