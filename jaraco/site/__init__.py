@@ -51,16 +51,12 @@ def output(filename, method='html', encoding='utf-8', content_type='text/html', 
 		return wrapper
 	return decorate
 
-def render(*args, **kwargs):
+def render(template_name=None, **kwargs):
 	"""Function to render the given data to the template specified via the
 	``@output`` decorator.
 	"""
-	if args:
-		assert len(args) == 1, \
-			'Expected exactly one argument, but got %r' % (args,)
-		template = loader.load(args[0])
-	else:
-		template = cherrypy.thread_data.template
+	if isinstance(template_name, basestring):
+		cherrypy.thread_data.template = loader.load(template_name)
 	ctxt = Context(url=cherrypy.url)
 	ctxt.push(kwargs)
-	return template.generate(ctxt)
+	return cherrypy.thread_data.template.generate(ctxt)
