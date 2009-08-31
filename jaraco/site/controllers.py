@@ -7,14 +7,14 @@ from BeautifulSoup import BeautifulSoup
 import binascii
 import codecs
 from jaraco.util import PasswordGenerator
-#from jaraco.site.charts import Charts
+from jaraco.site.charts import Charts
 from jaraco.site import render, output
 
 import logging
 log = logging.getLogger(__name__)
 
 class Root(object):
-	#charts = Charts()
+	charts = Charts()
 
 	@cherrypy.expose
 	@output('welcome')
