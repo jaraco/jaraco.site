@@ -1,6 +1,5 @@
 
 import cherrypy
-from genshi.template import TemplateLoader
 import os
 from lxml import etree
 import urllib2
@@ -8,22 +7,22 @@ from BeautifulSoup import BeautifulSoup
 import binascii
 import codecs
 from jaraco.util import PasswordGenerator
+#from jaraco.site.charts import Charts
+from jaraco.site import render, output
 
 import logging
 log = logging.getLogger(__name__)
 
-loader = TemplateLoader(
-	os.path.join(os.path.dirname(__file__), 'templates'),
-	auto_reload=True
-)
-
 class Root(object):
-	@cherrypy.expose
-	def index(self):
-		tmpl = loader.load('welcome.html')
-		return tmpl.generate().render('html', doctype='html')
+	#charts = Charts()
 
 	@cherrypy.expose
+	@output('welcome')
+	def index(self):
+		return render()
+
+	@cherrypy.expose
+	@output('project list')
 	def projects(self, name=None):
 		if name: redirect('http://pypi.python.org/pypi/'+name)
 		py_projects = urllib2.urlopen('https://svn.jaraco.com/jaraco/python')
@@ -33,8 +32,7 @@ class Root(object):
 			href = anchor['href']
 			if 'jaraco' in href:
 				projects.append(href)
-		tmpl = loader.load('project_list.html')
-		return tmpl.generate(projects=projects).render('html', doctype='html')
+		return render(projects=projects)
 
 	@cherrypy.expose
 	def allurbase(self):
@@ -57,11 +55,12 @@ class Root(object):
 
 class AcctMgmt(object):
 	@cherrypy.expose
+	@output('Account Management')
 	def index(self):
-		tmpl = loader.load('Account Management.html')
-		return tmpl.generate().render('html', doctype='html')
+		return render()
 
 	@cherrypy.expose
+	@output('Change Password')
 	def change_password(self, submit, username, old_password, new_password, new_password_confirm, system=None):
 		from jaraco.site.sysadmin import NTUser
 		try:
@@ -79,11 +78,11 @@ class AcctMgmt(object):
 		else:
 			name = nt.user.FullName
 			response_messages = ['Password change for %(name)s was successful!' % vars()]
-		tmpl = loader.load('Change Password.html')
-		return tmpl.generate(response_messages=response_messages).render('html', doctype='html')
+		return render(response_messages=response_messages)
 
 
 	@cherrypy.expose
+	@output('password gen')
 	def password_gen(self, length=None):
 		password = None
 		class userstr(str): pass
@@ -96,7 +95,6 @@ class AcctMgmt(object):
 				password.alternatives.append((encoded, encoding))
 		else:
 			length=8
-		tmpl = loader.load('password gen.html')
-		return tmpl.generate(password=password, length=length).render('html', doctype='html')
+		return render(password=password, length=length)
 
 Root.acctmgmt = AcctMgmt()
