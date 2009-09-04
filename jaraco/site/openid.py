@@ -2,10 +2,14 @@ from __future__ import absolute_import
 
 import cherrypy
 import os
-from jaraco.site import output, render
+from jaraco.site import output as default_output, render
 from openid.store.filestore import FileOpenIDStore
 from openid.server.server import Server
+from openid.consumer import discover
 from urlparse import urljoin
+
+def output(path, *args, **kwargs):
+	return default_output('openid/{0}'.format(path), *args, **kwargs)
 
 class OpenID(object):
 	# todo: get this from cherrypy
@@ -34,7 +38,7 @@ class OpenID(object):
 		return self.relative_url('yadis/')
 
 	@cherrypy.expose
-	@output("openid/id")
+	@output("id")
 	def id(self, username):
 		return render(
 			endpoint_url = self.endpoint_url,
@@ -42,4 +46,12 @@ class OpenID(object):
 			user_url = urljoin(self.id_base_url, username),
 			)
 
-	
+	@cherrypy.expose
+	@output("yadis", method="xml", content_type="application/xrds+xml")
+	def yadis(self, username=None):
+		return render(
+			discover = discover,
+			endpoint_url = self.endpoint_url,
+			user_url = username and urljoin(self.id_base_url, username),
+			)
+
