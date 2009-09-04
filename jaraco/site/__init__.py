@@ -23,9 +23,25 @@ def init():
 
 	return app
 
-loader = TemplateLoader(
+class DefaultExtensionTemplateLoader(TemplateLoader):
+	"""
+	A specialized template loader that will append a specific extension
+	to each 'load' request if such extension is not present.
+	"""
+	def __init__(self, *args, **kwargs):
+		self.default_extension = kwargs.pop('extension', None)
+		if self.default_extension: self.load = self.load_default
+		return super(DefaultExtensionTemplateLoader, self).__init__(*args, **kwargs)
+
+	def load_default(self, filename, *args, **kwargs):
+		if not filename.endswith(self.default_extension):
+			filename += self.default_extension
+		return super(DefaultExtensionTemplateLoader, self).load(filename, *args, **kwargs)
+
+loader = DefaultExtensionTemplateLoader(
 	os.path.join(os.path.dirname(__file__), 'templates'),
-	auto_reload=True
+	auto_reload=True,
+	extension = '.html',
 )
 
 # from the genshi tutorial
@@ -34,7 +50,6 @@ def output(filename, method='html', encoding='utf-8', content_type='text/html', 
 	for rendering, and which serialization method and options should be
 	applied.
 	"""
-	if not filename.endswith('html'): filename=filename+'.html'
 	def decorate(func):
 		def wrapper(*args, **kwargs):
 			cherrypy.response.headers['Content-Type'] = content_type

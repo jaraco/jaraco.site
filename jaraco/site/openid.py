@@ -3,9 +3,12 @@ from __future__ import absolute_import
 import cherrypy
 import os
 from jaraco.site import output as default_output, render
+
 from openid.store.filestore import FileOpenIDStore
-from openid.server.server import Server
+from openid.server import server
 from openid.consumer import discover
+from openid.extensions import sreg
+
 from urlparse import urljoin
 
 def output(path, *args, **kwargs):
@@ -13,12 +16,12 @@ def output(path, *args, **kwargs):
 
 class OpenID(object):
 	# todo: get this from cherrypy
-	_base_url = 'http://www.jaraco.com/openid/'
+	_base_url = 'http://drake.jaraco.com:8080/openid/'
 	def __init__(self):
 		store_loc = os.path.join(os.path.dirname(__file__), 'openid store')
 		store = FileOpenIDStore(store_loc)
 		self.store = FileOpenIDStore(store_loc)
-		self.server = Server(self.store, self.endpoint_url)
+		self.openid = server.Server(self.store, self.endpoint_url)
 
 	def relative_url(self, path):
 		# TODO: ensure _base_url ends with /
@@ -55,3 +58,88 @@ class OpenID(object):
 			user_url = username and urljoin(self.id_base_url, username),
 			)
 
+	@cherrypy.expose
+	def server(self, *args, **kwargs):
+		try:
+			params = cherrypy.request.params
+			openid_request = self.openid.decodeRequest(params)
+		except server.ProtocolError, openid_error:
+			return self.handle_openid_response(openid_error)
+
+		if openid_request is None:
+			return output("about")(render)(endpoint_url=self.endpoint_url)
+
+		if openid_request.mode in ["checkid_immediate", "checkid_setup"]:
+			return self.check_id_request(openid_request)
+
+		return self.handle_openid_response(self.openid.handleRequest(openid_request))
+
+	def handle_openid_response(self, resp):
+		try:
+			web_resp = self.openid.encodeResponse(resp)
+			body = web_resp.body or ''
+			cherrypy.response.status = web_resp.code
+			cherrypy.response.headers.update(web_resp.headers)
+		except server.EncodingError, err:
+			body = err.response.encodeToKVForm()
+			cherrypy.response.status = 400
+			cherrypy.response.headers['Content-Type'] = 'text/plain; charset=UTF-8'
+		return body
+
+	def check_id_request(self, request):
+		authorized = True # todo: check request.identity against request.trust_root
+		trust_root = request.trust_root
+		session = cherrypy.session
+		session.acquire_lock()
+		request_params = dict({trust_root: request})
+		session.setdefault('last_request', dict()).update(request_params)
+		return self.handle_openid_response(request.answer(authorized))
+
+	@cherrypy.expose
+	def allow(self, *args, **kwargs):
+		trust_root = kwargs['trust_root']
+		openid_request = self.request_from_session(trust_root)
+		if not openid_request:
+			raise Exception("Last request could not be retrieved")
+		if openid_request.idSelect():
+			open_identity = urljoin(self.id_base_url, kwargs['identifier'])
+		else:
+			open_identity = openid_request.identity
+
+		assert len(set(['yes', 'no']).intersection(kwargs)) == 1, "Expected yes or no in allow post"
+		affirmative = 'yes' in kwargs
+		openid_response = openid_request.answer(affirmative)
+		
+		if affirmative:
+			self.add_sreg_fields(openid_request, kwargs, openid_response)
+		
+		if kwargs.get('remember', 'no') == 'yes':
+			remember_value = ['never', 'always'][affirmative]
+			cherrypy.session.acquire_lock()
+			session[(open_identity, openid_request.trust_root)] = remember_value
+		
+		return self.handle_openid_response(openid_response)
+	
+	def add_sreg_fields(self, request, params, response):
+		sreg_req = sreg.SRegRequest.fromOpenIDRequest(request)
+		fields = sreg_req.allRequestedFields()
+		source_values = dict(
+			# todo, get this from the identified user
+			nickname = 'jaraco',
+			email = 'jaraco@jaraco.com',
+			fullname = 'Jason R. Coombs',
+			)
+		send_fields = params.get('sreg', dict()).get('send', dict())
+		# send only the fields requested by 'yes'
+		values = [
+			(key, source_values[key])
+			for key in send_fields
+			if send_fields[key] == 'yes'
+			]
+		values = dict(values)
+		sreg_resp = sreg.SRegResponse.extractResponse(sreg_req, values)
+		sreg_resp.toMessage(response.fields)
+
+	def request_from_session(self, trust_root):
+		last_request = cherrypy.session.get('last_request', {})
+		return last_request.get(trust_root, None)
