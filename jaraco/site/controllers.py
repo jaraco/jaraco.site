@@ -8,6 +8,7 @@ import binascii
 import codecs
 from jaraco.util import PasswordGenerator
 from jaraco.site.charts import Charts
+from jaraco.site.openid import OpenID
 from jaraco.site import render, output
 
 import logging
@@ -15,6 +16,7 @@ log = logging.getLogger(__name__)
 
 class Root(object):
 	charts = Charts()
+	openid = OpenID()
 
 	@cherrypy.expose
 	@output('welcome')

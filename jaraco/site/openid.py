@@ -1,10 +1,15 @@
+from __future__ import absolute_import
+
+import cherrypy
+import os
+from jaraco.site import output, render
 from openid.store.filestore import FileOpenIDStore
 from openid.server.server import Server
 from urlparse import urljoin
 
 class OpenID(object):
 	# todo: get this from cherrypy
-	_base_url = 'http://www.jaraco.com/'
+	_base_url = 'http://www.jaraco.com/openid/'
 	def __init__(self):
 		store_loc = os.path.join(os.path.dirname(__file__), 'openid store')
 		store = FileOpenIDStore(store_loc)
@@ -18,23 +23,23 @@ class OpenID(object):
 	# todo: make these properties just decorators on the appropriate methods
 	@property
 	def endpoint_url(self):
-		self.relative_url('server/')
+		return self.relative_url('server/')
 
 	@property
 	def id_base_url(self):
-		self.relative_url('id/')
+		return self.relative_url('id/')
 
 	@property
 	def yadis_base_url(self):
-		self.relative_url('yadis/')
+		return self.relative_url('yadis/')
 
 	@cherrypy.expose
 	@output("openid/id")
 	def id(self, username):
-		return dict(
+		return render(
 			endpoint_url = self.endpoint_url,
-			yadis_url = urljoin(self.yadis_url, username)
-			user_url = urljoin(self.id_base_url, username)
+			yadis_url = urljoin(self.yadis_base_url, username),
+			user_url = urljoin(self.id_base_url, username),
 			)
 
 	

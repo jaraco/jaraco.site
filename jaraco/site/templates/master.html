@@ -8,10 +8,8 @@
 <head py:match="head" py:attrs="select('@*')">
 	<meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
 	<title py:replace="''">Your title goes here</title>
-	<link rel="openid.server" href="http://www.livejournal.com/openid/server.bml" />
-	<link rel="openid.delegate" href="http://jaraco.livejournal.com/" />
 	<meta py:replace="select('*')" />
-	<link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/static/css/style.css" />
 </head>
 
 <body py:match="body" py:attrs="select('@*')">
