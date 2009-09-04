@@ -90,7 +90,6 @@ class OpenID(object):
 		authorized = True # todo: check request.identity against request.trust_root
 		trust_root = request.trust_root
 		session = cherrypy.session
-		session.acquire_lock()
 		request_params = dict({trust_root: request})
 		session.setdefault('last_request', dict()).update(request_params)
 		return self.handle_openid_response(request.answer(authorized))
@@ -115,8 +114,7 @@ class OpenID(object):
 		
 		if kwargs.get('remember', 'no') == 'yes':
 			remember_value = ['never', 'always'][affirmative]
-			cherrypy.session.acquire_lock()
-			session[(open_identity, openid_request.trust_root)] = remember_value
+			cherrypy.session[(open_identity, openid_request.trust_root)] = remember_value
 		
 		return self.handle_openid_response(openid_response)
 	
