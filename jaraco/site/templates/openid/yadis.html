@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xrds:XRDS
+	xmlns:xrds="xri://$xrds"
+	xmlns="xri://$xrd*($v*2.0)"
+	xmlns:py="http://genshi.edgewall.org/">
+	<XRD>
+		<Service priority="0">
+			<Type py:content="discover.OPENID_2_0_TYPE">OPENID 2 Type</Type>
+			<Type py:content="discover.OPENID_1_0_TYPE" py:if="user_url is not None">OPENID 1 Type</Type>
+			<URI py:content="endpoint_url">ENDPOINT_URL</URI>
+			<LocalID py:if="user_url is not None" py:content="user_url">User URL</LocalID>
+		</Service>
+	</XRD>
+</xrds:XRDS>
