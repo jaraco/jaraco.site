@@ -14,12 +14,20 @@ def init():
 		'tools.staticdir.root': os.path.abspath(os.path.dirname(__file__)),
 	})
 
+	import jaraco.site.sspi
+	basic_auth = {
+		'tools.auth_basic.on': True,
+		'tools.auth_basic.realm': 'jaraco.com',
+		'tools.auth_basic.checkpassword': jaraco.site.sspi.check,
+	}
+
 	app = cherrypy.tree.mount(Root(), '/', {
 		'/static': {
 			'tools.staticdir.on': True,
 			'tools.staticdir.dir': 'static',
 			'tools.staticdir.content_types': dict(svg='image/svg+xml'),
-		}
+		},
+		'/auth': basic_auth,
 	})
 
 	return app

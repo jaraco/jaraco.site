@@ -55,6 +55,10 @@ class Root(object):
 		src = etree.parse(urllib2.urlopen(url))
 		return str(transform(src))
 
+	@cherrypy.expose
+	def auth(self):
+		return "You authenticated as %s" % cherrypy.request.login
+
 class AcctMgmt(object):
 	@cherrypy.expose
 	@output('Account Management')
