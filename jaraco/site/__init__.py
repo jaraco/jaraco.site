@@ -28,6 +28,7 @@ def init():
 			'tools.staticdir.content_types': dict(svg='image/svg+xml'),
 		},
 		'/auth': basic_auth,
+		'/openid/server': basic_auth,
 	})
 
 	return app

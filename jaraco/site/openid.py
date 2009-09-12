@@ -87,7 +87,7 @@ class OpenID(object):
 		return body
 
 	def check_id_request(self, request):
-		authorized = True # todo: check request.identity against request.trust_root
+		authorized = cherrypy.request.login == request.identity
 		trust_root = request.trust_root
 		session = cherrypy.session
 		request_params = dict({trust_root: request})
