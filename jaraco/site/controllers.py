@@ -12,9 +12,8 @@ from jaraco.site.openid import OpenID
 from jaraco.site import render, output
 try:
 	from croakysteel_util import from_cherrypy
-	print "Successfully loaded croakysteel"
 except ImportError:
-	print "Unable to load croakysteel - honeypot will not be available"
+	pass
 
 import logging
 log = logging.getLogger(__name__)
@@ -64,11 +63,9 @@ class Root(object):
 	def auth(self):
 		return "You authenticated as %s" % cherrypy.request.login
 
-	if 'from_cherrypy' in globals():
-		@cherrypy.expose
-		@staticmethod
-		def honeypot():
-			return from_cherrypy()
+	@cherrypy.expose
+	def honeypot(self):
+		return from_cherrypy()
 
 class AcctMgmt(object):
 	@cherrypy.expose
