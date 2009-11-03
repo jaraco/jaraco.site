@@ -1,7 +1,7 @@
 from wmi import GetObject, WMI
 
 server_name = '.'
-ob = r'winmgmts:{authenticationLevel=pktPrivacy}\\{server_name}\root\microsoftiisv2'.format(vars())
+ob = r'winmgmts:{{authenticationLevel=pktPrivacy}}\\{server_name}\root\microsoftiisv2'.format(**vars())
 iis = GetObject(ob)
 pools = iis.ExecQuery("Select * From IIsApplicationPool")
 for pool in pools:
