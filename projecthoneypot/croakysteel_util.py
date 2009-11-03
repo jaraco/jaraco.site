@@ -1,8 +1,8 @@
 import sys
 orig_value = sys.dont_write_bytecode
-sys_dont_write_bytecode = True
+sys.dont_write_bytecode = True
 from croakysteel import from_zope, __file__ as cs_file
-sys_dont_write_bytecode = orig_value
+sys.dont_write_bytecode = orig_value
 assert cs_file.endswith('.py')
 
 class CherryPyZopeRequestAdapter(dict):
