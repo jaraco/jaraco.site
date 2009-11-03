@@ -65,7 +65,10 @@ class Root(object):
 		return "You authenticated as %s" % cherrypy.request.login
 
 	if 'from_cherrypy' in globals():
-		honeypot = cherrypy.expose(staticmethod(from_cherrypy))
+		@cherrypy.expose
+		@staticmethod
+		def honeypot():
+			return from_cherrypy()
 
 class AcctMgmt(object):
 	@cherrypy.expose
