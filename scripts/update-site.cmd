@@ -1,0 +1,1 @@
+easy_install https://svn.jaraco.com/jaraco/python/jaraco.site/trunk
