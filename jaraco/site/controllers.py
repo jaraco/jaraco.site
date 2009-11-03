@@ -64,7 +64,7 @@ class Root(object):
 		return "You authenticated as %s" % cherrypy.request.login
 
 	@cherrypy.expose
-	def honeypot(self):
+	def croakysteel_py(self):
 		return from_cherrypy()
 
 class AcctMgmt(object):
