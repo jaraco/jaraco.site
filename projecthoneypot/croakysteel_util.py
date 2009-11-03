@@ -3,7 +3,7 @@ orig_value = sys.dont_write_bytecode
 sys.dont_write_bytecode = True
 from croakysteel import from_zope, __file__ as cs_file
 sys.dont_write_bytecode = orig_value
-assert cs_file.endswith('.py')
+assert cs_file.endswith('.py'), "croakysteel file is %s" % cs_file
 
 class CherryPyZopeRequestAdapter(dict):
 	"""
