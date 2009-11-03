@@ -18,7 +18,7 @@ class CherryPyZopeRequestAdapter(dict):
 		import cherrypy
 		req = cherrypy.request
 		for header, val in req.headers.items():
-			header = 'HTTP_' + val.upper().replace('-', '_')
+			header = 'HTTP_' + header.upper().replace('-', '_')
 			self[header] = val
 		self.update(REMOTE_ADDR = req.remote.ip)
 		self.update(SERVER_PORT = str(req.local.port))
