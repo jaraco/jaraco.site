@@ -12,6 +12,7 @@ from jaraco.site.openid import OpenID
 from jaraco.site import render, output
 try:
 	from croakysteel_util import from_cherrypy
+	print "Successfully loaded croakysteel"
 except ImportError:
 	print "Unable to load croakysteel - honeypot will not be available"
 
