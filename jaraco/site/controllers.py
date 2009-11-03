@@ -10,6 +10,10 @@ from jaraco.util import PasswordGenerator
 from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
 from jaraco.site import render, output
+try:
+	from croakysteel_util import from_cherrypy
+except ImportError:
+	pass
 
 import logging
 log = logging.getLogger(__name__)
@@ -58,6 +62,9 @@ class Root(object):
 	@cherrypy.expose
 	def auth(self):
 		return "You authenticated as %s" % cherrypy.request.login
+
+	if 'from_cherrypy' in globals():
+		honeypot = cherrypy.expose(staticmethod(from_cherrypy))
 
 class AcctMgmt(object):
 	@cherrypy.expose
