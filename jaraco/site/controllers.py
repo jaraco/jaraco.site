@@ -13,7 +13,7 @@ from jaraco.site import render, output
 try:
 	from croakysteel_util import from_cherrypy
 except ImportError:
-	pass
+	print "Unable to load croakysteel - honeypot will not be available"
 
 import logging
 log = logging.getLogger(__name__)
