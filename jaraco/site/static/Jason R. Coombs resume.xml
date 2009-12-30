@@ -30,8 +30,9 @@
 		</contact>
 	</header>
 	<objective>
-		<para>Apply progressive and pragmatic approaches to computing challenges
-			through agile software engineering</para>
+		<para>Advance civilization through automation, applied as
+			pragmatic approaches to computing challenges through agile
+			software engineering</para>
 	</objective>
 	<academics>
 		<degrees>
@@ -121,7 +122,7 @@
 		<achievements>
 			<achievement>Managed successful project to provide run-time data
 			interoperability between University of Pennsylvania data models in Python
-			and multiple Marine intel data sources, including a SOAP service.
+			and multiple Marine intel data sources, including a SOAP service
 			</achievement>
 			<achievement>Led data integration efforts for FormworX product, including
 			development of XSLT (XML Schema Language Transform)-based solution to
@@ -278,7 +279,7 @@
 		<skillset>
 			<title>Programming Platforms</title>
 				<skill>Python (extensive)</skill>
-				<skill>XML (extensive, incl DOM, XML-Schema, XSL (-T and -FO), CSS, SOAP)</skill>
+				<skill>XML (extensive, incl DOM, XML-Schema, XSL-T, XSL-FO, CSS, SOAP)</skill>
 				<skill>Java, C++ (extensive)</skill>
 				<skill>Javascript, AJAX, OpenLaszlo</skill>
 				<skill>Transact-SQL</skill>
@@ -312,26 +313,28 @@
 			<title>System Administration</title>
 			<description>
 				<para>Administer personal Windows Domain with Exchange Server,
-					 multiple organizational units, and multiple application domains.
-					 Domain integrates with Linux-based wireless router, provides
-					 PPTP/IPSec VPN service, multiple web applications behind IIS
-					 and apache.</para>
+					multiple organizational units, and multiple application domains.
+					Domain integrates with Linux-based wireless router, provides
+					PPTP/IPSec VPN service, multiple web applications behind IIS
+					and apache.</para>
 			</description>
 		</interest>
 		<interest>
 			<title>Open-Source Software Development</title>
 			<description>
-				<para>Wide variety of typically Python-based packages for database
-				management, video capture, and LEGO MindStorms interoperability.</para>
+				<para>Contribute to open source community, including
+				Python core project; Develop a wide variety of typically
+				Python-based packages including database management, video
+				capture, and LEGO MindStorms interoperability.</para>
 			</description>
 		</interest>
 		<interest>
 			<title>Free SSL Certificate Support</title>
 			<description>
 				<para>For cert.startcom.org, developed and maintain a web to text
-					 bridge to enable automated authorization of domains for free
-					 certificate customers around the globe including .gov, .ar,
-					 and .za.</para>
+					bridge to enable automated authorization of domains for free
+					certificate customers around the globe including .gov, .ar,
+					and .za.</para>
 			</description>
 		</interest>
 	</interests>
