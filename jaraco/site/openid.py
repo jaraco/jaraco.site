@@ -2,12 +2,18 @@ from __future__ import absolute_import
 
 import cherrypy
 import os
+import logging
 from jaraco.site import output as default_output, render
 
-from openid.store.filestore import FileOpenIDStore
-from openid.server import server
-from openid.consumer import discover
-from openid.extensions import sreg
+log = logging.getLogger(__name__)
+
+try:
+	from openid.store.filestore import FileOpenIDStore
+	from openid.server import server
+	from openid.consumer import discover
+	from openid.extensions import sreg
+except ImportError:
+	log.error("Unable to import openid modules - OpenID support disabled")
 
 from urlparse import urljoin
 
@@ -141,3 +147,7 @@ class OpenID(object):
 	def request_from_session(self, trust_root):
 		last_request = cherrypy.session.get('last_request', {})
 		return last_request.get(trust_root, None)
+
+# disable the OpenID class if openid modules aren't available
+if not 'FileOpenIDStore' in globals():
+	OpenID = lambda: None
