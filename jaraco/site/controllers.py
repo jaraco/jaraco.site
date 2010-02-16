@@ -111,4 +111,18 @@ class AcctMgmt(object):
 			length=8
 		return render(password=password, length=length)
 
+class IPTool(object):
+	def __init__(self):
+		self.registry = dict()
+
+	@cherrypy.expose
+	def register(self, hostname, ip):
+		self.registry[hostname] = ip
+
+	@cherrypy.expose
+	def report(self):
+		return str(self.registry)
+
+
 Root.acctmgmt = AcctMgmt()
+Root.ip = IPTool()
