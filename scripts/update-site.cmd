@@ -1,1 +1,1 @@
-easy_install https://svn.jaraco.com/jaraco/python/jaraco.site/trunk
+easy_install -Z https://bitbucket.org/jaraco/jaraco.site/get/tip.zip
