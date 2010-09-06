@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
 	name="jaraco.site",
-	version="2.0",
+	use_hg_version=True,
 	description="jaraco.com main website",
 	author="Jason R. Coombs",
 	author_email='jaraco@jaraco.com',
@@ -20,7 +20,7 @@ setup(
 		"isapi-wsgi >= 0.4",
 	],
 	zip_safe=False,
-	packages=find_packages(exclude=['tests']),
+	packages=find_packages(),
 	include_package_data = True,
 	namespace_packages=['jaraco'],
 	keywords=[
@@ -34,4 +34,7 @@ setup(
 	test_suite='nose.collector',
 	entry_points = {
 	},
+	setup_requires = [
+		'hgtools',
+	],
 )
