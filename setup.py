@@ -8,7 +8,7 @@ setup(
 	description="jaraco.com main website",
 	author="Jason R. Coombs",
 	author_email='jaraco@jaraco.com',
-	url='http://svn.jaraco.com/jaraco/python/jaraco.site',
+	url='http://bitbucket.org/jaraco/jaraco.site',
 	#download_url=download_url,
 	license='python',
 
@@ -29,7 +29,6 @@ setup(
 		'Development Status :: 3 - Alpha',
 		'Operating System :: OS Independent',
 		'Programming Language :: Python',
-		'Framework :: TurboGears',
 	],
 	test_suite='nose.collector',
 	entry_points = {
