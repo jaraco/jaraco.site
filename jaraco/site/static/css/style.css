@@ -20,6 +20,8 @@ tr.even td {background-color:#fff;}
 	width: 100%;
 	background: #00a;
 	text-align: center;
+	font-family: 'Tangerine', serif;
+	text-shadow: 4px 4px 4px #aaa;
 }
 
 #header p
