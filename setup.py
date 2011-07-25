@@ -16,6 +16,7 @@ setup_params = dict(
 		"Genshi >= 0.5.0",
 		"lxml >= 2.1.2",
 		"isapi-wsgi >= 0.4",
+		"svg.charts",
 	],
 	zip_safe=False,
 	packages=find_packages(),
@@ -33,6 +34,7 @@ setup_params = dict(
 	setup_requires = [
 		'hgtools',
 	],
+	use_2to3=True,
 )
 
 if __name__ == '__main__':

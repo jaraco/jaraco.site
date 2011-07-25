@@ -3,7 +3,6 @@ import cherrypy
 import os
 from lxml import etree
 import urllib2
-from BeautifulSoup import BeautifulSoup
 import binascii
 import codecs
 from jaraco.util import PasswordGenerator
