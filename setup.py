@@ -2,14 +2,13 @@
 
 from setuptools import setup, find_packages
 
-setup(
+setup_params = dict(
 	name="jaraco.site",
 	use_hg_version=True,
 	description="jaraco.com main website",
 	author="Jason R. Coombs",
 	author_email='jaraco@jaraco.com',
 	url='http://bitbucket.org/jaraco/jaraco.site',
-	#download_url=download_url,
 	license='python',
 
 	install_requires=[
@@ -25,14 +24,16 @@ setup(
 	keywords=[
 	],
 	classifiers=[
-		'Development Status :: 3 - Alpha',
+		'Development Status :: 5 - Production/Stable',
 		'Operating System :: OS Independent',
 		'Programming Language :: Python',
 	],
-	test_suite='nose.collector',
 	entry_points = {
 	},
 	setup_requires = [
 		'hgtools',
 	],
 )
+
+if __name__ == '__main__':
+	setup(**setup_params)
