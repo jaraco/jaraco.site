@@ -16,7 +16,6 @@ setup(
 		"CherryPy >= 3.1.2",
 		"Genshi >= 0.5.0",
 		"lxml >= 2.1.2",
-		"BeautifulSoup",
 		"isapi-wsgi >= 0.4",
 	],
 	zip_safe=False,

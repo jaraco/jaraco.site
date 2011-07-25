@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<!-- $Id$ -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:py="http://genshi.edgewall.org/"
 	xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -13,16 +12,27 @@
 	<title>My Projects</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript">
+		function fill_projects(jaraco) {
+			$.each(jaraco.repositories, function(index, repo) {
+				var href = 'https://bitbucket.org/jaraco/' + repo.slug;
+				var anchor = $('<a>').attr('href', href).text(repo.name);
+				$('<li>').append(anchor).appendTo('#project_list');
+			});
+		}
+		function load_projects()
+		{
+			$.getJSON('https://api.bitbucket.org/1.0/users/jaraco/?callback=?', fill_projects);
+		}
+		$(document).ready(load_projects);
+	</script>
 </head>
 
 <body>
 	<div>Here are some of the projects I'm working on.</div>
-	
-	<ul>
-		<li py:for="project in projects">
-			<a href="/projects/$project" py:content="project" />
-		</li>
+
+	<ul id="project_list">
 	</ul>
 </body>
 </html>

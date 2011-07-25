@@ -30,15 +30,7 @@ class Root(object):
 	@cherrypy.expose
 	@output('project list')
 	def projects(self, name=None):
-		if name: redirect('http://pypi.python.org/pypi/'+name)
-		py_projects = urllib2.urlopen('https://svn.jaraco.com/jaraco/python')
-		soup = BeautifulSoup(py_projects)
-		projects = []
-		for anchor in soup.findAll('a'):
-			href = anchor['href']
-			if 'jaraco' in href:
-				projects.append(href)
-		return render(projects=projects)
+		return render()
 
 	@cherrypy.expose
 	def allurbase(self):
