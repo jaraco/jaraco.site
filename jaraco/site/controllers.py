@@ -9,10 +9,7 @@ from jaraco.util import PasswordGenerator
 from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
 from jaraco.site import render, output
-try:
-	from croakysteel_util import from_cherrypy
-except ImportError:
-	pass
+from jaraco.site.projecthoneypot import from_cherrypy
 
 import logging
 log = logging.getLogger(__name__)
