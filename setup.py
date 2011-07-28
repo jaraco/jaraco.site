@@ -10,7 +10,6 @@ setup_params = dict(
 	author_email='jaraco@jaraco.com',
 	url='http://bitbucket.org/jaraco/jaraco.site',
 	license='python',
-
 	install_requires=[
 		"CherryPy >= 3.1.2",
 		"Genshi >= 0.5.0",
@@ -29,8 +28,11 @@ setup_params = dict(
 		'Operating System :: OS Independent',
 		'Programming Language :: Python',
 	],
-	entry_points = {
-	},
+	entry_points = dict(
+		console_scripts = [
+			'install-jaraco-site = jaraco.site.manage:install',
+		],
+	),
 	setup_requires = [
 		'hgtools',
 	],
