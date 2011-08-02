@@ -25,7 +25,7 @@
 			<instantMessage service="icq">23024493</instantMessage>
 			<instantMessage service="aim">jaracosan</instantMessage>
 			<instantMessage service="y!">jasonrcoombs</instantMessage-->
-			<instantMessage service="XMPP">jaraco@gmail.com</instantMessage>
+			<instantMessage service="XMPP">jaraco@jaraco.com</instantMessage>
 			<instantMessage service="Skype">jasonrcoombs</instantMessage>
 		</contact>
 	</header>
@@ -36,12 +36,29 @@
 	</objective>
 	<history>
 	<job>
+		<jobtitle>Software Engineer</jobtitle>
+		<employer>YouGov</employer>
+		<location><city>London</city></location>
+		<period>
+			<from><date><month>Jun</month><year>2010</year></date></from>
+			<to><present/></to>
+		</period>
+		<achievements>
+			<achievement>Defined deployment procedures programmatically,
+			enabling a fully-automated deployment technique</achievement>
+			<achievement>Provided survey systems with access to external
+			data sources</achievement>
+			<achievement>Reduced error rate improved performance through
+			code quality improvements</achievement>
+		</achievements>
+	</job>
+	<job>
 		<jobtitle>Deputy Technical Director</jobtitle>
 		<employer>Innovative Management Concepts</employer>
 		<location><city>Dulles</city><state>Virginia</state></location>
 		<period>
-				<from><date><month>Oct</month><year>2006</year></date></from>
-				<to><present/></to>
+			<from><date><month>Oct</month><year>2006</year></date></from>
+			<to><date><month>May</month><year>2010</year></date></to>
 		</period>
 		<achievements>
 			<achievement>Managed successful project to provide run-time data
@@ -342,7 +359,7 @@
 		<clearance>
 			<level>Top Secret/SSBI</level>
 			<organization>DSS</organization>
-			<date><year>2006-present</year></date>
+			<date><year>2006-2010</year></date>
 		</clearance>
 		<clearance>
 			<level>Top Secret (Q)</level>
@@ -350,13 +367,13 @@
 			<date><year>1993-2006</year></date>
 		</clearance>
 	</clearances>
-	
+
 	<lastModified>
 		<!-- $Date$ -->
-		<date><dayOfMonth>27</dayOfMonth><month>July</month><year>2009</year></date>
+		<date><dayOfMonth>2</dayOfMonth><month>August</month><year>2011</year></date>
 	</lastModified>
 	<copyright>
-		<year>2008-2009</year>
+		<year>2008-2011</year>
 		<name>
 			<firstname>Jason R.</firstname>
 			<surname>Coombs</surname>
