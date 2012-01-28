@@ -89,11 +89,12 @@ class AcctMgmt(object):
 
 		class userstr(str): pass
 		if length:
-			newpass = auth.PasswordGenerator.make_password(int(length), encoding=None)
+			newpass = auth.PasswordGenerator.make_password(int(length),
+				encoding=None)
 			password = userstr(binascii.b2a_hex(newpass))
 			password.alternatives = []
 			for encoding in ('base-64',):
-				encoded, newlen = codecs.getencoder(encoding)(password)
+				encoded, newlen = codecs.getencoder(encoding)(newpass)
 				password.alternatives.append((encoded, encoding))
 		else:
 			length = 8
