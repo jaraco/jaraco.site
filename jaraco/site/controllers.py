@@ -5,7 +5,7 @@ from lxml import etree
 import urllib2
 import binascii
 import codecs
-from jaraco.util import PasswordGenerator
+from jaraco.util import auth
 from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
 from jaraco.site import render, output
@@ -67,9 +67,9 @@ class AcctMgmt(object):
 		from jaraco.site.sysadmin import NTUser
 		try:
 			if not new_password:
-				raise ValueError, "Blank passwords not allowed"
+				raise ValueError("Blank passwords not allowed")
 			if not new_password == new_password_confirm:
-				raise ValueError, "Passwords don't match"
+				raise ValueError("Passwords don't match")
 			nt = NTUser(username, system or '.')
 			nt.reset(old_password, new_password)
 		except ValueError, e:
@@ -82,21 +82,21 @@ class AcctMgmt(object):
 			response_messages = ['Password change for %(name)s was successful!' % vars()]
 		return render(response_messages=response_messages)
 
-
 	@cherrypy.expose
 	@output('password gen')
 	def password_gen(self, length=None):
 		password = None
+
 		class userstr(str): pass
 		if length:
-			newpass = PasswordGenerator.make_password(int(length), encoding=None)
+			newpass = auth.PasswordGenerator.make_password(int(length), encoding=None)
 			password = userstr(binascii.b2a_hex(newpass))
 			password.alternatives = []
 			for encoding in ('base-64',):
 				encoded, newlen = codecs.getencoder(encoding)(password)
 				password.alternatives.append((encoded, encoding))
 		else:
-			length=8
+			length = 8
 		return render(password=password, length=length)
 
 class IPTool(object):

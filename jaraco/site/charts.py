@@ -9,17 +9,17 @@ from svg.charts.plot import Plot
 from jaraco.site import output, render
 from genshi import XML
 import itertools
-from jaraco.util.iter_ import flatten
+from jaraco.util.itertools import flatten
 import random
 
 def get_random_data_pairs():
-	range = (0,20)
+	range = (0, 20)
 	while True:
 		yield random.randint(*range), random.randint(*range)
 
 def get_data_set():
 	"get 10-15 datapoints"
-	return itertools.islice(get_random_data_pairs(), random.randint(1, 10)+5)
+	return itertools.islice(get_random_data_pairs(), random.randint(1, 10) + 5)
 
 class Charts(object):
 	@cherrypy.expose
@@ -45,7 +45,7 @@ class Charts(object):
 			y_title_text_direction = 'bt',
 		))
 		# add a few random datasets
-		for n in range(1,4):
+		for n in range(1, 4):
 			g.add_data(dict(
 				data = flatten(get_data_set()),
 				title = 'series %d' % n,
