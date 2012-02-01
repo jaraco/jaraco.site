@@ -33,8 +33,8 @@ class Root(object):
 		return str(cherrypy.request.base)
 
 	def get_default_resume_url(self):
-		return urllib2.quote(
-			'http://dl.dropbox.com/u/54081/Jason R. Coombs resume.xml'
+		return 'http://dl.dropbox.com' + urllib2.quote(
+			'/u/54081/Jason R. Coombs resume.xml'
 		)
 
 	@cherrypy.expose
