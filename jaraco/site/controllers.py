@@ -45,7 +45,9 @@ class Root(object):
 			'resume-1.5.1/xsl/output/us-html.xsl',
 			)
 		transform = etree.XSLT(etree.parse(open(transform_name)))
-		src = etree.parse(urllib2.urlopen(url))
+		res = urllib2.urlopen(url)
+		# TODO: update date_modified in the XML from res.headers
+		src = etree.parse(res)
 		return str(transform(src))
 
 	@cherrypy.expose
