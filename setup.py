@@ -13,7 +13,7 @@ setup_params = dict(
 	url='http://bitbucket.org/jaraco/jaraco.site',
 	license='python',
 	install_requires=[
-		"CherryPy >= 3.1.2",
+		"CherryPy >= 3.2.3dev-20120408, <3.3dev",
 		"Genshi >= 0.5.0",
 		"lxml >= 2.1.2",
 		"isapi-wsgi >= 0.4",
@@ -38,6 +38,9 @@ setup_params = dict(
 	),
 	setup_requires = [
 		'hgtools',
+	],
+	dependency_links = [
+		'http://dl.dropbox.com/u/54081/cheeseshop/index.html',
 	],
 	use_2to3=True,
 )
