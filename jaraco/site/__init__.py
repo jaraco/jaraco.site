@@ -1,37 +1,13 @@
 import os
+import importlib
+
 import cherrypy
 from genshi.core import Stream
 from genshi.output import encode, get_serializer
 from genshi.template import Context, TemplateLoader
 
 def init():
-	from jaraco.site.controllers import Root
-	cherrypy.config.update({
-		'tools.encode.on': True, 'tools.encode.encoding': 'utf-8',
-		'tools.decode.on': True,
-		'tools.sessions.on': True,
-		'tools.trailing_slash.on': True,
-		'tools.staticdir.root': os.path.abspath(os.path.dirname(__file__)),
-	})
-
-	import jaraco.site.sspi
-	basic_auth = {
-		'tools.auth_basic.on': True,
-		'tools.auth_basic.realm': 'jaraco.com',
-		'tools.auth_basic.checkpassword': jaraco.site.sspi.check,
-	}
-
-	app = cherrypy.tree.mount(Root(), '/', {
-		'/static': {
-			'tools.staticdir.on': True,
-			'tools.staticdir.dir': 'static',
-			'tools.staticdir.content_types': dict(svg='image/svg+xml'),
-		},
-		'/auth': basic_auth,
-		'/openid/server': basic_auth,
-	})
-
-	return app
+	importlib.import_module('jaraco.site.run')
 
 class DefaultExtensionTemplateLoader(TemplateLoader):
 	"""
