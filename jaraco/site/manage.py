@@ -1,6 +1,7 @@
 from __future__ import print_function
 
 import os
+import sys
 import shutil
 import subprocess
 
@@ -19,7 +20,7 @@ def install():
 		shutil.copy(pkg_resources.resource_filename('jaraco.site', script_name),
 			os.path.join(base, script))
 	create_site()
-	print("Don't forget you still need to run the scripts in", base)
+	register_isapi()
 
 def create_site():
 	app_cmd = r'\windows\system32\inetsrv\appcmd.exe'
@@ -41,4 +42,12 @@ def create_site():
 		'set', 'app',
 		'Primary Web Site/',
 		'/applicationPool:Primary Web Site',
+	])
+
+def register_isapi():
+	subprocess.check_call([
+		sys.executable,
+		'/inetpub/jaraco.site/isapiapp.py',
+		'install',
+		'--server=Primary Web Site',
 	])
