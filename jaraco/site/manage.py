@@ -22,27 +22,41 @@ def install():
 	create_site()
 	register_isapi()
 
-def create_site():
-	app_cmd = r'\windows\system32\inetsrv\appcmd.exe'
-	subprocess.check_call([
-		app_cmd,
-		'add', 'site',
-		'/id:3', '/name:Primary Web Site',
-		r'/physicalPath:c:\inetpub\jaraco.site',
-		'/bindings:http/*:80:www.jaraco.com,https/*:443:www.jaraco.com',
-		],
+def appcmd(cmd, **kwargs):
+	if isinstance(cmd, basestring):
+		cmd = cmd.split()
+	args = [
+		'/{key}:{value}'.format(**vars())
+		for key, value in kwargs.items()
+	]
+	return subprocess.check_call([
+		r'\Windows\System32\InetSrv\appcmd.exe',
+		] + cmd + args)
+
+bindings = 'http/*:80:www.jaraco.com,https/*:443:www.jaraco.com'
+
+def reset_bindings():
+	"""
+	Creating the site unfortunately doesn't assign the certificate, and
+	setting the certificate manually disallows setting the https hostname,
+	so the bindings need to be reset.
+	See http://sarafianalex.wordpress.com/2010/08/04/setting-host-name-on-ssl-binding-on-iis7/
+	"""
+	appcmd('set site',
+		name = 'Primary Web Site',
+		bindings = bindings,
 	)
-	subprocess.check_call([
-		app_cmd,
-		'add', 'apppool',
-		'/name:Primary Web Site',
-	])
-	subprocess.check_call([
-		app_cmd,
-		'set', 'app',
-		'Primary Web Site/',
-		'/applicationPool:Primary Web Site',
-	])
+
+def create_site():
+	appcmd('add site',
+		id=3,
+		name = 'Primary Web Site',
+		physicalPath = r'C:\InetPub\jaraco.site',
+		bindings = bindings,
+	)
+	appcmd('add apppool', name='Primary Web Site')
+	appcmd('set app', name="Primary Web Site",
+		applicationPool="Primary Web Site")
 
 def register_isapi():
 	subprocess.check_call([

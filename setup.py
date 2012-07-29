@@ -33,7 +33,8 @@ setup_params = dict(
 	],
 	entry_points = dict(
 		console_scripts = [
-			'install-jaraco-site = jaraco.site.manage:install',
+			'jaraco-site-install = jaraco.site.manage:install',
+			'jaraco-site-reset-bindings = jaraco.site.manage:reset_bindings',
 		],
 	),
 	setup_requires = [
