@@ -7,7 +7,7 @@ from genshi.output import encode, get_serializer
 from genshi.template import Context, TemplateLoader
 
 def init():
-	importlib.import_module('jaraco.site.run')
+	return importlib.import_module('jaraco.site.run').app
 
 class DefaultExtensionTemplateLoader(TemplateLoader):
 	"""
