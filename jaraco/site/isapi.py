@@ -12,10 +12,12 @@ import sys
 import os
 import isapi_wsgi
 import traceback
+import importlib
+
 import isapi
 
 if hasattr(sys, "isapidllhandle"):
-	import win32traceutil
+	importlib.import_module('win32traceutil')
 
 def setup_environment(entry_file):
 	"""
