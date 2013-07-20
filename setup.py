@@ -1,8 +1,4 @@
-import sys
-
 from setuptools import setup, find_packages
-
-py26_reqs = ['importlib'] if sys.version_info < (2, 7) else []
 
 setup_params = dict(
 	name="jaraco.site",
@@ -19,7 +15,7 @@ setup_params = dict(
 		"isapi-wsgi >= 0.4",
 		"svg.charts",
 		'jaraco.util>=5.0.1',
-	] + py26_reqs,
+	],
 	zip_safe=False,
 	packages=find_packages(),
 	include_package_data = True,
