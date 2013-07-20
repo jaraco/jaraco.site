@@ -25,7 +25,6 @@ class OpenID(object):
 	_base_url = 'http://drake.jaraco.com:8080/openid/'
 	def __init__(self):
 		store_loc = os.path.join(os.path.dirname(__file__), 'openid store')
-		store = FileOpenIDStore(store_loc)
 		self.store = FileOpenIDStore(store_loc)
 		self.openid = server.Server(self.store, self.endpoint_url)
 
@@ -69,7 +68,7 @@ class OpenID(object):
 		try:
 			params = cherrypy.request.params
 			openid_request = self.openid.decodeRequest(params)
-		except server.ProtocolError, openid_error:
+		except server.ProtocolError as openid_error:
 			return self.handle_openid_response(openid_error)
 
 		if openid_request is None:
@@ -86,7 +85,7 @@ class OpenID(object):
 			body = web_resp.body or ''
 			cherrypy.response.status = web_resp.code
 			cherrypy.response.headers.update(web_resp.headers)
-		except server.EncodingError, err:
+		except server.EncodingError as err:
 			body = err.response.encodeToKVForm()
 			cherrypy.response.status = 400
 			cherrypy.response.headers['Content-Type'] = 'text/plain; charset=UTF-8'
@@ -114,16 +113,16 @@ class OpenID(object):
 		assert len(set(['yes', 'no']).intersection(kwargs)) == 1, "Expected yes or no in allow post"
 		affirmative = 'yes' in kwargs
 		openid_response = openid_request.answer(affirmative)
-		
+
 		if affirmative:
 			self.add_sreg_fields(openid_request, kwargs, openid_response)
-		
+
 		if kwargs.get('remember', 'no') == 'yes':
 			remember_value = ['never', 'always'][affirmative]
 			cherrypy.session[(open_identity, openid_request.trust_root)] = remember_value
-		
+
 		return self.handle_openid_response(openid_response)
-	
+
 	def add_sreg_fields(self, request, params, response):
 		sreg_req = sreg.SRegRequest.fromOpenIDRequest(request)
 		fields = sreg_req.allRequestedFields()
