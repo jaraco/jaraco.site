@@ -1,5 +1,8 @@
 from __future__ import absolute_import
 
+import functools
+
+from jaraco.util import exceptions
 from sspi import ClientAuth, ServerAuth
 
 def validate(username, password, domain = ""):
@@ -14,8 +17,5 @@ def validate(username, password, domain = ""):
 	# If we get here without exception, we worked!
 
 def check(realm, username, password):
-	try:
-		validate(username, password, realm)
-	except Exception:
-		return False
-	return True
+	do_validate = functools.partial(validate, username, password, realm)
+	return not exceptions.throws_exception(do_validate)
