@@ -43,7 +43,6 @@ setup_params = dict(
 	dependency_links = [
 		'http://dl.dropbox.com/u/54081/cheeseshop/index.html',
 	],
-	use_2to3=True,
 )
 
 if __name__ == '__main__':
