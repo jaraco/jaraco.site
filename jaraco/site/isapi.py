@@ -1,10 +1,12 @@
-from __future__ import absolute_import, print_function
-
 """
 Things to remember when deploying an isapi_wsgi app:
- - easy_install munges permissions on zip eggs (the easiest solution is to just install them with -Z)
- - any dependency that's installed in a user folder (i.e. setup develop) will probably not work due to insufficient permissions
+	- easy_install munges permissions on zip eggs (the easiest solution is to
+	just install them with -Z)
+	- any dependency that's installed in a user folder (i.e. setup develop)
+	will probably not work due to insufficient permissions
 """
+
+from __future__ import absolute_import, print_function
 
 import sys
 import os
