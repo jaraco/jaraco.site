@@ -5,6 +5,7 @@ import sys
 import shutil
 import subprocess
 
+import six
 import pkg_resources
 
 def install():
@@ -23,7 +24,7 @@ def install():
 	register_isapi()
 
 def appcmd(cmd, **kwargs):
-	if isinstance(cmd, basestring):
+	if isinstance(cmd, six.string_types):
 		cmd = cmd.split()
 	args = [
 		'/{key}:{value}'.format(**vars())

@@ -1,6 +1,7 @@
 import os
 import importlib
 
+import six
 import cherrypy
 from genshi.core import Stream
 from genshi.output import encode, get_serializer
@@ -56,7 +57,7 @@ def render(template_name=None, **kwargs):
 	"""Function to render the given data to the template specified via the
 	``@output`` decorator.
 	"""
-	if isinstance(template_name, basestring):
+	if isinstance(template_name, six.string_types):
 		cherrypy.thread_data.template = loader.load(template_name)
 	ctxt = Context(url=cherrypy.url)
 	ctxt.push(kwargs)

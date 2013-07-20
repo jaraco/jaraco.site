@@ -15,6 +15,7 @@ setup_params = dict(
 		"isapi-wsgi >= 0.4",
 		"svg.charts",
 		'jaraco.util>=5.0.1',
+		"six",
 	],
 	zip_safe=False,
 	packages=find_packages(),
