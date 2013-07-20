@@ -10,12 +10,18 @@ from __future__ import absolute_import, print_function
 
 import sys
 import os
-import isapi_wsgi
 import traceback
 import importlib
 
+import isapi_wsgi
+import isapi.install
+
+import jaraco.site
+
 if hasattr(sys, "isapidllhandle"):
 	importlib.import_module('win32traceutil')
+
+appdir = None
 
 def setup_environment(entry_file):
 	"""
@@ -32,7 +38,6 @@ def setup_environment(entry_file):
 	os.chdir(appdir)
 
 def setup_application():
-	import jaraco.site
 	print("starting cherrypy application server")
 	app = jaraco.site.init()
 	print("successfully set up the application")
@@ -51,7 +56,6 @@ def factory():
 
 def handle_command_line():
 	"Install or remove the extension to the virtual directory"
-	import isapi.install
 	params = isapi.install.ISAPIParameters()
 	# Setup the virtual directories - this is a list of directories our
 	# extension uses - in this case only 1.
