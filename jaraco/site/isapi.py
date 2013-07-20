@@ -50,9 +50,8 @@ def factory():
 	except:
 		print("Traceback occurred starting up the application")
 		traceback.print_exc()
-		f = open(os.path.join(appdir, 'critical error.txt'), 'w')
-		traceback.print_exc(file=f)
-		f.close()
+		with open(os.path.join(appdir, 'critical error.txt'), 'w') as f:
+			traceback.print_exc(file=f)
 
 def handle_command_line():
 	"Install or remove the extension to the virtual directory"
