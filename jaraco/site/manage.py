@@ -43,13 +43,15 @@ def reset_bindings():
 	so the bindings need to be reset.
 	See http://sarafianalex.wordpress.com/2010/08/04/setting-host-name-on-ssl-binding-on-iis7/
 	"""
-	appcmd('set site',
+	appcmd(
+		'set site',
 		name = 'Primary Web Site',
 		bindings = bindings,
 	)
 
 def create_site():
-	appcmd('add site',
+	appcmd(
+		'add site',
 		id=3,
 		name = 'Primary Web Site',
 		physicalPath = r'C:\InetPub\jaraco.site',
