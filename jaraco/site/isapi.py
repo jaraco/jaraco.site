@@ -14,8 +14,6 @@ import isapi_wsgi
 import traceback
 import importlib
 
-import isapi
-
 if hasattr(sys, "isapidllhandle"):
 	importlib.import_module('win32traceutil')
 
