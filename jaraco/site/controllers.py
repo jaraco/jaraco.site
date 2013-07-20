@@ -75,14 +75,16 @@ class AcctMgmt(object):
 				raise ValueError("Passwords don't match")
 			nt = NTUser(username, system or '.')
 			nt.reset(old_password, new_password)
-		except ValueError, e:
+		except ValueError as e:
 			response_messages = [
 				'Password change has failed.',
 				str(e),
 				]
 		else:
-			name = nt.user.FullName
-			response_messages = ['Password change for %(name)s was successful!' % vars()]
+			response_messages = [
+				'Password change for {nt.user.FullName} was successful!'
+				.format(**vars())
+			]
 		return render(response_messages=response_messages)
 
 	@cherrypy.expose
