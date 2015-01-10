@@ -16,6 +16,7 @@ setup_params = dict(
 		"svg.charts",
 		'jaraco.util>=5.0.1',
 		"six",
+		'mock',
 	],
 	zip_safe=False,
 	packages=find_packages(),
