@@ -5,7 +5,7 @@ with mock.patch(sys, 'dont_write_bytecode', True):
 	from croakysteel import from_zope, __file__ as cs_file
 
 if not cs_file.endswith('.py'):
-	print "croakysteel file is %s" % cs_file
+	print("croakysteel file is", cs_file)
 	import os
 	import croakysteel
 	base = os.path.dirname(cs_file)
