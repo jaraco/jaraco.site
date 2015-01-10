@@ -15,7 +15,7 @@ try:
 except ImportError:
 	log.error("Unable to import openid modules - OpenID support disabled")
 
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 def output(path, *args, **kwargs):
 	return default_output('openid/{0}'.format(path), *args, **kwargs)

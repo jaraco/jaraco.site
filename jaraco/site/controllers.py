@@ -1,5 +1,6 @@
 import os
-import urllib2
+import urllib.request
+import urllib.parse
 import binascii
 import codecs
 
@@ -34,7 +35,7 @@ class Root(object):
 		return str(cherrypy.request.base)
 
 	def get_default_resume_url(self):
-		return 'http://dl.dropbox.com' + urllib2.quote(
+		return 'http://dl.dropbox.com' + urllib.parse.quote(
 			'/u/54081/Jason R. Coombs resume.xml'
 		)
 
@@ -46,7 +47,7 @@ class Root(object):
 			'resume-1.5.1/xsl/output/us-html.xsl',
 			)
 		transform = etree.XSLT(etree.parse(open(transform_name)))
-		res = urllib2.urlopen(url)
+		res = urllib.request.urlopen(url)
 		# TODO: update date_modified in the XML from res.headers
 		src = etree.parse(res)
 		return str(transform(src))
