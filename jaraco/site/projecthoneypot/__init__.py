@@ -4,8 +4,8 @@ import os
 import mock
 import cherrypy
 
-with mock.patch(sys, 'dont_write_bytecode', True):
-	import croakysteel
+with mock.patch.object(sys, 'dont_write_bytecode', True):
+	from . import croakysteel
 
 cs_file = croakysteel.__file__
 if not cs_file.endswith('.py'):
