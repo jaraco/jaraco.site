@@ -1,13 +1,14 @@
 import sys
+import os
+
 import mock
 
 with mock.patch(sys, 'dont_write_bytecode', True):
-	from croakysteel import from_zope, __file__ as cs_file
+	import croakysteel
 
+cs_file = croakysteel.__file__
 if not cs_file.endswith('.py'):
 	print("croakysteel file is", cs_file)
-	import os
-	import croakysteel
 	base = os.path.dirname(cs_file)
 	croakysteel.__file__ = os.path.join(base, 'croakysteel.py')
 
@@ -29,4 +30,4 @@ class CherryPyZopeRequestAdapter(dict):
 		self.update(PATH_INFO = req.path_info)
 
 def from_cherrypy():
-	return from_zope(CherryPyZopeRequestAdapter())
+	return croakysteel.from_zope(CherryPyZopeRequestAdapter())
