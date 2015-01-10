@@ -1,11 +1,12 @@
-
-import cherrypy
 import os
-from lxml import etree
 import urllib2
 import binascii
 import codecs
+
+import cherrypy
+from lxml import etree
 from jaraco.util import auth
+
 from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
 from jaraco.site import render, output
