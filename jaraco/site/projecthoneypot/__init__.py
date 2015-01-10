@@ -2,6 +2,7 @@ import sys
 import os
 
 import mock
+import cherrypy
 
 with mock.patch(sys, 'dont_write_bytecode', True):
 	import croakysteel
@@ -17,7 +18,6 @@ class CherryPyZopeRequestAdapter(dict):
 	An adapter that mimicks the Zope request object.
 	"""
 	def __init__(self):
-		import cherrypy
 		req = cherrypy.request
 		for header, val in req.headers.items():
 			header = 'HTTP_' + header.upper().replace('-', '_')
