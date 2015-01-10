@@ -26,7 +26,7 @@ setup_params = dict(
 	classifiers=[
 		'Development Status :: 5 - Production/Stable',
 		'Operating System :: OS Independent',
-		'Programming Language :: Python',
+		'Programming Language :: Python :: 3',
 	],
 	entry_points = dict(
 		console_scripts = [
