@@ -345,14 +345,14 @@ del _getRobotHTML, _getStyleHTML, _getTopHTML, _getVanityHTML
 
 def from_cgi( _getSettings = _getSettings, _makeHTML = _makeHTML ):
     """This function is to be called by CGI scripts.  It will print
-    (to standard output) the Content-Type header and full page HTML
+    (to standard output) the Content-Type header and full page HTML)
     for your honeypot."""
-    print "Content-Type: text/html"
-    print "Cache-Control: no-cache"
-    print
+    print("Content-Type: text/html")
+    print("Cache-Control: no-cache")
+    print()
     import os
     settings = _getSettings( os.environ )
-    print _makeHTML( settings )
+    print(_makeHTML( settings ))
 
 
 try:
