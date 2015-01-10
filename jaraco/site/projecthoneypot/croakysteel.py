@@ -257,7 +257,7 @@ def _prepareRequest( REQUEST, forcePortNumber = None,
 del _whoAmI, __HPOT_TAG1, __HPOT_TAG2, __HPOT_TAG3
 
 def _transcribeResponse( response ):
-    import urllib
+    import urllib.parse
     settings = {}
     isParam = 0
     for line in response.split( "\n" ):
@@ -265,7 +265,7 @@ def _transcribeResponse( response ):
             isParam = 0
         if isParam:
             pieces = line.split( "=", 1 )
-            settings[ pieces[ 0 ] ] = urllib.unquote_plus( pieces[ 1 ] )
+            settings[ pieces[ 0 ] ] = urllib.parse.unquote_plus( pieces[ 1 ] )
         if line == "<BEGIN>":
             isParam = 1
     if settings.has_key( "directives" ):
@@ -284,10 +284,10 @@ def _getSettings( REQUEST, forcePortNumber = None,
                   _performRequest = _performRequest,
                   _prepareRequest = _prepareRequest,
                   _transcribeResponse = _transcribeResponse ):
-    import urllib
+    import urllib.parse
     request = []
     for k, v in _prepareRequest( REQUEST, forcePortNumber ).items():
-        request.append( k + "=" + urllib.quote( v ) )
+        request.append( k + "=" + urllib.parse.quote( v ) )
     request = "&".join( request )
     response = _performRequest( request )
     return _transcribeResponse( response )
