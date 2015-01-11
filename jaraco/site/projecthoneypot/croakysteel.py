@@ -272,7 +272,7 @@ def _transcribeResponse( response ):
         settings[ "directives" ] = settings[ "directives" ].split( "," )
     else:
         settings[ "directives" ] = [ "1" ] * 10
-    settings[ "directives" ] = map( int, settings[ "directives" ] )
+    settings[ "directives" ] = list( map( int, settings[ "directives" ] ) )
     for k, v in settings.items():
         try:
             settings[ k ] = int( v )
