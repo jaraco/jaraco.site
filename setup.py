@@ -17,6 +17,7 @@ setup_params = dict(
 		'jaraco.util>=5.0.1',
 		"six",
 		'mock',
+		'requests',
 	],
 	zip_safe=False,
 	packages=find_packages(),
