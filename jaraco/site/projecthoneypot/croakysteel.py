@@ -228,8 +228,8 @@ def _whoAmI():
     except:
         import sys
         r = sys.argv[ 0 ]
-    body = open( r ).read()
-    body = body.split( "\n", 1 )[ 1 ]
+    body = open( r, 'rb' ).read()
+    body = body.split( b"\n", 1 )[ 1 ]
     return hashlib.md5( body ).hexdigest()
 
 def _prepareRequest( REQUEST, forcePortNumber = None,
