@@ -268,7 +268,7 @@ def _transcribeResponse( response ):
             settings[ pieces[ 0 ] ] = urllib.parse.unquote_plus( pieces[ 1 ] )
         if line == "<BEGIN>":
             isParam = 1
-    if settings.has_key( "directives" ):
+    if "directives" in settings:
         settings[ "directives" ] = settings[ "directives" ].split( "," )
     else:
         settings[ "directives" ] = [ "1" ] * 10
