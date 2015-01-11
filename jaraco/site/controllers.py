@@ -7,6 +7,7 @@ import codecs
 import cherrypy
 from lxml import etree
 from jaraco.util import auth
+import requests
 
 from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
@@ -16,9 +17,29 @@ from jaraco.site.projecthoneypot import from_cherrypy
 import logging
 log = logging.getLogger(__name__)
 
+
+class Downloader:
+	@cherrypy.expose
+	@output('downloader')
+	def index(self):
+		return render()
+
+	@cherrypy.expose
+	def download(self, name, url, submit):
+		filename = name + '.mp4'
+		referer = 'http://permaculture.kajabi.com/posts/earthworks-introduction'
+		headers = dict(Referer=referer)
+		resp = requests.get(url, stream=True, headers=headers)
+		resp.raise_for_status()
+		cd = 'attachment; filename="{filename}"'.format_map(locals())
+		cherrypy.response.headers['Content-Disposition'] = cd
+		return resp.iter_content()
+
+
 class Root(object):
 	charts = Charts()
 	openid = OpenID()
+	downloader = Downloader()
 
 	@cherrypy.expose
 	@output('welcome')
@@ -59,6 +80,7 @@ class Root(object):
 	@cherrypy.expose
 	def croakysteel_py(self):
 		return from_cherrypy()
+
 
 class AcctMgmt(object):
 	@cherrypy.expose

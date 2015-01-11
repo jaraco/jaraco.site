@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+
+<head>
+    <title>Downloader</title>
+</head>
+
+<body>
+    <h1>Enter URL</h1>
+    <form action="download" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" />
+        <label for="url">URL: </label>
+        <input type="text" id="url" name="url" />
+        <input type="submit" name="submit" value="submit" />
+    </form>
+</body>
+</html>
