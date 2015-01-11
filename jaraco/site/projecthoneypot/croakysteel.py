@@ -210,13 +210,13 @@ def _performRequest( request,
                      __REQUEST_PORT = __REQUEST_PORT,
                      __REQUEST_SCRIPT = __REQUEST_SCRIPT,
                      __HPOT_TAG2 = __HPOT_TAG2 ):
-    import httplib
+    import http.client
     headers = { "User-Agent": "PHPot" + " " + __HPOT_TAG2,
                 "Host": __REQUEST_HOST,
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Connection": "close",
                 }
-    h = httplib.HTTPConnection( "%s:%s" % ( __REQUEST_HOST, __REQUEST_PORT ) )
+    h = http.client.HTTPConnection( "%s:%s" % ( __REQUEST_HOST, __REQUEST_PORT ) )
     h.request( "POST", __REQUEST_SCRIPT, request, headers )
     return h.getresponse().read()
 del __REQUEST_HOST, __REQUEST_PORT, __REQUEST_SCRIPT
