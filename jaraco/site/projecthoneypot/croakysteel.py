@@ -218,7 +218,7 @@ def _performRequest( request,
                 }
     h = http.client.HTTPConnection( "%s:%s" % ( __REQUEST_HOST, __REQUEST_PORT ) )
     h.request( "POST", __REQUEST_SCRIPT, request, headers )
-    return h.getresponse().read()
+    return h.getresponse().read().decode('utf-8')
 del __REQUEST_HOST, __REQUEST_PORT, __REQUEST_SCRIPT
 
 def _whoAmI():
