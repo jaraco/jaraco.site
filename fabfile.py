@@ -5,6 +5,10 @@ To install on a clean Ubuntu Trusty box, simply run
 fab bootstrap
 """
 
+import contextlib
+import os
+import subprocess
+
 from fabric.api import sudo, run, task, env
 from fabric.contrib import files
 from jaraco.fabric import apt
@@ -65,7 +69,7 @@ def install_to(root, version=None, use_sudo=False):
 def remove_all():
 	sudo('stop jaraco-site || echo -n')
 	sudo('rm /etc/init/jaraco-site.conf || echo -n')
-	sudo('rm -Rf /opt/jaraco-site')
+	sudo('rm -Rf /opt/jaraco.com')
 
 @task
 def configure_nginx():
@@ -78,4 +82,31 @@ def configure_nginx():
 		'../sites-available/jaraco.com '
 		'/etc/nginx/sites-enabled/'
 	)
+	if not files.exists('/opt/jaraco.com/jaraco.com.pem'):
+		install_cert()
 	sudo('service nginx restart')
+
+@task
+def install_cert():
+	with generate_pem() as source:
+		target = '/opt/jaraco.com/'
+		files.upload_template(filename=source, destination=target,
+			use_sudo=True)
+
+@contextlib.contextmanager
+def generate_pem():
+	root = os.path.expanduser('~/Documents/Computing/Certificates')
+	source = os.path.join(root, 'star.jaraco.com (2013).pfx')
+	target = 'jaraco.com.pem'
+	cmd = [
+		'openssl',
+		'pkcs12',
+		'-in', source,
+		'-out', target,
+		'-nodes',
+	]
+	subprocess.check_call(cmd)
+	try:
+		yield target
+	finally:
+		os.remove(target)

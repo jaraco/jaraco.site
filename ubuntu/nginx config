@@ -8,6 +8,19 @@ server {
 
         server_name jaraco.com www.jaraco.com;
 
+        return 301 https://$host$request_uri;
+}
+
+server {
+        listen 443;
+        listen [::]:443;
+
+        ssl on;
+        ssl_certificate /opt/jaraco.com/jaraco.com.pem;
+        ssl_certificate_key /opt/jaraco.com/jaraco.com.pem;
+
+        server_name jaraco.com www.jaraco.com;
+
         location / {
                 proxy_pass http://jaraco-site-procs;
                 proxy_redirect off;
