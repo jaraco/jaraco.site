@@ -33,10 +33,11 @@ setup_params = dict(
 		"lxml>=2.1.2",
 		"isapi-wsgi>=0.4",
 		"svg.charts",
-		'jaraco.util>=5.0.1',
+		'jaraco.util>=11.0',
 		"six",
 		'mock',
 		'requests',
+		'more_itertools',
 	],
 	setup_requires=[
 		'setuptools_scm',

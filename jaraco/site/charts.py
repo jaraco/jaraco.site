@@ -9,8 +9,10 @@ from svg.charts.plot import Plot
 from jaraco.site import output, render
 from genshi import XML
 import itertools
-from jaraco.util.itertools import flatten
 import random
+
+from more_itertools.recipes import flatten
+
 
 def get_random_data_pairs():
 	range = (0, 20)
