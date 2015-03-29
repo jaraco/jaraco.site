@@ -4,9 +4,8 @@ import os
 from lxml import etree
 
 class Renderer:
-	url = 'http://dl.dropbox.com' + urllib.parse.quote(
-			'/u/54081/Jason R. Coombs resume.xml'
-		)
+	url = 'https://dl.dropbox.com'
+	url += urllib.parse.quote('/u/54081/Jason R. Coombs resume.xml')
 
 	def __init__(self, url=None):
 		if url:
