@@ -22,3 +22,12 @@ class Renderer:
 		# TODO: update date_modified in the XML from res.headers
 		src = etree.parse(res)
 		return str(transform(src))
+
+	def pdf(self):
+		# TODO: use subprocess and fop to render the output
+		cmd = [
+			'fop'
+			'-xml', '-',
+			'-xsl', transform_name,
+			'-',
+		]
