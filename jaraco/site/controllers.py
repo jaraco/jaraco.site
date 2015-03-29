@@ -57,6 +57,11 @@ class Root(object):
 		return resume.Renderer(url).html()
 
 	@cherrypy.expose
+	def resume_pdf(self, url=None):
+		cherrypy.response.headers['Content-Type'] = 'application/pdf'
+		return resume.Renderer(url).pdf()
+
+	@cherrypy.expose
 	def auth(self):
 		return "You authenticated as %s" % cherrypy.request.login
 
