@@ -1,6 +1,8 @@
 import urllib.parse
 import urllib.request
 import os
+import subprocess
+
 from lxml import etree
 
 class Renderer:
@@ -11,12 +13,13 @@ class Renderer:
 		if url:
 			self.url = url
 
+	transform_path = os.path.join(
+		os.path.dirname(__file__), 'static',
+		'resume-1.5.1/xsl/output/us-html.xsl',
+		)
+
 	def html(self):
-		transform_name = os.path.join(
-			os.path.dirname(__file__), 'static',
-			'resume-1.5.1/xsl/output/us-html.xsl',
-			)
-		transform = etree.XSLT(etree.parse(open(transform_name)))
+		transform = etree.XSLT(etree.parse(open(self.transform_path)))
 		res = urllib.request.urlopen(self.url)
 		# TODO: update date_modified in the XML from res.headers
 		src = etree.parse(res)
@@ -25,8 +28,14 @@ class Renderer:
 	def pdf(self):
 		# TODO: use subprocess and fop to render the output
 		cmd = [
-			'fop'
+			'fop',
 			'-xml', '-',
-			'-xsl', transform_name,
+			'-xsl', self.transform_path.replace('us-html', 'us-letter'),
 			'-',
 		]
+		res = urllib.request.urlopen(self.url)
+		data = res.read()
+		proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+			stdin=subprocess.PIPE)
+		stdout, stderr = proc.communicate(data)
+		return stdout
