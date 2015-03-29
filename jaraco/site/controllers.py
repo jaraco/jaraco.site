@@ -1,11 +1,7 @@
-import os
-import urllib.request
-import urllib.parse
 import binascii
 import codecs
 
 import cherrypy
-from lxml import etree
 from jaraco.util import auth
 import requests
 
@@ -13,6 +9,7 @@ from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
 from jaraco.site import render, output
 from jaraco.site.projecthoneypot import from_cherrypy
+from . import resume
 
 import logging
 log = logging.getLogger(__name__)
@@ -55,23 +52,9 @@ class Root(object):
 	def allurbase(self):
 		return str(cherrypy.request.base)
 
-	def get_default_resume_url(self):
-		return 'http://dl.dropbox.com' + urllib.parse.quote(
-			'/u/54081/Jason R. Coombs resume.xml'
-		)
-
 	@cherrypy.expose
 	def resume(self, url=None):
-		url = url or self.get_default_resume_url()
-		transform_name = os.path.join(
-			os.path.dirname(__file__), 'static',
-			'resume-1.5.1/xsl/output/us-html.xsl',
-			)
-		transform = etree.XSLT(etree.parse(open(transform_name)))
-		res = urllib.request.urlopen(url)
-		# TODO: update date_modified in the XML from res.headers
-		src = etree.parse(res)
-		return str(transform(src))
+		return resume.Renderer(url).html()
 
 	@cherrypy.expose
 	def auth(self):
