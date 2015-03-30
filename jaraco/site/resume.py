@@ -24,7 +24,6 @@ class Renderer:
 		Load self.url and return a readable stream.
 		"""
 		res = urllib.request.urlopen(self.url)
-		# TODO: update date_modified in the XML from res.headers
 		return res
 
 	def html(self):
