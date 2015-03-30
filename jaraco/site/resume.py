@@ -23,8 +23,7 @@ class Renderer:
 		"""
 		Load self.url and return a readable stream.
 		"""
-		res = urllib.request.urlopen(self.url)
-		return res
+		return urllib.request.urlopen(self.url)
 
 	def html(self):
 		transform_path = self.get_transform_path('us-html')
