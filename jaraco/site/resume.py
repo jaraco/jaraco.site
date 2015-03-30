@@ -13,10 +13,11 @@ class Renderer:
 		if url:
 			self.url = url
 
-	transform_path = os.path.join(
-		os.path.dirname(__file__), 'static',
-		'resume-1.5.1/xsl/output/us-html.xsl',
-		)
+	def get_transform_path(self, output_name):
+		path_tmpl = 'resume-1.5.1/xsl/output/{output_name}.xsl'
+		path = path_tmpl.format(**locals())
+		here = os.path.dirname(__file__)
+		return os.path.join(here, 'static', path)
 
 	def load_url(self):
 		"""
@@ -27,7 +28,8 @@ class Renderer:
 		return res
 
 	def html(self):
-		transform = etree.XSLT(etree.parse(open(self.transform_path)))
+		transform_path = self.get_transform_path('us-html')
+		transform = etree.XSLT(etree.parse(open(transform_path)))
 		src = etree.parse(self.load_url())
 		return str(transform(src))
 
@@ -36,7 +38,7 @@ class Renderer:
 		cmd = [
 			'fop',
 			'-xml', '-',
-			'-xsl', self.transform_path.replace('us-html', 'us-letter'),
+			'-xsl', self.get_transform_path('us-letter'),
 			'-',
 		]
 		data = self.load_url().read()
