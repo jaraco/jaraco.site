@@ -18,11 +18,17 @@ class Renderer:
 		'resume-1.5.1/xsl/output/us-html.xsl',
 		)
 
-	def html(self):
-		transform = etree.XSLT(etree.parse(open(self.transform_path)))
+	def load_url(self):
+		"""
+		Load self.url and return a readable stream.
+		"""
 		res = urllib.request.urlopen(self.url)
 		# TODO: update date_modified in the XML from res.headers
-		src = etree.parse(res)
+		return res
+
+	def html(self):
+		transform = etree.XSLT(etree.parse(open(self.transform_path)))
+		src = etree.parse(self.load_url())
 		return str(transform(src))
 
 	def pdf(self):
@@ -33,8 +39,7 @@ class Renderer:
 			'-xsl', self.transform_path.replace('us-html', 'us-letter'),
 			'-',
 		]
-		res = urllib.request.urlopen(self.url)
-		data = res.read()
+		data = self.load_url().read()
 		proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
 			stdin=subprocess.PIPE)
 		stdout, stderr = proc.communicate(data)
