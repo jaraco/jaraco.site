@@ -34,7 +34,7 @@ class Renderer:
 		return str(transform(src))
 
 	def pdf(self):
-		# TODO: use subprocess and fop to render the output
+		"use subprocess and fop to render the output"
 		cmd = [
 			'fop',
 			'-xml', '-',
