@@ -58,8 +58,10 @@ class Root(object):
 
 	@cherrypy.expose
 	def resume_pdf(self, url=None):
+		res = resume.Renderer(url).pdf()
+		# only set the content type if the rendering succeeded
 		cherrypy.response.headers['Content-Type'] = 'application/pdf'
-		return resume.Renderer(url).pdf()
+		return res
 
 	@cherrypy.expose
 	def auth(self):
