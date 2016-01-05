@@ -12,7 +12,6 @@ import subprocess
 from fabric.api import sudo, run, task, env
 from fabric.context_managers import shell_env
 from fabric.contrib import files
-from jaraco.fabric import apt
 from jaraco.text import local_format as lf
 
 if not env.hosts:
@@ -53,16 +52,15 @@ def install_to(root, version=None, use_sudo=False):
 	if version:
 		pkg_spec += '==' + version
 	action('mkdir -p {root}/lib/python3.4/site-packages'.format(**locals()))
-	with apt.package_context('python-dev'):
-		with shell_env(PYTHONUSERBASE=root):
-			cmd = [
-				'python3', '-m',
-				'easy_install',
-				'--user',
-				'-U',
-				pkg_spec,
-			]
-			action(' '.join(cmd))
+	with shell_env(PYTHONUSERBASE=root):
+		cmd = [
+			'python3', '-m',
+			'easy_install',
+			'--user',
+			'-U',
+			pkg_spec,
+		]
+		action(' '.join(cmd))
 
 @task
 def remove_all():
