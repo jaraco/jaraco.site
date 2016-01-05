@@ -13,7 +13,7 @@ from fabric.api import sudo, run, task, env
 from fabric.contrib import files
 from jaraco.fabric import apt
 from jaraco.fabric import context
-from jaraco.util.string import local_format as lf
+from jaraco.text import local_format as lf
 
 if not env.hosts:
 	env.hosts = ['elektra']
