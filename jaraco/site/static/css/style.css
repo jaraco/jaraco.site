@@ -112,3 +112,31 @@ span.code {
 	padding: 10px;
 	background-color: #ddd;
 }
+
+.home-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://dl.dropboxusercontent.com/content_link/E07Op6VQ9A9OVGlcCiAtr53KUbIgrtkRl17dG8MERPjs31kC5r48wR6llNFkV3Ul/file) no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.icon > svg { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
+.icon > svg path { fill: white; }
+.icon > svg:hover path { fill: #8792a7; }
+
+.home-content { color: white; font-family: 'Tangerine', sans-serif; width: 100%; height: 100%; display: table; text-align: center; }
+
+.home-content .center { display: table-cell; vertical-align: middle; }
+
+.home-title { display: inline-block; font-size: 33px; }
+.home-title hr { border: 0; border-top: 2px solid #ffffff; margin: -1px; }
+
+.home-subtitle { font-size: 20px; }
+
+.site-footer { position: absolute; left: 35px; bottom: 10px; }
