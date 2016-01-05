@@ -1,1 +1,0 @@
-easy_install -Z https://bitbucket.org/jaraco/jaraco.site/get/tip.zip

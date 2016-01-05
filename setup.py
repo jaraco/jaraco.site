@@ -31,7 +31,6 @@ setup_params = dict(
 		"CherryPy>=3.2.3,<4dev",
 		"Genshi>=0.5.0",
 		"lxml>=2.1.2",
-		"isapi-wsgi>=0.4",
 		"svg.charts",
 		'jaraco.util>=11.0',
 		"six",
@@ -51,13 +50,6 @@ setup_params = dict(
 		"License :: OSI Approved :: MIT License",
 		"Programming Language :: Python :: 3",
 	],
-	entry_points = dict(
-		console_scripts = [
-			'jaraco-site-install = jaraco.site.manage:install',
-			'jaraco-site-reset-bindings = jaraco.site.manage:reset_bindings',
-		],
-	),
-
 )
 if __name__ == '__main__':
 	setuptools.setup(**setup_params)
