@@ -6,7 +6,7 @@ server {
         listen 80;
         listen [::]:80;
 
-        server_name jaraco.com www.jaraco.com;
+        server_name jaraco.com www.jaraco.com blog.jaraco.com;
 
         return 301 https://$host$request_uri;
 }
@@ -23,6 +23,26 @@ server {
 
         location / {
                 proxy_pass http://jaraco-site-procs;
+                proxy_redirect off;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Host $server_name;
+        }
+}
+
+server {
+        listen 443;
+        listen [::]:443;
+
+        ssl on;
+        ssl_certificate /opt/jaraco.com/jaraco.com.pem;
+        ssl_certificate_key /opt/jaraco.com/jaraco.com.pem;
+
+        server_name blog.jaraco.com;
+
+        location / {
+                proxy_pass http://jaraco.github.io;
                 proxy_redirect off;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
