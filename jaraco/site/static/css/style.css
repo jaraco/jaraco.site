@@ -127,8 +127,9 @@ span.code {
 }
 
 .icon > svg { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
-.icon > svg path { fill: white; }
-.icon > svg:hover path { fill: #8792a7; }
+.icon > svg * { fill: white; }
+.icon > svg:hover * { fill: #8792a7; }
+.icon > svg text { display: none; }
 
 .home-content { color: white; font-family: 'Tangerine', sans-serif; width: 100%; height: 100%; display: table; text-align: center; }
 
