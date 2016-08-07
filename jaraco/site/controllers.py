@@ -34,6 +34,11 @@ class Downloader:
 
 
 class Root(object):
+	"""
+	Create a server:
+
+	>>> root = Root()
+	"""
 	charts = Charts()
 	openid = OpenID()
 	downloader = Downloader()
