@@ -1,7 +1,7 @@
 import sys
 import os
 
-import mock
+from unittest import mock
 import cherrypy
 
 with mock.patch.object(sys, 'dont_write_bytecode', True):
