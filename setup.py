@@ -42,7 +42,6 @@ setup_params = dict(
 		'mock',
 		'requests',
 		'more_itertools',
-		'jaraco.context',
 	],
 	extras_require={
 	},
