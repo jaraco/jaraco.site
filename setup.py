@@ -37,7 +37,6 @@ setup_params = dict(
 		"Genshi>=0.5.0",
 		"lxml>=2.1.2",
 		"svg.charts",
-		'jaraco.util>=11.0',
 		"six",
 		'mock',
 		'requests',
