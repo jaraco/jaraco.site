@@ -33,9 +33,9 @@ setup_params = dict(
 	namespace_packages=name.split('.')[:-1],
 	zip_safe=False,
 	install_requires=[
-		"CherryPy>=3.2.3",
-		"Genshi>=0.5.0",
-		"lxml>=2.1.2",
+		"CherryPy",
+		"Genshi",
+		"lxml",
 		"svg.charts",
 		'requests',
 		'more_itertools',
