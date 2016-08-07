@@ -1,2 +1,1 @@
--f http://dl.dropbox.com/u/54081/cheeseshop/index.html
-jaraco.site==2.4
+.
