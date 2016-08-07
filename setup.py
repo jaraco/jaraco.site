@@ -41,6 +41,7 @@ setup_params = dict(
 		'mock',
 		'requests',
 		'more_itertools',
+		'grampg',
 	],
 	extras_require={
 	},

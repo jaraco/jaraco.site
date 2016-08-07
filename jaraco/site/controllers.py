@@ -1,8 +1,5 @@
-import binascii
-import codecs
-
+import grampg
 import cherrypy
-from jaraco.util import auth
 import requests
 
 from jaraco.site.charts import Charts
@@ -109,20 +106,16 @@ class AcctMgmt(object):
 	@cherrypy.expose
 	@output('password gen')
 	def password_gen(self, length=None):
-		password = None
+		if length is None:
+			return render(password=None, length=8)
+		return render(password=self._gen_password(length), length=length)
 
-		class userstr(str): pass
-		if length:
-			newpass = auth.PasswordGenerator.make_password(int(length),
-				encoding=None)
-			password = userstr(binascii.b2a_hex(newpass))
-			password.alternatives = []
-			for encoding in ('base-64',):
-				encoded, newlen = codecs.getencoder(encoding)(newpass)
-				password.alternatives.append((encoded, encoding))
-		else:
-			length = 8
-		return render(password=password, length=length)
+	@staticmethod
+	def _gen_password(length):
+		return next(
+			grampg.PasswordGenerator().of().length(length).done()
+		)
+
 
 class IPTool(object):
 	def __init__(self):
