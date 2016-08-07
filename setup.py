@@ -37,7 +37,6 @@ setup_params = dict(
 		"Genshi>=0.5.0",
 		"lxml>=2.1.2",
 		"svg.charts",
-		"six",
 		'mock',
 		'requests',
 		'more_itertools',
