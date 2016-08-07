@@ -1,5 +1,5 @@
 Welcome to jaraco.site documentation!
-========================================
+=====================================
 
 .. toctree::
    :maxdepth: 1
