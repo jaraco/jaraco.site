@@ -15,7 +15,7 @@ from fabric.contrib import files
 from jaraco.text import local_format as lf
 
 if not env.hosts:
-	env.hosts = ['elektra']
+	env.hosts = ['punisher']
 
 install_root = '/opt/jaraco.com'
 
@@ -28,19 +28,19 @@ def bootstrap():
 @task
 def install_env():
 	sudo('rm -R {install_root} || echo -n'.format(**globals()))
-	sudo('aptitude install -y python3-lxml')
+	sudo('aptitude -q install -y python3-lxml python3-pip')
 	install_upstart_conf()
 
 @task
 def install_upstart_conf(install_root=install_root):
 	sudo(lf('mkdir -p {install_root}'))
-	files.upload_template("ubuntu/jaraco-site.conf", "/etc/init",
+	files.upload_template("ubuntu/jaraco.site.service", "/etc/systemd/system",
 		use_sudo=True, context=vars())
 
 @task
 def update(version=None):
 	install_to(install_root, version, use_sudo=True)
-	sudo('restart jaraco-site || start jaraco-site')
+	sudo('systemctl restart jaraco.site')
 
 def install_to(root, version=None, use_sudo=False):
 	"""
@@ -51,13 +51,15 @@ def install_to(root, version=None, use_sudo=False):
 	pkg_spec = 'jaraco.site'
 	if version:
 		pkg_spec += '==' + version
-	action('mkdir -p {root}/lib/python3.4/site-packages'.format(**locals()))
 	with shell_env(PYTHONUSERBASE=root):
+		usp = run('python3 -c "import site; print(site.getusersitepackages())"')
+		action('mkdir -p {usp}'.format(**locals()))
+		# can't run with '-U' because that will cause lxml to upgrade/build
 		cmd = [
-			'python3', '-m',
-			'easy_install',
+			'python3',
+			'-m', 'pip',
+			'install',
 			'--user',
-			'-U',
 			pkg_spec,
 		]
 		action(' '.join(cmd))
