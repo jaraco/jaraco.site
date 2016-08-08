@@ -29,13 +29,14 @@ def bootstrap():
 def install_env():
 	sudo('rm -R {install_root} || echo -n'.format(**globals()))
 	sudo('aptitude -q install -y python3-lxml python3-pip')
-	install_upstart_conf()
+	install_service()
 
 @task
-def install_upstart_conf(install_root=install_root):
+def install_service(install_root=install_root):
 	sudo(lf('mkdir -p {install_root}'))
 	files.upload_template("ubuntu/jaraco.site.service", "/etc/systemd/system",
 		use_sudo=True, context=vars())
+	sudo('systemctl enable jaraco.site')
 
 @task
 def update(version=None):
