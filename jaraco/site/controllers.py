@@ -113,6 +113,11 @@ class AcctMgmt(object):
 
 	@staticmethod
 	def _gen_password(length):
+		"""
+		>>> pw = AcctMgmt._gen_password(10)
+		>>> len(pw)
+		10
+		"""
 		return next(
 			grampg.PasswordGenerator().of().length(length).done()
 		)
