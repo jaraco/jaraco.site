@@ -118,8 +118,8 @@ class AcctMgmt(object):
 		>>> len(pw)
 		10
 		"""
-		return next(
-			grampg.PasswordGenerator().of().length(length).done()
+		return (
+			grampg.PasswordGenerator().of().some('alphanumeric').length(length).done().generate()
 		)
 
 
