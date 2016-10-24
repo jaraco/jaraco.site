@@ -108,6 +108,7 @@ class AcctMgmt(object):
 	def password_gen(self, length=None):
 		if length is None:
 			return render(password=None, length=8)
+		length = int(length)
 		return render(password=self._gen_password(length), length=length)
 
 	@staticmethod
