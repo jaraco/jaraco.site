@@ -61,6 +61,7 @@ def install_to(root, version=None, use_sudo=False):
 			'-m', 'pip',
 			'install',
 			'--user',
+			'-U',
 			pkg_spec,
 		]
 		action(' '.join(cmd))
