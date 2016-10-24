@@ -118,9 +118,9 @@ class AcctMgmt(object):
 		>>> len(pw)
 		10
 		"""
-		return (
-			grampg.PasswordGenerator().of().some('alphanumeric').length(length).done().generate()
-		)
+		gengen = grampg.PasswordGenerator()
+		gen = gengen.of().some('alphanumeric').length(length).done()
+		return gen.generate()
 
 
 class IPTool(object):
