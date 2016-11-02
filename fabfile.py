@@ -21,9 +21,15 @@ install_root = '/opt/jaraco.com'
 
 @task
 def bootstrap():
+	install_dependencies()
 	install_env()
 	update()
 	configure_nginx()
+
+@task
+def install_dependencies():
+	# fop required by the resume endpoint
+	sudo('aptitide install -y fop')
 
 @task
 def install_env():
