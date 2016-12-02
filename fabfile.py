@@ -27,14 +27,14 @@ def bootstrap():
 @task
 def install_dependencies():
 	# fop required by the resume endpoint
-	sudo('aptitide install -y fop')
+	sudo('apt install -y fop')
 	# lets encrypt for certificates
 	sudo('apt install -y letsencrypt')
 
 @task
 def install_env():
 	sudo('rm -R {install_root} || echo -n'.format(**globals()))
-	sudo('aptitude -q install -y python3-lxml python3-pip')
+	sudo('apt -q install -y python3-lxml python3-pip')
 	install_service()
 
 @task
@@ -80,7 +80,7 @@ def remove_all():
 
 @task
 def configure_nginx():
-	sudo('aptitude install -y nginx')
+	sudo('apt install -y nginx')
 	source = "ubuntu/nginx config"
 	target = "/etc/nginx/sites-available/jaraco.com"
 	files.upload_template(filename=source, destination=target, use_sudo=True)
