@@ -5,14 +5,11 @@ To install on a clean Ubuntu Trusty box, simply run
 fab bootstrap
 """
 
-import contextlib
-import os
-import subprocess
-
 from fabric.api import sudo, run, task, env
 from fabric.context_managers import shell_env
 from fabric.contrib import files
 from jaraco.text import local_format as lf
+from more_itertools.recipes import flatten
 
 if not env.hosts:
 	env.hosts = ['punisher']
@@ -25,11 +22,14 @@ def bootstrap():
 	install_env()
 	update()
 	configure_nginx()
+	install_cert()
 
 @task
 def install_dependencies():
 	# fop required by the resume endpoint
 	sudo('aptitide install -y fop')
+	# lets encrypt for certificates
+	sudo('apt install -y letsencrypt')
 
 @task
 def install_env():
@@ -89,31 +89,12 @@ def configure_nginx():
 		'../sites-available/jaraco.com '
 		'/etc/nginx/sites-enabled/'
 	)
-	if not files.exists('/opt/jaraco.com/jaraco.com.pem'):
-		install_cert()
 	sudo('service nginx restart')
 
 @task
 def install_cert():
-	with generate_pem() as source:
-		target = '/opt/jaraco.com/'
-		files.upload_template(filename=source, destination=target,
-			use_sudo=True)
-
-@contextlib.contextmanager
-def generate_pem():
-	root = os.path.expanduser('~/Documents/Computing/Certificates')
-	source = os.path.join(root, 'star.jaraco.com (2013).pfx')
-	target = 'jaraco.com.pem'
-	cmd = [
-		'openssl',
-		'pkcs12',
-		'-in', source,
-		'-out', target,
-		'-nodes',
-	]
-	subprocess.check_call(cmd)
-	try:
-		yield target
-	finally:
-		os.remove(target)
+	sudo('service nginx stop')
+	sites = 'jaraco.com', 'www.jaraco.com', 'blog.jaraco.com'
+	opts = flatten(['-d', name] for name in sites)
+	sudo('letsencrypt certonly ' + ' '.join(opts))
+	sudo('service nginx start')

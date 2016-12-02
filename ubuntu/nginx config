@@ -16,8 +16,8 @@ server {
         listen [::]:443;
 
         ssl on;
-        ssl_certificate /opt/jaraco.com/jaraco.com.pem;
-        ssl_certificate_key /opt/jaraco.com/jaraco.com.pem;
+        ssl_certificate /etc/letsencrypt/live/jaraco.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/jaraco.com/privkey.pem;
 
         server_name jaraco.com www.jaraco.com;
 
@@ -36,8 +36,8 @@ server {
         listen [::]:443;
 
         ssl on;
-        ssl_certificate /opt/jaraco.com/jaraco.com.pem;
-        ssl_certificate_key /opt/jaraco.com/jaraco.com.pem;
+        ssl_certificate /etc/letsencrypt/live/jaraco.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/jaraco.com/privkey.pem;
 
         server_name blog.jaraco.com;
 
