@@ -5,8 +5,8 @@
 
 .. image:: https://img.shields.io/pypi/dm/jaraco.site.svg
 
-.. image:: https://img.shields.io/travis/jaraco/skeleton/master.svg
-   :target: http://travis-ci.org/jaraco/skeleton
+.. image:: https://img.shields.io/travis/jaraco/jaraco.site/master.svg
+   :target: http://travis-ci.org/jaraco/jaraco.site
 
 License is indicated in the project metadata (typically one or more
 of the Trove classifiers). For more details, see `this explanation
