@@ -40,6 +40,7 @@ params = dict(
 		'requests',
 		'more_itertools',
 		'grampg',
+		'requests_toolbelt',
 	],
 	extras_require={
 		'testing': [
