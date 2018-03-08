@@ -1,5 +1,5 @@
 """
-Routines for installing, staging, and serving recapturedocs on Ubuntu.
+Routines for installing, staging, and serving jaraco.com on Ubuntu.
 
 To install on a clean Ubuntu Xenial box, simply run
 fab bootstrap
