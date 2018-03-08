@@ -69,7 +69,7 @@ def install():
 	"""
 	run('git clone https://github.com/jaraco/jaraco.site || echo -n')
 	run('git -C jaraco.site pull')
-	run(f'{install_root}/bin/python -m pip install ./jaraco.site')
+	run(f'{install_root}/bin/python -m pip install -U ./jaraco.site')
 
 
 @task
