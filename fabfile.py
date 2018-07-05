@@ -45,7 +45,7 @@ def install_env():
 	sudo(f'mkdir -p {install_root}')
 	sudo(f'chown {user} {install_root}')
 	run(f'python3.6 -m venv {install_root}')
-	run(f'{install_root}/bin/python -m pip install -U setuptools')
+	run(f'{install_root}/bin/python -m pip install -U pip')
 
 
 @task
@@ -64,8 +64,7 @@ def update():
 
 def install():
 	"""
-	Install jaraco.site to a PEP-370 environment at root. If version is
-	not None, install that version specifically. Otherwise, use the latest.
+	Install jaraco.site to environment at root.
 	"""
 	run('git clone https://github.com/jaraco/jaraco.site || echo -n')
 	run('git -C jaraco.site pull')
