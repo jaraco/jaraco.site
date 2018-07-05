@@ -138,5 +138,22 @@ class IPTool(object):
 		return str(self.registry)
 
 
+class AuthRedirectDemo:
+	_cp_config = {
+		'tools.auth_basic.on': True,
+		'tools.auth_basic.realm': 'jaraco',
+		'tools.auth_basic.checkpassword': lambda *args: True,
+	}
+
+	@cherrypy.expose
+	def here(self):
+		raise cherrypy.HTTPRedirect('there/')
+
+	@cherrypy.expose
+	def there(self):
+		return "You got there!"
+
+
 Root.acctmgmt = AcctMgmt()
 Root.ip = IPTool()
+Root.auth_demo = AuthRedirectDemo()
