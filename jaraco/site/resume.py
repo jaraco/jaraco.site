@@ -1,6 +1,5 @@
 import os
 import subprocess
-import io
 
 from requests_toolbelt import sessions
 from lxml import etree
@@ -36,7 +35,7 @@ class Renderer:
 			'-',
 		]
 		data = self.load_url().read()
-		proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
-			stdin=subprocess.PIPE)
+		proc = subprocess.Popen(
+			cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
 		stdout, stderr = proc.communicate(data)
 		return stdout

@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# flake8: noqa
+
 
 #  PROJECT HONEY POT ADDRESS DISTRIBUTION SCRIPT
 #  For more information visit: http://www.projecthoneypot.org/

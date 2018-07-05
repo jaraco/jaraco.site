@@ -82,7 +82,9 @@ class AcctMgmt(object):
 
 	@cherrypy.expose
 	@output('Change Password')
-	def change_password(self, submit, username, old_password, new_password, new_password_confirm, system=None):
+	def change_password(
+		self, submit, username, old_password, new_password, new_password_confirm,
+		system=None):
 		from jaraco.site.sysadmin import NTUser
 		try:
 			if not new_password:
@@ -95,7 +97,7 @@ class AcctMgmt(object):
 			response_messages = [
 				'Password change has failed.',
 				str(e),
-				]
+			]
 		else:
 			response_messages = [
 				'Password change for {nt.user.FullName} was successful!'

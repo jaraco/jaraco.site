@@ -6,8 +6,10 @@ from genshi.core import Stream
 from genshi.output import encode, get_serializer
 from genshi.template import Context, TemplateLoader
 
+
 def init():
 	return importlib.import_module('jaraco.site.run').app
+
 
 class DefaultExtensionTemplateLoader(TemplateLoader):
 	"""
@@ -16,22 +18,28 @@ class DefaultExtensionTemplateLoader(TemplateLoader):
 	"""
 	def __init__(self, *args, **kwargs):
 		self.default_extension = kwargs.pop('extension', None)
-		if self.default_extension: self.load = self.load_default
+		if self.default_extension:
+			self.load = self.load_default
 		return super(DefaultExtensionTemplateLoader, self).__init__(*args, **kwargs)
 
 	def load_default(self, filename, *args, **kwargs):
 		if not filename.endswith(self.default_extension):
 			filename += self.default_extension
-		return super(DefaultExtensionTemplateLoader, self).load(filename, *args, **kwargs)
+		return super(DefaultExtensionTemplateLoader, self).load(
+			filename, *args, **kwargs)
+
 
 loader = DefaultExtensionTemplateLoader(
 	os.path.join(os.path.dirname(__file__), 'templates'),
 	auto_reload=True,
-	extension = '.html',
+	extension='.html',
 )
 
+
 # from the genshi tutorial
-def output(filename, method='html', encoding='utf-8', content_type='text/html', **options):
+def output(
+	filename, method='html', encoding='utf-8', content_type='text/html',
+	**options):
 	"""Decorator for exposed methods to specify what template they should use
 	for rendering, and which serialization method and options should be
 	applied.
@@ -47,10 +55,11 @@ def output(filename, method='html', encoding='utf-8', content_type='text/html', 
 			stream = func(*args, **kwargs)
 			if not isinstance(stream, Stream):
 				return stream
-			return encode(serializer(stream), method=serializer,
-				encoding=encoding)
+			return encode(
+				serializer(stream), method=serializer, encoding=encoding)
 		return wrapper
 	return decorate
+
 
 def render(template_name=None, **kwargs):
 	"""Function to render the given data to the template specified via the
