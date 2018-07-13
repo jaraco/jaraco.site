@@ -95,7 +95,9 @@ def configure_nginx():
 @task
 def install_cert():
 	sudo('service nginx stop')
-	sites = 'jaraco.com', 'www.jaraco.com', 'blog.jaraco.com'
+	sites = (
+		'jaraco.com', 'www.jaraco.com', 'blog.jaraco.com', 'www.recapturedocs.com',
+	)
 	opts = flatten(['-d', name] for name in sites)
 	sudo('letsencrypt certonly ' + ' '.join(opts))
 	sudo('service nginx start')
