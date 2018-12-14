@@ -29,8 +29,10 @@ def bootstrap():
 def install_dependencies():
 	# fop required by the resume endpoint
 	sudo('apt install -y fop')
-	# lets encrypt for certificates
-	sudo('apt install -y letsencrypt')
+	# certbot for certificates
+	sudo('apt-add-repository -y ppa:certbot/certbot')
+	sudo('apt update -y')
+	sudo('apt install -y python-certbot-nginx')
 
 	sudo('apt install -y software-properties-common')
 	sudo('add-apt-repository -y ppa:deadsnakes/ppa')
@@ -94,10 +96,14 @@ def configure_nginx():
 
 @task
 def install_cert():
-	sudo('service nginx stop')
 	sites = (
 		'jaraco.com', 'www.jaraco.com', 'blog.jaraco.com', 'www.recapturedocs.com',
 	)
-	opts = flatten(['-d', name] for name in sites)
-	sudo('letsencrypt certonly ' + ' '.join(opts))
-	sudo('service nginx start')
+	cmd = [
+		'certbot',
+		'--agree-tos',
+		'--non-interactive',
+		'--nginx',
+		'certonly',
+	] + list(flatten(['--domain', name] for name in sites))
+	sudo(' '.join(cmd))
