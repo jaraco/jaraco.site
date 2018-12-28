@@ -34,8 +34,8 @@ class Renderer:
 			'-xsl', self.get_transform_path('us-letter'),
 			'-',
 		]
-		data = self.load_url().read()
+		resp = self.session.get(self.url)
 		proc = subprocess.Popen(
 			cmd, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-		stdout, stderr = proc.communicate(data)
+		stdout, stderr = proc.communicate(resp.content)
 		return stdout
