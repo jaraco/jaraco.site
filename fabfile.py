@@ -7,12 +7,15 @@ fab bootstrap
 
 from fabric.api import sudo, run, task, env
 from fabric.contrib import files
-from more_itertools.recipes import flatten
+from more_itertools import flatten
 
 if not env.hosts:
     env.hosts = ['punisher']
 
 install_root = '/opt/jaraco.com'
+
+
+python = 'python3.7'
 
 
 @task
@@ -37,7 +40,7 @@ def install_dependencies():
     sudo('apt install -y software-properties-common')
     sudo('add-apt-repository -y ppa:deadsnakes/ppa')
     sudo('apt update -y')
-    sudo('apt install -y python3.6 python3.6-venv')
+    sudo(f'apt install -y {python} {python}-venv')
 
 
 @task
@@ -46,7 +49,7 @@ def install_env():
     sudo(f'rm -R {install_root} || echo -n')
     sudo(f'mkdir -p {install_root}')
     sudo(f'chown {user} {install_root}')
-    run(f'python3.6 -m venv {install_root}')
+    run(f'{python} -m venv {install_root}')
     run(f'{install_root}/bin/python -m pip install -U pip')
 
 
