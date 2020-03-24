@@ -92,7 +92,7 @@ def configure_nginx():
     source = "ubuntu/nginx config"
     target = "/etc/nginx/sites-available/jaraco.com"
     files.upload_template(filename=source, destination=target, use_sudo=True)
-    sudo('ln -sf ' '../sites-available/jaraco.com ' '/etc/nginx/sites-enabled/')
+    sudo('ln -sf ../sites-available/jaraco.com /etc/nginx/sites-enabled/')
     sudo('service nginx restart')
 
 
