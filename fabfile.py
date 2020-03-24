@@ -5,9 +5,12 @@ To install on a clean Ubuntu Bionic box, simply run
 fab bootstrap
 """
 
+import itertools
+
 from fabric.api import sudo, run, task, env
 from fabric.contrib import files
-from more_itertools import flatten
+
+flatten = itertools.chain.from_iterable
 
 if not env.hosts:
     env.hosts = ['spidey']
@@ -98,8 +101,10 @@ def configure_nginx():
 
 @task
 def install_cert():
+    cmd = [
+        'certbot', '--agree-tos', '--email', 'jaraco@jaraco.com',
+        '--non-interactive', '--nginx', 'certonly',
+    ]
     sites = ('jaraco.com', 'www.jaraco.com', 'blog.jaraco.com', 'www.recapturedocs.com')
-    cmd = ['certbot', '--agree-tos', '--non-interactive', '--nginx', 'certonly'] + list(
-        flatten(['--domain', name] for name in sites)
-    )
+    cmd += list(flatten(['--domain', name] for name in sites))
     sudo(' '.join(cmd))
