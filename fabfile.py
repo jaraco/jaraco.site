@@ -1,7 +1,7 @@
 """
 Routines for installing, staging, and serving jaraco.com on Ubuntu.
 
-To install on a clean Ubuntu Xenial box, simply run
+To install on a clean Ubuntu Bionic box, simply run
 fab bootstrap
 """
 
@@ -10,20 +10,20 @@ from fabric.contrib import files
 from more_itertools import flatten
 
 if not env.hosts:
-    env.hosts = ['punisher']
+    env.hosts = ['spidey']
 
 install_root = '/opt/jaraco.com'
 
 
-python = 'python3.7'
+python = 'python3.8'
 
 
 @task
 def bootstrap():
     install_dependencies()
     install_env()
-    update()
     install_service()
+    update()
     configure_nginx()
     install_cert()
 
