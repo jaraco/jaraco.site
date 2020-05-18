@@ -50,3 +50,17 @@ server {
                 proxy_set_header X-Forwarded-Host $server_name;
         }
 }
+
+server {
+        listen 80;
+        listen [::]:80;
+        listen 443 ssl;
+        listen [::]:443 ssl;
+
+        ssl_certificate /etc/letsencrypt/live/pittsburghfreethoughtcommunity.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/pittsburghfreethoughtcommunity.com/privkey.pem;
+
+        server_name pittsburghfreethoughtcommunity.com www.pittsburghfreethoughtcommunity.com;
+
+        return 301 https://pghfreethought.org$request_uri;
+}
