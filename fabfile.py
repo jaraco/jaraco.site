@@ -102,12 +102,21 @@ def configure_nginx():
 @task
 def install_cert():
     cmd = [
-        'certbot', '--agree-tos', '--email', 'jaraco@jaraco.com',
-        '--non-interactive', '--nginx', 'certonly',
+        'certbot',
+        '--agree-tos',
+        '--email',
+        'jaraco@jaraco.com',
+        '--non-interactive',
+        '--nginx',
+        'certonly',
     ]
     sites = (
-        'jaraco.com', 'www.jaraco.com', 'blog.jaraco.com', 'www.recapturedocs.com',
-        'scicomm.pro', 'www.scicomm.pro',
+        'jaraco.com',
+        'www.jaraco.com',
+        'blog.jaraco.com',
+        'www.recapturedocs.com',
+        'scicomm.pro',
+        'www.scicomm.pro',
     )
     cmd += list(flatten(['--domain', name] for name in sites))
     sudo(' '.join(cmd))
