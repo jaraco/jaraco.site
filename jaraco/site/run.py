@@ -21,6 +21,7 @@ cherrypy.config.update(
         'tools.sessions.on': True,
         'tools.trailing_slash.on': True,
         'tools.staticdir.root': pkg_resources.resource_filename('jaraco.site', ''),
+        'tools.proxy.on': True,
     }
 )
 
