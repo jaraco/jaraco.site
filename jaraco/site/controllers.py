@@ -64,6 +64,10 @@ class Root(object):
         return render()
 
     @cherrypy.expose
+    def e5a6ifyiqj_txt(self):
+        return "IPv6 confirmed"
+
+    @cherrypy.expose
     def allurbase(self):
         return str(cherrypy.request.base)
 
