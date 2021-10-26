@@ -7,6 +7,7 @@ from jaraco.site.openid import OpenID
 from jaraco.site import render, output
 from jaraco.site.projecthoneypot import from_cherrypy
 from . import resume
+from . import landing
 
 import logging
 
@@ -55,7 +56,18 @@ class Root(object):
     @cherrypy.expose
     @output('welcome')
     def index(self):
-        return render()
+        return render(icons=self.icons())
+
+    def icons(self):
+        urls = """
+            https://github.com/jaraco
+            http://stackoverflow.com/users/70170/jason-r-coombs
+            https://twitter.com/jaraco
+            https://keybase.io/jaraco
+            https://linkedin.com/in/jaraco
+            https://blog.jaraco.com/
+            """.split()
+        return map(landing.Icon, urls)
 
     @cherrypy.expose
     @output('project list')

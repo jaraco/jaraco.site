@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve" style="height: 42px; width: 42px;">
+	<g>
+		<g>
+			<path d="M74.748,76.051H67.93c0-24.336-19.798-44.133-44.134-44.133v-6.819C51.892,25.099,74.748,47.955,74.748,76.051z"/>
+		</g>
+		<g>
+			<path d="M95,76.051h-6.818c0-35.503-28.884-64.387-64.386-64.387V4.845C63.058,4.845,95,36.787,95,76.051z"/>
+		</g>
+		<g>
+			<g>
+				<rect x="36.053" y="53.899" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 28.1461 128.8772)" width="9.423" height="9.42"/>
+			</g>
+			<g>
+				<polygon points="13.488,92.546 6.83,85.888 3.5,95.878    "/>
+			</g>
+			<g>
+				<rect x="19.09" y="59.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -12.8137 145.8499)" width="9.416" height="31.557"/>
+			</g>
+		</g>
+	</g>
+	<text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Nathan Thomson</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text>
+</svg>
