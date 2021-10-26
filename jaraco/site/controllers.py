@@ -1,3 +1,6 @@
+import itertools
+import logging
+
 import grampg
 import cherrypy
 import requests
@@ -9,7 +12,6 @@ from jaraco.site.projecthoneypot import from_cherrypy
 from . import resume
 from . import landing
 
-import logging
 
 log = logging.getLogger(__name__)
 
@@ -67,7 +69,16 @@ class Root(object):
             https://linkedin.com/in/jaraco
             https://blog.jaraco.com/
             """.split()
-        return map(landing.Icon, urls)
+        addl = [
+            landing.RefIcon(
+                'https://pypi.org/user/jaraco',
+                """
+                <img style="width: 38px; height: 38px; position: relative; top: 15px;"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg" />
+                """,
+            )
+        ]
+        return itertools.chain(map(landing.Icon, urls), addl)
 
     @cherrypy.expose
     @output('project list')
