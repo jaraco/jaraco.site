@@ -17,8 +17,7 @@ class Locator:
     @cherrypy.expose
     def default(self, key):
         if key == 'cu':
-            cherrypy.log(
-                f"CU request for {cherrypy.request.remote.ip}")
+            cherrypy.log(f"CU request for {cherrypy.request.remote.ip}")
             raise cherrypy.HTTPRedirect('https://co-opcreditunions.org/locator/')
         raise cherrypy.NotFound()
 
