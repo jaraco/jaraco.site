@@ -58,7 +58,14 @@ class Root(object):
     @cherrypy.expose
     @output('welcome')
     def index(self):
-        return render(icons=self.icons())
+        return render(
+            icons=self.icons(),
+            meta=dict(
+                description="Personal website of Jason R. Coombs",
+            ),
+            title="jaraco.com",
+            name="Jason R. Coombs",
+        )
 
     def icons(self):
         urls = """

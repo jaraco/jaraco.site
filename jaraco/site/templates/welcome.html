@@ -8,8 +8,8 @@
 
 <head>
 	<meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
-	<meta name="description" content="Personal website of Jason R. Coombs" />
-	<title>jaraco.com</title>
+	<meta py:for="name, content in meta.items()" name="${name}" content="${content}" />
+	<title py:content="title"></title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 		<div class="home-content">
 			<div class="center">
 				<div class="home-title">
-					Jason R. Coombs
+					${name}
 					<hr/>
 					<div class="home-subtitle">
 						...
