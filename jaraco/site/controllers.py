@@ -88,11 +88,6 @@ class Root(object):
         return itertools.chain(map(landing.Icon, urls), addl)
 
     @cherrypy.expose
-    @output('project list')
-    def projects(self, name=None):
-        return render()
-
-    @cherrypy.expose
     def e5a6ifyiqj_txt(self):
         return "IPv6 confirmed"
 
