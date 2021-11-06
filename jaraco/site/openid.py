@@ -23,7 +23,7 @@ def output(path, *args, **kwargs):
     return default_output('openid/{0}'.format(path), *args, **kwargs)
 
 
-class OpenID(object):
+class OpenID:
     # todo: get this from cherrypy
     _base_url = 'http://drake.jaraco.com:8080/openid/'
 

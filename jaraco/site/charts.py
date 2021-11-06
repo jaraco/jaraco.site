@@ -25,7 +25,7 @@ def get_data_set():
     return itertools.islice(get_random_data_pairs(), random.randint(1, 10) + 5)
 
 
-class Charts(object):
+class Charts:
     @cherrypy.expose
     @output('chart example', method='xhtml', content_type='text/xml')
     def plot(self):

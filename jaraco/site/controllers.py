@@ -23,7 +23,7 @@ class Locator:
         raise cherrypy.NotFound()
 
 
-class Root(object):
+class Root:
     """
     Create a server:
 
@@ -94,7 +94,7 @@ class Root(object):
         return from_cherrypy()
 
 
-class IPTool(object):
+class IPTool:
     def __init__(self):
         self.registry = dict()
 
