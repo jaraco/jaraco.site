@@ -3,7 +3,6 @@ import logging
 
 import grampg
 import cherrypy
-import requests
 
 from jaraco.site.charts import Charts
 from jaraco.site.openid import OpenID
@@ -25,24 +24,6 @@ class Locator:
         raise cherrypy.NotFound()
 
 
-class Downloader:
-    @cherrypy.expose
-    @output('downloader')
-    def index(self):
-        return render()
-
-    @cherrypy.expose
-    def download(self, name, url, submit):
-        filename = name + '.mp4'
-        referer = 'http://permaculture.kajabi.com/posts/earthworks-introduction'
-        headers = dict(Referer=referer)
-        resp = requests.get(url, stream=True, headers=headers)
-        resp.raise_for_status()
-        cd = 'attachment; filename="{filename}"'.format_map(locals())
-        cherrypy.response.headers['Content-Disposition'] = cd
-        return resp.iter_content()
-
-
 class Root(object):
     """
     Create a server:
@@ -52,7 +33,6 @@ class Root(object):
 
     charts = Charts()
     openid = OpenID()
-    downloader = Downloader()
     locate = Locator()
 
     @cherrypy.expose
