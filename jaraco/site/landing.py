@@ -8,8 +8,10 @@ class IconBase:
         self.url = url
 
     def render(self):
-        return f'<a href="{self.url}" target="_top">' \
+        return (
+            f'<a href="{self.url}" target="_top">'
             f'<span class="icon">{self.image}</span></a>'
+        )
 
     @property
     def name(self):
