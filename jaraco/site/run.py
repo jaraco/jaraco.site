@@ -3,11 +3,6 @@ import os
 import cherrypy
 import pkg_resources
 
-try:
-    from . import sspi
-except ImportError:
-    pass
-
 from .controllers import Root
 
 cherrypy.config.update(
@@ -32,14 +27,5 @@ config = {
         'tools.staticdir.content_types': dict(svg='image/svg+xml'),
     }
 }
-
-if 'sspi' in globals():
-    basic_auth = {
-        'tools.auth_basic.on': True,
-        'tools.auth_basic.realm': 'jaraco.com',
-        'tools.auth_basic.checkpassword': sspi.check,
-    }
-    config['/auth'] = basic_auth
-    config['/openid/server'] = basic_auth
 
 app = cherrypy.tree.mount(Root(), '/', config)
