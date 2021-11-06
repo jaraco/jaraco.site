@@ -94,43 +94,6 @@ class Root(object):
         return from_cherrypy()
 
 
-class AcctMgmt(object):
-    @cherrypy.expose
-    @output('Account Management')
-    def index(self):
-        return render()
-
-    @cherrypy.expose
-    @output('Change Password')
-    def change_password(
-        self,
-        submit,
-        username,
-        old_password,
-        new_password,
-        new_password_confirm,
-        system=None,
-    ):
-        from jaraco.site.sysadmin import NTUser
-
-        try:
-            if not new_password:
-                raise ValueError("Blank passwords not allowed")
-            if not new_password == new_password_confirm:
-                raise ValueError("Passwords don't match")
-            nt = NTUser(username, system or '.')
-            nt.reset(old_password, new_password)
-        except ValueError as e:
-            response_messages = ['Password change has failed.', str(e)]
-        else:
-            response_messages = [
-                'Password change for {nt.user.FullName} was successful!'.format(
-                    **vars()
-                )
-            ]
-        return render(response_messages=response_messages)
-
-
 class IPTool(object):
     def __init__(self):
         self.registry = dict()
@@ -160,6 +123,5 @@ class AuthRedirectDemo:
         return "You got there!"
 
 
-Root.acctmgmt = AcctMgmt()
 Root.ip = IPTool()
 Root.auth_demo = AuthRedirectDemo()
