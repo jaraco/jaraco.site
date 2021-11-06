@@ -1,7 +1,7 @@
 import os
+from importlib_resources import files
 
 import cherrypy
-import pkg_resources
 
 from .controllers import Root
 
@@ -15,7 +15,7 @@ cherrypy.config.update(
         'tools.decode.on': True,
         'tools.sessions.on': True,
         'tools.trailing_slash.on': True,
-        'tools.staticdir.root': pkg_resources.resource_filename('jaraco.site', ''),
+        'tools.staticdir.root': os.fspath(files('jaraco.site')),
         'tools.proxy.on': True,
     }
 )
