@@ -1,7 +1,6 @@
 import itertools
 import logging
 
-import grampg
 import cherrypy
 
 from jaraco.site.charts import Charts
@@ -130,25 +129,6 @@ class AcctMgmt(object):
                 )
             ]
         return render(response_messages=response_messages)
-
-    @cherrypy.expose
-    @output('password gen')
-    def password_gen(self, length=None):
-        if length is None:
-            return render(password=None, length=8)
-        length = int(length)
-        return render(password=self._gen_password(length), length=length)
-
-    @staticmethod
-    def _gen_password(length):
-        """
-        >>> pw = AcctMgmt._gen_password(10)
-        >>> len(pw)
-        10
-        """
-        gengen = grampg.PasswordGenerator()
-        gen = gengen.of().some('alphanumeric').length(length).done()
-        return gen.generate()
 
 
 class IPTool(object):
