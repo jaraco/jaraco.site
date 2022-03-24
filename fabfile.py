@@ -15,9 +15,9 @@ flatten = itertools.chain.from_iterable
 host = 'spidey'
 hosts = [host]
 
+project = 'jaraco.site'
+site = 'jaraco.com'
 install_root = '/opt/jaraco.com'
-
-
 python = 'python3.8'
 
 
@@ -59,43 +59,42 @@ def install_env(c):
 @task(hosts=hosts)
 def install_service(c):
     files.upload_template(
-        "ubuntu/jaraco.site.service",
+        f"ubuntu/{project}.service",
         "/etc/systemd/system",
         use_sudo=True,
         context=globals(),
     )
-    c.sudo('systemctl enable jaraco.site')
+    c.sudo(f'systemctl enable {project}')
 
 
 @task(hosts=hosts)
 def update(c):
     install(c)
-    c.sudo('systemctl restart jaraco.site')
+    c.sudo(f'systemctl restart {project}')
 
 
 def install(c):
     """
-    Install jaraco.site to environment at root.
+    Install project to environment at root.
     """
-    c.run('git clone https://github.com/jaraco/jaraco.site || echo -n')
-    c.run('git -C jaraco.site pull')
-    c.run(f'{install_root}/bin/python -m pip install -U ./jaraco.site')
+    c.run(f'git clone https://github.com/jaraco/{project} || echo -n')
+    c.run(f'git -C {project} pull')
+    c.run(f'{install_root}/bin/python -m pip install -U ./{project}')
 
 
 @task(hosts=hosts)
 def remove_all(c):
-    c.sudo('stop jaraco.site || echo -n')
-    c.sudo('rm /etc/init/jaraco-site.conf || echo -n')
-    c.sudo('rm -Rf /opt/jaraco.com')
+    c.sudo(f'systemctl stop {project} || echo -n')
+    c.sudo(f'rm -Rf {install_root}')
 
 
 @task(hosts=hosts)
 def configure_nginx(c):
     c.sudo('apt install -y nginx')
     source = "ubuntu/nginx config"
-    target = "/etc/nginx/sites-available/jaraco.com"
+    target = f"/etc/nginx/sites-available/{site}"
     files.upload_template(c, src=source, dest=target)
-    c.sudo('ln -sf ../sites-available/jaraco.com /etc/nginx/sites-enabled/')
+    c.sudo(f'ln -sf ../sites-available/{site} /etc/nginx/sites-enabled/')
     c.sudo('service nginx restart')
 
 
