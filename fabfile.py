@@ -59,9 +59,9 @@ def install_env(c):
 @task(hosts=hosts)
 def install_service(c):
     files.upload_template(
+        c,
         f"ubuntu/{project}.service",
         "/etc/systemd/system",
-        use_sudo=True,
         context=globals(),
     )
     c.sudo(f'systemctl enable {project}')
@@ -85,6 +85,7 @@ def install(c):
 @task(hosts=hosts)
 def remove_all(c):
     c.sudo(f'systemctl stop {project} || echo -n')
+    c.sudo(f'rm /etc/systemd/system/{project}.service')
     c.sudo(f'rm -Rf {install_root}')
 
 
