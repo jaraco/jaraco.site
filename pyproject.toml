@@ -7,17 +7,17 @@ skip-string-normalization = true
 
 [tool.setuptools_scm]
 
-[pytest.enabler.black]
+[tool.pytest-enabler.black]
 # disabled for pytest-dev/pytest#8332
 # addopts = "--black"
 
-[pytest.enabler.mypy]
+[tool.pytest-enabler.mypy]
 # disabled for pytest-dev/pytest#8332
 # addopts = "--mypy"
 
-[pytest.enabler.flake8]
+[tool.pytest-enabler.flake8]
 # disabled for pytest-dev/pytest#8332
 # addopts = "--flake8"
 
-[pytest.enabler.cov]
+[tool.pytest-enabler.cov]
 addopts = "--cov"
