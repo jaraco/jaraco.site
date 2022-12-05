@@ -10,7 +10,7 @@ class IconBase:
         self.url = url
 
     def render(self):
-        return tag.a(href=self.url, target='_top')(
+        return tag.a(href=self.url, target='_top', rel='me')(
             tag.span(Markup(self.image), class_='icon')
         )
 
