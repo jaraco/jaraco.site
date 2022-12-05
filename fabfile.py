@@ -9,6 +9,7 @@ import itertools
 
 from fabric import task
 from jaraco.fabric import files
+from jaraco.fabric import monkey
 
 flatten = itertools.chain.from_iterable
 
@@ -68,6 +69,7 @@ def install_service(c):
 
 
 @task(hosts=hosts)
+@monkey.workaround_2090
 def update(c):
     install(c)
     c.sudo(f'systemctl restart {project}')
