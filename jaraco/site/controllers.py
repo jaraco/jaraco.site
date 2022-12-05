@@ -54,6 +54,7 @@ class Root:
             https://keybase.io/jaraco
             https://linkedin.com/in/jaraco
             https://blog.jaraco.com/
+            https://fosstodon.org/@jaraco
             """.split()
         addl = [
             landing.RefIcon(
