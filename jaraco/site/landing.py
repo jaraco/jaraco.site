@@ -1,6 +1,8 @@
 import urllib.parse
 
 from importlib_resources import files
+from genshi.builder import tag
+from genshi.core import Markup
 
 
 class IconBase:
@@ -8,9 +10,8 @@ class IconBase:
         self.url = url
 
     def render(self):
-        return (
-            f'<a href="{self.url}" target="_top">'
-            f'<span class="icon">{self.image}</span></a>'
+        return tag.a(href=self.url, target='_top')(
+            tag.span(Markup(self.image), class_='icon')
         )
 
     @property
