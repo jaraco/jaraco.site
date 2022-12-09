@@ -67,9 +67,11 @@ jobs:
           python-version: ${{ matrix.python }}${{ matrix.dev }}
       - name: Install tox
         run: |
-          python -m pip install tox
+          python -m pip install git+https://github.com/jaraco/safety-tox
       - name: Run tests
-        run: tox
+        env:
+          SAFETY_TOX_ALLOWED: lxml
+        run: python -m safety-tox
 
   check:  # This job does nothing and is only used for the branch protection
     if: always()
