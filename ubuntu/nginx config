@@ -75,10 +75,6 @@ server {
 
         server_name scicomm.pro www.scicomm.pro;
 
-        location / {
-                proxy_pass https://scicommpro.mystrikingly.com;
-                proxy_redirect off;
-                proxy_set_header Host scicommpro.mystrikingly.com;
-                proxy_set_header X-Real-IP $remote_addr;
-        }
+        root /opt/scicomm.pro;
+        index index.html;
 }

@@ -30,6 +30,7 @@ def bootstrap(c):
     update(c)
     configure_nginx(c)
     install_cert(c)
+    install_scicomm(c)
 
 
 @task(hosts=hosts)
@@ -47,12 +48,17 @@ def install_dependencies(c):
     c.sudo(f'apt install -y {python} {python}-venv')
 
 
+def create_env(c, root):
+    user = c.run('whoami').stdout.strip()
+    c.sudo(f'mkdir -p {root}')
+    c.sudo(f'chown {user} {root}')
+
+
 @task(hosts=hosts)
+@monkey.workaround_2090
 def install_env(c):
-    user = c.run('whoami')
     c.sudo(f'rm -R {install_root} || echo -n')
-    c.sudo(f'mkdir -p {install_root}')
-    c.sudo(f'chown {user} {install_root}')
+    create_env(c, install_root)
     c.run(f'{python} -m venv {install_root}')
     c.run(f'{install_root}/bin/python -m pip install -U pip')
 
@@ -72,6 +78,7 @@ def install_service(c):
 @monkey.workaround_2090
 def update(c):
     install(c)
+    install_scicomm(c)
     c.sudo(f'systemctl restart {project}')
 
 
@@ -85,6 +92,15 @@ def install(c):
 
 
 @task(hosts=hosts)
+@monkey.workaround_2090
+def install_scicomm(c):
+    root = '/opt/scicomm.pro'
+    create_env(c, root)
+    c.run(f'git clone https://github.com/jaraco/scicomm.pro {root} || echo -n')
+    c.run(f'git -C {root} pull')
+
+
+@task(hosts=hosts)
 def remove_all(c):
     c.sudo(f'systemctl stop {project} || echo -n')
     c.sudo(f'rm /etc/systemd/system/{project}.service')
@@ -92,6 +108,7 @@ def remove_all(c):
 
 
 @task(hosts=hosts)
+@monkey.workaround_2090
 def configure_nginx(c):
     c.sudo('apt install -y nginx')
     source = "ubuntu/nginx config"
