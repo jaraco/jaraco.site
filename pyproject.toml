@@ -7,16 +7,8 @@ skip-string-normalization = true
 
 [tool.setuptools_scm]
 
+# disabled for pytest-dev/pytest#8332
 [tool.pytest-enabler.black]
-# disabled for pytest-dev/pytest#8332
-# addopts = "--black"
 
+# disabled for pytest-dev/pytest#8332
 [tool.pytest-enabler.mypy]
-# disabled for pytest-dev/pytest#8332
-# addopts = "--mypy"
-
-[tool.pytest-enabler.cov]
-addopts = "--cov"
-
-[tool.pytest-enabler.ruff]
-addopts = "--ruff"
