@@ -124,5 +124,5 @@ class AuthRedirectDemo:
         return "You got there!"
 
 
-Root.ip = IPTool()
-Root.auth_demo = AuthRedirectDemo()
+Root.ip = IPTool()  # type: ignore
+Root.auth_demo = AuthRedirectDemo()  # type: ignore

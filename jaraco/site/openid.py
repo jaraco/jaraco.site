@@ -154,5 +154,5 @@ class OpenID:
 
 # disable the OpenID class if openid modules aren't available
 if 'FileOpenIDStore' not in globals():
-    OpenID = lambda: None  # noqa
+    OpenID = lambda: None  # type: ignore  # noqa
     log.error("Unable to import openid modules - OpenID support disabled")
