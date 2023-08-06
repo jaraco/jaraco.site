@@ -25,7 +25,8 @@ class CherryPyZopeRequestAdapter(dict):
             header = 'HTTP_' + header.upper().replace('-', '_')
             self[header] = val
         self.update(REMOTE_ADDR=req.remote.ip)
-        self.update(SERVER_PORT=str(req.local.port))
+        # omit the port and assume the proxy listens on the default port
+        # self.update(SERVER_PORT=str(req.local.port))
         self.update(SERVER_NAME=req.local.name)
         self.update(SERVER_ADDR=req.local.ip)
         self.update(SCRIPT_NAME=req.script_name)
