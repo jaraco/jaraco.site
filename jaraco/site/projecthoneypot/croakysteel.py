@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 # flake8: noqa
+# mypy: ignore-errors
 
 
 #  PROJECT HONEY POT ADDRESS DISTRIBUTION SCRIPT
