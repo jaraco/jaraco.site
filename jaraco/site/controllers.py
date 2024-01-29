@@ -75,11 +75,11 @@ class Root:
     def allurbase(self):
         return str(cherrypy.request.base)
 
-    @cherrypy.expose
+    @cherrypy.expose(alias='résumé')
     def resume(self, url=None):
         return resume.Renderer(url).html()
 
-    @cherrypy.expose
+    @cherrypy.expose(alias='résumé.pdf')
     def resume_pdf(self, url=None):
         res = resume.Renderer(url).pdf()
         # only set the content type if the rendering succeeded
