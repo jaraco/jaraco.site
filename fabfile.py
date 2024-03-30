@@ -20,6 +20,7 @@ project = 'jaraco.site'
 site = 'jaraco.com'
 install_root = '/opt/jaraco.com'
 python = 'python3.8'
+ubuntu = 'jaraco/site/ubuntu'
 
 
 @task(hosts=hosts)
@@ -67,7 +68,7 @@ def install_env(c):
 def install_service(c):
     files.upload_template(
         c,
-        f"ubuntu/{project}.service",
+        f"{ubuntu}/{project}.service",
         "/etc/systemd/system",
         context=globals(),
     )
@@ -111,7 +112,7 @@ def remove_all(c):
 @monkey.workaround_2090
 def configure_nginx(c):
     c.sudo('apt install -y nginx')
-    source = "ubuntu/nginx config"
+    source = f"{ubuntu}/nginx config"
     target = f"/etc/nginx/sites-available/{site}"
     files.upload_template(c, src=source, dest=target)
     c.sudo(f'ln -sf ../sites-available/{site} /etc/nginx/sites-enabled/')
