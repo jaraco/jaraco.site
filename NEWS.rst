@@ -1,3 +1,12 @@
+v6.7.0
+======
+
+Features
+--------
+
+- Added a projects badge list.
+
+
 v6.6.0
 ======
 
