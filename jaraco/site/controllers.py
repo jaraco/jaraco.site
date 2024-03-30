@@ -9,6 +9,7 @@ from jaraco.site import render, output
 from jaraco.site.projecthoneypot import from_cherrypy
 from . import resume
 from . import landing
+from . import projects
 
 
 log = logging.getLogger(__name__)
@@ -33,6 +34,7 @@ class Root:
     charts = Charts()
     openid = OpenID()
     locate = Locator()
+    projects = projects.Projects()
 
     @cherrypy.expose
     @output('welcome')
