@@ -48,13 +48,6 @@ jobs:
           platform: ubuntu-latest
         - python: pypy3.10
           platform: ubuntu-latest
-        exclude:
-        # lxml fails to build on Windows
-        # https://bugs.launchpad.net/lxml/+bug/1977998
-        - platform: windows-latest
-          python: "3.11"
-        # lxml fails to build on Python 3.12
-        - python: "3.12"
     runs-on: ${{ matrix.platform }}
     continue-on-error: ${{ matrix.python == '3.13' }}
     steps:
