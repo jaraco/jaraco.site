@@ -1,5 +1,6 @@
 import os
 import subprocess
+import urllib.parse
 
 from requests_toolbelt import sessions
 from lxml import etree
@@ -11,7 +12,7 @@ class Renderer:
 
     def __init__(self, url=None):
         if url:
-            self.url = url
+            self.url = urllib.parse.urljoin(self.url, url)
 
     def get_transform_path(self, output_name):
         path_tmpl = 'resume-1.5.1/xsl/output/{output_name}.xsl'
