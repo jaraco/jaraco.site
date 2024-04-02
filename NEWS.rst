@@ -1,3 +1,12 @@
+v6.8.2
+======
+
+Bugfixes
+--------
+
+- Remove debugging print.
+
+
 v6.8.1
 ======
 
