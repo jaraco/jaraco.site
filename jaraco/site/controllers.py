@@ -78,12 +78,12 @@ class Root:
         return str(cherrypy.request.base)
 
     @cherrypy.expose(alias='résumé')
-    def resume(self, url=None):
-        return resume.Renderer(url).html()
+    def resume(self, url=None, emphasis=None):
+        return resume.Renderer(url=url, emphasis=emphasis).html()
 
     @cherrypy.expose(alias='résumé.pdf')
-    def resume_pdf(self, url=None):
-        res = resume.Renderer(url).pdf()
+    def resume_pdf(self, url=None, emphasis=None):
+        res = resume.Renderer(url=url, emphsis=emphasis).pdf()
         # only set the content type if the rendering succeeded
         cherrypy.response.headers['Content-Type'] = 'application/pdf'
         return res
