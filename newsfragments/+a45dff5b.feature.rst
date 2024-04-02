@@ -1,1 +1,0 @@
-Allow for 'emphasis' URLs to be provided for the resume.

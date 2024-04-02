@@ -1,3 +1,12 @@
+v6.8.0
+======
+
+Features
+--------
+
+- Allow for 'emphasis' URLs to be provided for the resume.
+
+
 v6.7.0
 ======
 
