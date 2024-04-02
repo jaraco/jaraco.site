@@ -16,7 +16,6 @@ class Renderer:
 
     def __init__(self, url=None, emphasis=None):
         self.url = lookup[emphasis or 'default']
-        print(self.url)
         if url:
             self.url = url
 
