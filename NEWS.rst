@@ -1,3 +1,12 @@
+v6.9.0
+======
+
+Features
+--------
+
+- Implement dark mode for projects.
+
+
 v6.8.2
 ======
 
