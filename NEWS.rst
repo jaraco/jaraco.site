@@ -1,3 +1,12 @@
+v6.10.0
+=======
+
+Features
+--------
+
+- Excluded some items from the project list.
+
+
 v6.9.0
 ======
 

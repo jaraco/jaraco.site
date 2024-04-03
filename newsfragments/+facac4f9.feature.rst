@@ -1,1 +1,0 @@
-Excluded some items from the project list.
