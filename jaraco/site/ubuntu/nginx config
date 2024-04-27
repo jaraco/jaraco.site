@@ -12,10 +12,9 @@ server {
 }
 
 server {
-        listen 443;
-        listen [::]:443;
+        listen 443 ssl;
+        listen [::]:443 ssl;
 
-        ssl on;
         ssl_certificate /etc/letsencrypt/live/jaraco.com/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/jaraco.com/privkey.pem;
 
@@ -32,10 +31,9 @@ server {
 }
 
 server {
-        listen 443;
-        listen [::]:443;
+        listen 443 ssl;
+        listen [::]:443 ssl;
 
-        ssl on;
         ssl_certificate /etc/letsencrypt/live/jaraco.com/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/jaraco.com/privkey.pem;
 
@@ -55,7 +53,6 @@ server {
         listen 443 ssl;
         listen [::]:443 ssl;
 
-        ssl on;
         ssl_certificate /etc/letsencrypt/live/scicomm.pro/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/scicomm.pro/privkey.pem;
 
