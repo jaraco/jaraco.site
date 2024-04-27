@@ -127,4 +127,3 @@ def enable_nginx(c):
 def install_cert(c):
     certs.install(c, 'jaraco.com', 'www.jaraco.com', 'blog.jaraco.com')
     certs.install(c, 'scicomm.pro', 'www.scicomm.pro')
-    certs.install(c, 'www.recapturedocs.com')
