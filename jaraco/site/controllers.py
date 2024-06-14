@@ -4,7 +4,6 @@ import logging
 import cherrypy
 
 from jaraco.site.charts import Charts
-from jaraco.site.openid import OpenID
 from jaraco.site import render, output
 from jaraco.site.projecthoneypot import from_cherrypy
 from . import resume
@@ -32,7 +31,6 @@ class Root:
     """
 
     charts = Charts()
-    openid = OpenID()
     locate = Locator()
     projects = projects.Projects()
 
