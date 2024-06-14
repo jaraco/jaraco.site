@@ -1,3 +1,12 @@
+v7.0.0
+======
+
+Deprecations and Removals
+-------------------------
+
+- Remove openid support.
+
+
 v6.10.0
 =======
 
