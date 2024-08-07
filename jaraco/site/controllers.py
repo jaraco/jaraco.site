@@ -1,5 +1,6 @@
 import itertools
 import logging
+import textwrap
 
 import cherrypy
 
@@ -93,6 +94,13 @@ class Root:
     @cherrypy.expose
     def croakysteel_py(self):
         return from_cherrypy()
+
+    @cherrypy.expose
+    def robots_txt(self):
+        return textwrap.dedent("""
+            User-agent: GeminiBot
+            Allow: /
+            """)
 
 
 class IPTool:

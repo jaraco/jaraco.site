@@ -1,0 +1,1 @@
+Add robots.txt, explicitly allowing Gemini to access.
