@@ -1,3 +1,12 @@
+v7.1.0
+======
+
+Features
+--------
+
+- Add robots.txt, explicitly allowing Gemini to access.
+
+
 v7.0.0
 ======
 
