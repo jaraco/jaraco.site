@@ -56,7 +56,7 @@ class Projects:
             filterfalse(exclude, filter(filters.Tag('not fork'), git.projects())),
             key=lambda s: s.replace('/', '|'),
         )
-        doc = '<br>\n'.join(map(self.make_badge, projects))
+        doc = '\n'.join(map(self.make_badge, projects))
         return f'<html><head><style>{style}</style></head><body><div class="container">\n{doc}\n</div></body></html>'
 
     def make_badge(self, project):
