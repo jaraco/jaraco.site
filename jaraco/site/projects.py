@@ -39,7 +39,7 @@ style = textwrap.dedent("""
       }
     }
     .container {
-      /* column-width: 20em; */
+      column-width: 20em;
     }
     """)
 
