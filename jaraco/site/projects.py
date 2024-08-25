@@ -43,6 +43,9 @@ style = textwrap.dedent("""
     .container {
       column-width: 20em;
     }
+    .container > .project:first-child {
+        margin-top: -1.1em;
+    }
     .project {
       break-inside: avoid;
       border-left: 1px solid white;
