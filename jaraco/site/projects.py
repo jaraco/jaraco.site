@@ -41,6 +41,9 @@ style = textwrap.dedent("""
     .container {
       column-width: 20em;
     }
+    .project {
+      break-inside: avoid;
+    }
     """)
 
 
@@ -58,6 +61,4 @@ class Projects:
         url = make_url(project)
         badge = url.join('actions/workflows/main.yml/badge.svg').resolved
         workflow = url.join('actions?query=workflow%3A%22tests%22').resolved
-        return (
-            f'<div><h3>{project}</h3><a href="{workflow}"><img src="{badge}"></a></div>'
-        )
+        return f'<div class="project"><h3>{project}</h3><a href="{workflow}"><img src="{badge}"></a></div>'
