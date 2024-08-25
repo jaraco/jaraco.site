@@ -8,6 +8,8 @@ from jaraco.develop import git, filters
 excludes = [
     '/cherrypy/cheroot',
     '/cherrypy/cherrypy',
+    '/pypa/rootbeer',
+    '/pypa/wheel',
     'compilers',
     'dotfiles',
     'git-tools',
