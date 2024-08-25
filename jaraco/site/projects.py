@@ -43,6 +43,8 @@ style = textwrap.dedent("""
     }
     .project {
       break-inside: avoid;
+      border-left: 1px solid white;
+      padding-left: .5em;
     }
     """)
 
