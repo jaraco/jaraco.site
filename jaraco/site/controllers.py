@@ -4,13 +4,11 @@ import textwrap
 
 import cherrypy
 
+from jaraco.site import output, render
 from jaraco.site.charts import Charts
-from jaraco.site import render, output
 from jaraco.site.projecthoneypot import from_cherrypy
-from . import resume
-from . import landing
-from . import projects
 
+from . import landing, projects, resume
 
 log = logging.getLogger(__name__)
 
@@ -132,5 +130,5 @@ class AuthRedirectDemo:
         return "You got there!"
 
 
-Root.ip = IPTool()  # type: ignore
-Root.auth_demo = AuthRedirectDemo()  # type: ignore
+Root.ip = IPTool()  # type: ignore[attr-defined]
+Root.auth_demo = AuthRedirectDemo()  # type: ignore[attr-defined]
