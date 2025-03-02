@@ -6,6 +6,10 @@ To install on an Ubuntu box, run
 fab bootstrap
 """
 
+import functools
+import re
+import textwrap
+
 from fabric import task
 from jaraco.fabric import files
 from jaraco.fabric import monkey
@@ -113,7 +117,47 @@ def configure_nginx(c):
     source = f"{ubuntu}/nginx config"
     target = f"/etc/nginx/sites-available/{site}"
     files.upload_template(c, src=source, dest=target)
+    configure_nginx_restart(c)
     c.sudo('service nginx restart')
+
+
+@task(hosts=hosts)
+def configure_nginx_restart(c):
+    """
+    Configures Nginx on an Ubuntu 24.04 server to restart on failure after 60 seconds,
+    because sometimes it restarts and fails to restart if there are DNS issues.
+    (jaraco/jaraco.site#3)
+    """
+    service_file = "/lib/systemd/system/nginx.service"
+    section = '[Service]'
+    insertion = (
+        textwrap.dedent(
+            """
+            Restart=on-failure
+            RestartSec=60s
+            """
+        )
+        .rstrip()
+        .replace('\n', '\\n')
+    )
+
+    instruction = f's/{re.escape(section)}/{section}{insertion}/'
+    cmd = f"sed -i {escape_for_shell(c, instruction)} {service_file}"
+    c.sudo(cmd)
+    c.sudo("systemctl daemon-reload")
+    c.sudo("systemctl restart nginx")
+
+
+@functools.cache
+def get_shell(c):
+    return c.run('echo $SHELL', hide=True).stdout
+
+
+def escape_for_shell(c, param):
+    shell = get_shell(c)
+    if 'xonsh' in shell:
+        return repr(param)
+    return f"'{param}'"
 
 
 @task(hosts=hosts)
