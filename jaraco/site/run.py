@@ -1,7 +1,7 @@
 import os
-from importlib_resources import files
 
 import cherrypy
+from importlib_resources import files
 
 from .controllers import Root
 

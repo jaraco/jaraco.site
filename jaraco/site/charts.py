@@ -4,14 +4,15 @@
 Example charts from svg.charts
 """
 
-import cherrypy
-from svg.charts.plot import Plot
-from jaraco.site import output, render
-from genshi import XML
 import itertools
 import random
 
+import cherrypy
+from genshi import XML
 from more_itertools.recipes import flatten
+from svg.charts.plot import Plot
+
+from jaraco.site import output, render
 
 
 def get_random_data_pairs():

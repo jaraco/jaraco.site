@@ -1,9 +1,8 @@
 import os
 import subprocess
 
-from requests_toolbelt import sessions
 from lxml import etree
-
+from requests_toolbelt import sessions
 
 lookup = dict(
     default='/s/sg48j6iuoc819jm/Jason%20R.%20Coombs%20resume.xml?dl=1',

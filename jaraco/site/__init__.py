@@ -1,5 +1,5 @@
-import os
 import importlib
+import os
 
 import cherrypy
 from genshi.core import Stream

@@ -11,9 +11,8 @@ import re
 import textwrap
 
 from fabric import task
-from jaraco.fabric import files
-from jaraco.fabric import monkey
-from jaraco.fabric import certs
+
+from jaraco.fabric import certs, files, monkey
 
 host = 'kelvin'
 hosts = [host]

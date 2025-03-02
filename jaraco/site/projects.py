@@ -2,8 +2,8 @@ import textwrap
 from itertools import filterfalse
 
 import cherrypy
-from jaraco.develop import git, filters
 
+from jaraco.develop import filters, git
 
 excludes = [
     '/cherrypy/cheroot',

@@ -1,8 +1,8 @@
 import urllib.parse
 
-from importlib_resources import files
 from genshi.builder import tag
 from genshi.core import Markup
+from importlib_resources import files
 
 
 class IconBase:
