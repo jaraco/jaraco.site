@@ -6,13 +6,12 @@ To install on an Ubuntu box, run
 fab bootstrap
 """
 
-import functools
 import re
 import textwrap
 
 from fabric import task
 
-from jaraco.fabric import certs, files, monkey
+from jaraco.fabric import certs, files, monkey, shell
 
 host = 'kelvin'
 hosts = [host]
@@ -141,22 +140,10 @@ def configure_nginx_restart(c):
     )
 
     instruction = f's/{re.escape(section)}/{section}{insertion}/'
-    cmd = f"sed -i {escape_for_shell(c, instruction)} {service_file}"
+    cmd = f"sed -i {shell.escape_param(c, instruction)} {service_file}"
     c.sudo(cmd)
     c.sudo("systemctl daemon-reload")
     c.sudo("systemctl restart nginx")
-
-
-@functools.cache
-def get_shell(c):
-    return c.run('echo $SHELL', hide=True).stdout
-
-
-def escape_for_shell(c, param):
-    shell = get_shell(c)
-    if 'xonsh' in shell:
-        return repr(param)
-    return f"'{param}'"
 
 
 @task(hosts=hosts)
