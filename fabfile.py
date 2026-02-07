@@ -126,22 +126,11 @@ def configure_nginx_restart(c):
     because sometimes it restarts and fails to restart if there are DNS issues.
     (jaraco/jaraco.site#3)
     """
-    service_file = "/lib/systemd/system/nginx.service"
-    section = '[Service]'
-    insertion = (
-        textwrap.dedent(
-            """
-            Restart=on-failure
-            RestartSec=60s
-            """
-        )
-        .rstrip()
-        .replace('\n', '\\n')
-    )
-
-    instruction = f's/{re.escape(section)}/{section}{insertion}/'
-    cmd = f"sed -i {shell.escape_param(c, instruction)} {service_file}"
-    c.sudo(cmd)
+    root = '/etc/systemd/system/nginx.service.d'
+    service_file = f'{root}/restart.conf'
+    source = f"{ubuntu}/restart.conf"
+    c.sudo(f'mkdir -p {root}')
+    files.upload_template(c, src=source, dest=service_file)
     c.sudo("systemctl daemon-reload")
     c.sudo("systemctl restart nginx")
 
